@@ -408,20 +408,28 @@ export default function AboutView() {
             color={themes.backgroundBlack}
             />
  
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight max-w-xl text-left md:text-justify"
-            style={{ color: themes.backgroundBlack }}
-            >
-              Restoring Lasting Shine, <br /> Inside and Out
-            </h2>
+            <h2
+  className="
+    uppercase
+    text-left md:text-justify
+    text-[clamp(20px,3vw,42px)]
+    leading-[1.12]
+    max-w-[25ch]
+  "
+  style={{ 
+    color: themes.backgroundBlack,
+    fontFamily: themes.fontPrimary
+  }}
+>
+Restoring Lasting Shine, Inside and Out
+</h2>
+
  
             <p
               className="leading-relaxed max-w-xl text-left md:text-justify"
               style={{ color: themes.backgroundBlack }}
             >
-              At Hogo Autofills, we’re passionate about making every vehicle look
-              its absolute best— inside and out. From restoring showroom-level
-              gloss to deep-cleaning interiors, our expert team delivers
-              flawless results with care and precision.
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
             </p>
  
             <RollingButton text="Read More" />

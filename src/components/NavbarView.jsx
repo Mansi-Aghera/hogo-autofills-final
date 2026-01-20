@@ -27,9 +27,11 @@ export default function NavbarView() {
     <>
       {/* ================= NAVBAR ================= */}
 <nav
-  className="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 sm:py-6
- bg-[#111111]"
+  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 sm:py-6 ${
+    scrolled ? "bg-black shadow-md" : "bg-transparent"
+  }`}
 >
+
 
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6
@@ -150,11 +152,7 @@ export default function NavbarView() {
             {/* ===== ABOUT US SECTION ===== */}
             <h3 className="text-white font-semibold mb-3">About Us</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              At Hogo Autofills, we’re dedicated to providing professional,
-              high-quality car detailing services. From routine hand washes to
-              advanced ceramic coatings, we help keep your vehicle looking its
-              best while preserving its value and protecting it from the
-              elements.
+             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
             </p>
           </div>
 

@@ -17,6 +17,7 @@ import b5 from "../assets/images/brand5.jpg";
 import b6 from "../assets/images/brand6.jpg";
 import b7 from "../assets/images/brand7.jpg";
 import b8 from "../assets/images/brand8.jpg";
+import SectionHeading from "./SectionHeading";
  
 const services = [
   { id: "01", title: "Self healing property", img: s1 },
@@ -37,22 +38,25 @@ export default function ServicesView() {
   style={{background: themes.backgroundBlack,  color: themes.textWhite }}
 >
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14 pt-14">
             <DecoratedTitle text="WELCOME TO Hogo Autofills" style={{ color: themes.backgroundBlack }}/>
  
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mt-6"
-              style={{color: themes.textWhite }}
-            >
-              Premium Car Detailing
-            </h2>
+<SectionHeading
+  secondLine=""
+  className="mt-4"
+  style={{ color: themes.textWhite }}
+>
+Premium Car Detailing</SectionHeading>
+
+
+
+
  
             <p
               className="max-w-2xl mx-auto mt-4"
               style={{ color: themes.backgroundGray }}
             >
-              From deep interior cleaning to long-lasting ceramic coating, we
-              restore and protect your vehicle with precision and care.
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
             </p>
           </div>
  

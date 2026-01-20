@@ -5,6 +5,7 @@ import t1 from "../assets/images/testimonial1.jpg";
 import t2 from "../assets/images/testimonial2.jpg";
 import t3 from "../assets/images/testimonial3.jpg";
 import t4 from "../assets/images/testimonial4.jpg";
+import SectionHeading from "./SectionHeading";
  
  
 const testimonials = [
@@ -12,28 +13,28 @@ const testimonials = [
     name: "John Smith",
     date: "22 Dec 2024",
     rating: 5,
-    text: "Interior deep clean was amazing! All the stains and pet hair are gone. The car smells so fresh now. Highly recommended.",
+    text: "Interior deep clean was amazing! All the stains and pet hair are gone. The car smells so fresh now. Highly recommendedInterior deep clean was ",
     avatar: t1,
   },
   {
     name: "Jessica Lee",
     date: "22 Dec 2024",
     rating: 4,
-    text: "My car looked brand new after their full detail service. Every inch was spotless! Great attention to detail and friendly staff.",
+    text: "Interior deep clean was amazing! All the stains and pet hair are gone. The car smells so fresh now. Highly recommended",
     avatar: t2,
   },
   {
     name: "Michael Brown",
     date: "21 Dec 2024",
     rating: 5,
-    text: "Best detailing service I’ve ever used. Worth every penny.",
+    text: "Interior deep clean was amazing! All the stains and pet hair are gone. The car smells so fresh now. Highly recommended",
     avatar: t3,
   },
   {
     name: "Michael Brown",
     date: "21 Dec 2024",
     rating: 5,
-    text: "Best detailing service I’ve ever used. Worth every penny.",
+    text: " pet hair are gone. The car smells so fresh now. Highly recommended",
     avatar: t4,
   },
 ];
@@ -62,12 +63,14 @@ useEffect(() => {
         {/* LEFT SIDE */}
         <div>
           <DecoratedTitle text="TESTIMONIALS" style={{ color: themes.backgroundBlack }}/>
-          <h2
-            className="text-4xl md:text-5xl font-bold mt-6"
-            style={{ color: themes.textWhite }}
-          >
-            What They Says
-          </h2>
+       <SectionHeading
+  secondLine=""
+  className="text-left mx-0 mt-4"
+  style={{ color: themes.textWhite }}
+>
+What They Say</SectionHeading>
+
+
         </div>
  
         {/* RIGHT SIDE SLIDER */}
