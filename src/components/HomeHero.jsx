@@ -18,7 +18,7 @@ import BeforeAfterView from "./BeforeAfterView";
 export default function HomeHero() {
   return (
     <>
-<section
+{/* <section
   className="
     relative w-full min-h-screen 
     flex flex-col items-center 
@@ -29,10 +29,10 @@ export default function HomeHero() {
     backgroundImage: `url(${websiteBackground})`,
     backgroundColor: themes.backgroundBlack,
   }}
->
+> */}
 
 
-{/* <section
+<section
   className="
     relative w-full min-h-screen 
     flex flex-col items-center 
@@ -42,7 +42,9 @@ export default function HomeHero() {
   style={{
     backgroundColor: themes.backgroundBlack,
   }}
-> */}
+>
+
+
   {/* 🔹 LIGHT OVERLAY (BACKGROUND OPACITY DOWN) */}
 <div
   className="absolute inset-0"
