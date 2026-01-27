@@ -439,7 +439,7 @@ export default function NavbarView() {
   }`}
   style={{
     backgroundColor: scrolled
-      ? themes.backgroundBlack
+      ? themes.sidebar
       : "transparent",
   }}
 >
