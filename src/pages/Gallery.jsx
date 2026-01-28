@@ -1,6 +1,6 @@
 
-
-
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
  
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -100,48 +100,52 @@ export default function Gallery() {
 </div>
  
           {/* GRID (KEY IS MAIN MAGIC) */}
+          {/* GRID */}
+<PhotoProvider>
+  <div
+    key={activeFilter}
+    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+  >
+    {galleryImages[activeFilter].map((img, index) => (
+      <PhotoView src={img} key={index}>
+        <div
+          className="
+            relative overflow-hidden rounded-xl group cursor-pointer
+            opacity-0 translate-y-8
+            animate-[fadeUp_0.8s_ease-out_forwards]
+          "
+          style={{
+            animationDelay: `${index * 120}ms`,
+            backgroundColor: themes.backgroundBlack,
+          }}
+        >
+          <img
+            src={img}
+            alt="Gallery"
+            className="
+              w-full h-[260px] lg:h-[300px]
+              object-cover
+              transition-transform duration-700
+              group-hover:scale-110
+            "
+          />
+
           <div
-            key={activeFilter}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="
+              absolute inset-0 flex items-center justify-center
+              opacity-0 group-hover:opacity-100
+              transition-opacity duration-300
+            "
+            style={{ backgroundColor: `${themes.backgroundBlack}99` }}
           >
-            {galleryImages[activeFilter].map((img, index) => (
-              <div
-                key={index}
-                className="
-                  relative overflow-hidden rounded-xl group
-                  opacity-0 translate-y-8
-                  animate-[fadeUp_0.8s_ease-out_forwards]
-                "
-                style={{
-                  animationDelay: `${index * 120}ms`,
-                  backgroundColor: themes.backgroundBlack,
-                }}
-              >
-                <img
-                  src={img}
-                  alt="Gallery"
-                  className="
-                    w-full h-[260px] lg:h-[300px]
-                    object-cover
-                    transition-transform duration-700
-                    group-hover:scale-110
-                  "
-                />
- 
-                <div
-                  className="
-                    absolute inset-0 flex items-center justify-center
-                    opacity-0 group-hover:opacity-100
-                    transition-opacity duration-300
-                  "
-                  style={{ backgroundColor: `${themes.backgroundBlack}99` }}
-                >
-                  <RollingButton text="VIEW" />
-                </div>
-              </div>
-            ))}
+            <RollingButton text="VIEW" />
           </div>
- 
+        </div>
+      </PhotoView>
+    ))}
+  </div>
+</PhotoProvider>
+
         </div>
       </section>
  
