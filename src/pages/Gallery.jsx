@@ -120,10 +120,11 @@ export default function Gallery() {
           }}
         >
           <img
+          draggable="false"
             src={img}
             alt="Gallery"
             className="
-              w-full h-[260px] lg:h-[300px]
+              w-full h-[220px] sm:h-[260px] lg:h-[300px]
               object-cover
               transition-transform duration-700
               group-hover:scale-110
@@ -138,7 +139,7 @@ export default function Gallery() {
             "
             style={{ backgroundColor: `${themes.backgroundBlack}99` }}
           >
-            <RollingButton text="VIEW" />
+            <RollingButton text="VIEW" className="text-xs sm:text-sm"/>
           </div>
         </div>
       </PhotoView>
