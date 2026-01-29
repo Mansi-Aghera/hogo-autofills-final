@@ -71,7 +71,9 @@ export default function NavbarView() {
           </div>
 
           <div className="flex items-center gap-3">
-            <RollingButton text="Make Appointment" />
+            {/* <RollingButton text="Make Appointment" /> */}
+            <RollingButton text="Distributor Login" />
+
 
             {/* MOBILE NAVBAR HAMBURGER */}
             <div

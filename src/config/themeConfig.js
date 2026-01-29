@@ -24,7 +24,7 @@ export const themes = {
   active: "#990000",
   backgroundBlack: "#00001a",
   textWhite: "#ffffff",
-  sidebar: "#050622",
+  sidebar: "#00001a",
   fontPrimary: `"Oxanium", Sans-serif`
 
 };
