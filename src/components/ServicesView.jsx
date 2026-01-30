@@ -63,7 +63,7 @@
 //             </p>
 //           </div>
  
-//           <div className="grid md:grid-cols-2 gap-8">
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 //             {services.map((item) => (
 //               <ServiceCard key={item.id} item={item} />
 //             ))}
@@ -231,7 +231,7 @@ export default function ServicesView() {
           </div>
  
           {/* SERVICES GRID */}
-          <div ref={gridRef} className="grid md:grid-cols-2 gap-8">
+          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((item, index) => (
               <ServiceCard
                 key={item.id}
