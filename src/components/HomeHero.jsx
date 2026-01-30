@@ -1,6 +1,6 @@
 //  black blue logo grey
 
-import car from "../assets/images/1.png";
+import car from "../assets/images/2.png";
 import RollingButton from "./RollingButton";
 import AboutView from "./AboutView";
 import ServicesView from "./ServicesView";
