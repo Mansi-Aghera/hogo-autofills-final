@@ -1,65 +1,63 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import bg from "../assets/images/blogBanner.jpg";
-import RollingButton from "../components/RollingButton";
-
+ 
 export default function SingleBlog() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [recent, setRecent] = useState([]);
   const [tags, setTags] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
+  const [imgLoaded, setImgLoaded] = useState(false);
+ 
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
+ 
+  /* FETCH BLOGS */
   useEffect(() => {
     fetch(`${BASE_URL}/blogs/`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           const allBlogs = data.data;
-
-          // current blog
+ 
           const foundBlog = allBlogs.find(
-            (item) => String(item.id) === String(id),
+            (item) => String(item.id) === String(id)
           );
+ 
+          // Preload image
+          if (foundBlog?.image) {
+            const img = new Image();
+            img.src = `${BASE_URL}${foundBlog.image}`;
+          }
+ 
           setBlog(foundBlog);
-
-          // last 5 blogs
+ 
           const sorted = [...allBlogs].reverse();
           setRecent(sorted.slice(0, 5));
-
-          // 🔥 ALL TAGS FROM API (unique)
+ 
           const allTags = allBlogs.map((item) => item.tag).filter(Boolean);
-
-          const uniqueTags = [...new Set(allTags)];
-
-          setTags(uniqueTags);
+          setTags([...new Set(allTags)]);
         }
-
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, [id, BASE_URL]);
-
+ 
+  /* Reset animation on route change */
+  useEffect(() => {
+    setImgLoaded(false);
+  }, [id]);
+ 
   if (loading) return <div className="text-white p-10">Loading...</div>;
-  // 🔥 Points from full content (split by lines / sentences)
-
-  // 🔥 Dynamic tags from recent shortcontent
-  const lastFive = recent;
-
-  // const tags = lastFive.map((item) => item.tag).filter(Boolean);
-
-  const points = lastFive;
+  if (!blog) return <div className="text-white p-10">Blog not found</div>;
+ 
   return (
     <section style={{ backgroundColor: themes.backgroundBlack }}>
+ 
       {/* HERO */}
       <section
-        className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[420px]
-        flex items-center justify-center text-center px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-0"
+        className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] flex items-center justify-center text-center px-6"
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: "cover",
@@ -67,191 +65,117 @@ export default function SingleBlog() {
         }}
       >
         <div className="absolute inset-0 bg-black/65" />
-
-        <div className="relative z-10 max-w-4xl w-full opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]">
-          <h1
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
-            style={{ color: themes.textWhite }}
-          >
+        <div key={blog.id} className="relative z-10 max-w-4xl w-full opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             {blog.title}
           </h1>
-
-          <div className="w-full h-[1px] my-4 sm:my-6 bg-white/20" />
-
-          <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm md:text-base">
-            <Link
-              to="/"
-              className="font-bold"
-              style={{ color: themes.backgroundGray }}
-            >
-              Home
-            </Link>
-            <span style={{ color: themes.textWhite }}>›</span>
-            <Link
-              to="/blog"
-              className="font-bold"
-              style={{ color: themes.backgroundGray }}
-            >
-              Blog
-            </Link>
-            <span style={{ color: themes.textWhite }}>›</span>
-            <span className="font-bold" style={{ color: themes.textWhite }}>
-              {blog.title}
-            </span>
+          <div className="w-full h-[1px] my-6 bg-white/20" />
+          <div className="flex justify-center gap-2 text-sm">
+            <Link to="/" className="font-bold text-gray-300">Home</Link>
+            <span className="text-white">›</span>
+            <Link to="/blog" className="font-bold text-gray-300">Blog</Link>
+            <span className="text-white">›</span>
+            <span className="text-white">{blog.title}</span>
           </div>
         </div>
       </section>
-
+ 
       {/* MAIN */}
-      <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
-        {/* LEFT */}
-        <div className="lg:col-span-2 text-white">
-          <img
-            src={`${BASE_URL}${blog.image}`}
-            className="rounded-xl mb-6 sm:mb-8 w-full opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]"
-            alt=""
-          />
-
-          <p
-            className="
-    opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]
-    opacity-80 leading-7 sm:leading-8 text-sm sm:text-base mb-8 sm:mb-10
-    max-w-3xl mx-auto text-left break-words
-  "
-          >
-            {blog.content}
-          </p>
-
-          <div className="space-y-6 sm:space-y-7 mb-10 sm:mb-12">
-            {points.map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-4 items-center sm:gap-5 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
-                style={{ animationDelay: `${i * 120}ms` }}
-              >
-                <div
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-sm"
-                  style={{ backgroundColor: themes.primary }}
-                >
-                  {i + 1}
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-md">{item.title}</h4>
-                  <p style={{ color: themes.backgroundGray }}>
-                    {item.shortcontent}
-                  </p>
-                </div>
-              </div>
-            ))}
+      <div className="max-w-7xl mx-auto px-6 py-16 text-white">
+ 
+        {/* IMAGE + TAGS (image wider) */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr] gap-12 items-start mb-14">
+ 
+          {/* IMAGE */}
+          <div className="w-full min-h-[360px] flex items-center justify-center relative overflow-hidden">
+            {!imgLoaded && (
+              <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" />
+            )}
+            <img
+              src={`${BASE_URL}${blog.image}`}
+              alt=""
+              loading="eager"
+              fetchPriority="high"
+              onLoad={() => setImgLoaded(true)}
+              className={`w-full max-h-[520px] object-contain transition-all duration-700 ease-out
+                ${imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+            />
           </div>
-
-          {/* FORM */}
-          <div className="opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]">
-            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
-              Leave a Reply
-            </h2>
-
-            <form className="space-y-3 sm:space-y-4">
-              <input
-                type="text"
-                placeholder="Name*"
-                className="w-full p-3 rounded"
-                style={{
-                  background: "transparent",
-                  border: `1px solid ${themes.primary}`,
-                  color: themes.textWhite,
-                }}
-              />
-
-              <input
-                type="email"
-                placeholder="Email*"
-                className="w-full p-3 rounded"
-                style={{
-                  background: "transparent",
-                  border: `1px solid ${themes.primary}`,
-                  color: themes.textWhite,
-                }}
-              />
-
-              <textarea
-                placeholder="Comment"
-                rows="5"
-                className="w-full p-3 rounded"
-                style={{
-                  background: "transparent",
-                  border: `1px solid ${themes.primary}`,
-                  color: themes.textWhite,
-                }}
-              />
-
-              <RollingButton text="Post Comment" />
-            </form>
+ 
+          {/* TAGS */}
+          <div className="opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]">
+            <h3 className="text-xl font-semibold mb-4">Popular Tags</h3>
+            <div className="flex flex-wrap gap-3">
+              {tags.map((t, i) => (
+                <span
+                  key={i}
+                  className="px-4 py-2 rounded-md text-sm font-semibold hover:bg-red-600 transition"
+                  style={{ backgroundColor: themes.backgroundGray }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* SIDEBAR */}
-        <div className="text-white">
-          <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]">
-            Recent Posts
-          </h3>
-
-          <div className="space-y-4 sm:space-y-6 mb-10 sm:mb-12">
+ 
+        {/* CONTENT */}
+        <div key={`content-${blog.id}`} className="opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]">
+          <h2 className="text-3xl font-bold mb-6">{blog.title}</h2>
+          <p className="opacity-80 leading-7 whitespace-pre-line">
+            {blog.content}
+          </p>
+        </div>
+ 
+        {/* RECENT BLOGS */}
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold mb-10 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]">
+            Recent Blogs
+          </h2>
+ 
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {recent.map((item, i) => (
               <Link
                 key={item.id}
                 to={`/blog/${item.id}`}
-                className="flex gap-3 sm:gap-4 items-center opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
-                style={{ animationDelay: `${i * 120}ms` }}
+                className="group rounded-2xl overflow-hidden bg-[#0b0f2a] shadow-lg hover:shadow-2xl transition duration-300 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
-                <img
-                  src={`${BASE_URL}${item.image}`}
-                  className="w-16 sm:w-20 h-12 sm:h-16 object-contain rounded"
-                  alt=""
-                />
-
-                <p className="text-xs sm:text-sm font-semibold">{item.title}</p>
+                <div className="relative">
+                  <img
+                    src={`${BASE_URL}${item.image}`}
+                    alt=""
+                    className="w-full h-40 object-cover group-hover:scale-105 transition duration-500"
+                  />
+                  <div className="absolute bottom-[-18px] left-4 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold shadow-lg">
+                    {new Date(item.created_at).getDate()}{" "}
+                    {new Date(item.created_at).toLocaleString("default", { month: "short" })}
+                  </div>
+                </div>
+ 
+                <div className="pt-6 pb-4 px-4">
+                  <h3 className="text-sm font-semibold text-white group-hover:text-red-500 transition line-clamp-2">
+                    {item.title}
+                  </h3>
+                </div>
               </Link>
             ))}
           </div>
-
-          <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 opacity-0 translate-y-8 animate-[fadeUp_0.8s_ease-out_forwards]">
-            Popular Tags
-          </h3>
-
-          <div className="flex flex-wrap gap-2">
-            {tags.map((t, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 text-[10px] sm:text-xs rounded font-bold opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
-                style={{
-                  backgroundColor: themes.backgroundGray,
-                  animationDelay: `${i * 60}ms`,
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
         </div>
+ 
       </div>
-
-      {/* KEYFRAMES */}
+ 
+      {/* ANIMATION KEYFRAMES */}
       <style>
         {`
           @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
           }
         `}
       </style>
     </section>
   );
 }
+ 
+ 
