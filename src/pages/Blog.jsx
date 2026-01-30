@@ -1,3 +1,5 @@
+
+
  
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -15,7 +17,7 @@ export default function Blog() {
  
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
  
-  /* 🚀 FETCH BLOGS WITH CACHE */
+  /* FETCH BLOGS */
   useEffect(() => {
     const cached = sessionStorage.getItem("blogs");
  
@@ -37,7 +39,7 @@ export default function Blog() {
       .catch(() => setLoading(false));
   }, [BASE_URL]);
  
-  /* 🎬 SCROLL ANIMATION */
+  /* SCROLL ANIMATION */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,36 +63,17 @@ export default function Blog() {
     <>
       {/* HERO */}
       <section
-        className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="relative w-full h-[320px] flex items-center justify-center text-center px-6"
+        style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="absolute inset-0 bg-black/65" />
- 
         <div
           ref={heroRef}
           className={`relative z-10 max-w-4xl w-full transition-all duration-700 ${
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold" style={{ color: themes.textWhite }}>
-            Blog
-          </h1>
- 
-          <div className="w-full h-[1px] my-6 bg-white/20" />
- 
-          <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-            <Link to="/" className="font-bold" style={{ color: themes.backgroundGray }}>
-              Home
-            </Link>
-            <span style={{ color: themes.textWhite }}>›</span>
-            <span className="font-bold" style={{ color: themes.textWhite }}>
-              Blog
-            </span>
-          </div>
+          <h1 className="text-4xl font-bold" style={{ color: themes.textWhite }}>Blog</h1>
         </div>
       </section>
  
@@ -99,7 +82,6 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto">
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
  
-            {/* 🦴 SKELETON LOADER */}
             {loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div key={i} className="rounded-2xl overflow-hidden animate-pulse">
@@ -110,48 +92,52 @@ export default function Blog() {
                     </div>
                   </div>
                 ))
-              : blogs.map((item, index) => (
-                  <div
-                    key={item.id}
-                    className={`rounded-2xl overflow-hidden transition-all duration-700 ${
-                      gridVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
-                    }`}
-                    style={{
-                      backgroundColor: themes.backgroundBlack,
-                      transitionDelay: `${index * 180}ms`,
-                    }}
-                  >
-                    <Link to={`/blog/${item.id}`}>
+              : blogs.map((item, index) => {
+                  const dateObj = new Date(item.date);
+                  const day = dateObj.getDate();
+                  const month = dateObj.toLocaleString("default", { month: "short" });
+ 
+                  return (
+                    <Link
+                      key={item.id}
+                      to={`/blog/${item.id}`}
+                      className={`rounded-2xl overflow-hidden transition-all duration-700 block hover:-translate-y-1 hover:shadow-2xl ${
+                        gridVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
+                      }`}
+                      style={{
+                        backgroundColor: themes.backgroundBlack,
+                        transitionDelay: `${index * 180}ms`,
+                        textDecoration: "none",
+                      }}
+                    >
                       <img
                         src={`${BASE_URL}${item.image}`}
                         alt={item.title}
                         className="w-full h-[260px] object-cover transition-transform duration-700 hover:scale-105"
-                        loading="lazy"   // ⚡ extra speed
+                        loading="lazy"
                       />
-                    </Link>
  
-                    <div className="p-6 relative">
-                      <div
-                        className="absolute -top-8 left-6 w-[60px] h-[70px] rounded-lg flex flex-col items-center justify-center text-center shadow-lg"
-                        style={{ backgroundColor: themes.primary }}
-                      >
-                        <span className="text-xl font-bold text-white">
-                          {new Date(item.date).getDate()}
-                        </span>
-                        <span className="text-sm text-white">{item.month}</span>
-                      </div>
+                      <div className="p-6 relative">
+                        <div
+                          className="absolute -top-8 left-6 w-[60px] h-[70px] rounded-lg flex flex-col items-center justify-center text-center shadow-lg"
+                          style={{ backgroundColor: themes.primary }}
+                        >
+                          <span className="text-xl font-bold text-white">{day}</span>
+                          <span className="text-sm text-white">{month}</span>
+                        </div>
  
-                      <h3 className="text-lg font-semibold mt-8 leading-snug">
-                        <Link to={`/blog/${item.id}`} style={{ color: themes.textWhite }}>
+                        <h3 className="text-lg font-semibold mt-8 leading-snug" style={{ color: themes.textWhite }}>
                           {item.title}
-                        </Link>
-                      </h3>
-                    </div>
-                  </div>
-                ))}
+                        </h3>
+                      </div>
+                    </Link>
+                  );
+                })}
           </div>
         </div>
       </section>
     </>
   );
 }
+ 
+ 
