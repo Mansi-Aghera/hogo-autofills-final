@@ -170,7 +170,7 @@ majority have suffered alteration in some formThere are many variations of passa
         style={{ borderTop: `1px solid ${themes.backgroundGray}` }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
-          <p>© 2026 - Hogo Autofills by Reactheme</p>
+          <p>© 2026 - Hogo Autofills</p>
  
           <div className="flex gap-8">
             {["Terms & Conditions", "Privacy Policy"].map((item, i) => (

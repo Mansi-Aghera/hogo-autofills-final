@@ -1,21 +1,18 @@
-
-
- 
 // import { themes } from "../config/themeConfig";
 // import bg from "../assets/images/about-us-page-bg.webp";
 // import aboutImg1 from "../assets/images/car-detailing-upper-img.webp";
 // import aboutImg2 from "../assets/images/car-detailing-back-img.webp";
 // import DecoratedTitle from "../components/DecoratedTitle";
- 
+
 // import { FaFacebookF, FaInstagram } from "react-icons/fa";
 // import { FaXTwitter } from "react-icons/fa6";
- 
+
 // import team1 from "../assets/images/car-detailing-upper-img.webp";
 // import team2 from "../assets/images/about-us-card-2nd.webp";
 // import team3 from "../assets/images/about-us-card-3rd.webp";
 // import team4 from "../assets/images/about-us-card-4th.webp";
 // import { Link } from "react-router-dom";
- 
+
 // export default function About() {
 //   return (
 //     <>
@@ -32,7 +29,7 @@
 //            className="absolute inset-0"
 //            style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
 //          />
- 
+
 //          <div className="relative z-10 max-w-4xl w-full">
 //            <h1
 //              className="text-3xl sm:text-4xl md:text-5xl font-bold"
@@ -43,9 +40,9 @@
 //            >
 //              About Us
 //            </h1>
- 
+
 //            <div className="w-full h-[1px] my-6 bg-white/20" />
- 
+
 //            <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
 //              <Link
 //                to="/"
@@ -54,23 +51,23 @@
 //              >
 //                Home
 //              </Link>
- 
+
 //              <span style={{ color: themes.textWhite }}>›</span>
- 
+
 //              <span className="font-bold" style={{ color: themes.textWhite }}>
 //                About Us
 //              </span>
 //            </div>
 //          </div>
 //        </section>
- 
+
 //       {/* ================= ABOUT CONTENT ================= */}
 //       <section
 //         className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
 //         style={{ backgroundColor: themes.backgroundGray }}
 //       >
 //         <div className="max-w-7xl mx-auto grid grid-cols-1 pb-32 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- 
+
 //           {/* LEFT IMAGES */}
 //           <div className="relative w-full flex justify-center lg:justify-start">
 //             <div className="relative z-20">
@@ -85,7 +82,7 @@
 //                 style={{ backgroundColor: themes.backgroundBlack }}
 //               />
 //             </div>
- 
+
 //             <div className="hidden lg:block absolute z-10 left-[160px] xl:left-[200px] top-[80px] xl:top-[100px]">
 //               <img
 //                 src={aboutImg2}
@@ -99,13 +96,13 @@
 //               />
 //             </div>
 //           </div>
- 
+
 //           {/* RIGHT CONTENT */}
 //           <div className="text-center lg:text-left">
 //             <div className="flex justify-center lg:justify-start mb-4">
 //               <DecoratedTitle text="ABOUT US" color={themes.backgroundBlack} />
 //             </div>
- 
+
 //             <h2
 //               className="text-[clamp(28px,4vw,56px)] font-semibold leading-tight mb-6"
 //               style={{
@@ -115,7 +112,7 @@
 //             >
 //               Car Detailing for Long-Lasting Protection
 //             </h2>
- 
+
 //             <p
 //               className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
 //               style={{ color: themes.backgroundBlack }}
@@ -124,7 +121,7 @@
 //               vehicles through expert detailing services using premium products
 //               and proven techniques.
 //             </p>
- 
+
 //             <p
 //               className="leading-relaxed max-w-xl mx-auto lg:mx-0"
 //               style={{ color: themes.backgroundGray }}
@@ -135,7 +132,7 @@
 //           </div>
 //         </div>
 //       </section>
- 
+
 //       {/* ================= TEAM SECTION ================= */}
 //       <section
 //         className="py-20 px-4 sm:px-6"
@@ -165,7 +162,7 @@
 //                   className="w-full h-[320px] object-cover"
 //                   style={{ backgroundColor: themes.backgroundBlack }}
 //                 />
- 
+
 //                 <div className="p-3 text-center">
 //                   <h3
 //                     className="text-xl font-semibold"
@@ -173,14 +170,14 @@
 //                   >
 //                     {member.name}
 //                   </h3>
- 
+
 //                   <p
 //                     className="text-sm mt-2"
 //                     style={{ color: themes.backgroundBlack }}
 //                   >
 //                     {member.role}
 //                   </p>
- 
+
 //                   <div className="flex justify-center gap-4 mt-2">
 //                     {[FaFacebookF, FaXTwitter, FaInstagram].map((Icon, idx) => (
 //                       <div
@@ -205,14 +202,14 @@
 //           </div>
 //         </div>
 //       </section>
- 
+
 //       {/* ================= VISION & MISSION ================= */}
 //       <section
 //         className="py-20 px-4 sm:px-6"
 //         style={{ backgroundColor: themes.backgroundGray }}
 //       >
 //         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
- 
+
 //           <div>
 //             <h3
 //               className="text-xl font-semibold mb-6"
@@ -223,7 +220,7 @@
 //             >
 //               Our Vision
 //             </h3>
- 
+
 //             <p
 //               className="text-lg leading-[1.9] max-w-xl"
 //               style={{ color: themes.backgroundBlack }}
@@ -233,7 +230,7 @@
 //               deliver unmatched customer satisfaction.
 //             </p>
 //           </div>
- 
+
 //           <div>
 //             <h3
 //               className="text-xl font-semibold mb-8"
@@ -244,7 +241,7 @@
 //             >
 //               Our Mission
 //             </h3>
- 
+
 //             {[1, 2, 3].map((num) => (
 //               <div key={num} className="flex gap-6 items-start mb-8">
 //                 <div
@@ -263,7 +260,7 @@
 //                 >
 //                   {num}
 //                 </div>
- 
+
 //                 <p
 //                   className="leading-relaxed"
 //                   style={{ color: themes.backgroundBlack }}
@@ -296,47 +293,46 @@
 //               </div>
 //             ))}
 //           </div>
- 
+
 //         </div>
 //       </section>
 //     </>
 //   );
 // }
- 
-  
+
 import { useRef, useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import bg from "../assets/images/about-us-page-bg.webp";
 import aboutImg1 from "../assets/images/car-detailing-upper-img.webp";
 import aboutImg2 from "../assets/images/car-detailing-back-img.webp";
 import DecoratedTitle from "../components/DecoratedTitle";
- 
+
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
- 
+
 import team1 from "../assets/images/car-detailing-upper-img.webp";
 import team2 from "../assets/images/about-us-card-2nd.webp";
 import team3 from "../assets/images/about-us-card-3rd.webp";
 import team4 from "../assets/images/about-us-card-4th.webp";
 import { Link } from "react-router-dom";
- 
+
 export default function About() {
   /* ================= HERO ANIMATION ================= */
   const heroRef = useRef(null);
   const [heroVisible, setHeroVisible] = useState(false);
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) setHeroVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
- 
+
     if (heroRef.current) observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
- 
+
   return (
     <>
       {/* ================= ABOUT HERO ================= */}
@@ -352,7 +348,7 @@ export default function About() {
           className="absolute inset-0"
           style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
         />
- 
+
         {/* HERO CONTENT (ANIMATED) */}
         <div
           ref={heroRef}
@@ -375,9 +371,9 @@ export default function About() {
           >
             About Us
           </h1>
- 
+
           <div className="w-full h-[1px] my-6 bg-white/20" />
- 
+
           <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
             <Link
               to="/"
@@ -386,58 +382,98 @@ export default function About() {
             >
               Home
             </Link>
- 
+
             <span style={{ color: themes.textWhite }}>›</span>
- 
+
             <span className="font-bold" style={{ color: themes.textWhite }}>
               About Us
             </span>
           </div>
         </div>
       </section>
- 
+
       {/* ================= ABOUT CONTENT ================= */}
       <section
-        className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
+        className="sm:py-16 px-4 sm:px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 pb-32 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- 
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:pb-0 md:pb-0 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* LEFT IMAGES */}
-          <div className="relative w-full flex justify-center lg:justify-start">
-            <div className="relative z-20">
-              <img
-                src={aboutImg1}
-                alt="Auto detailing expert"
-                className="
-                  w-[210px] sm:w-[270px] md:w-[300px] lg:w-[350px] xl:w-[380px]
-                  h-[260px] sm:h-[320px] md:h-[360px] lg:h-[420px] xl:h-[460px]
-                  object-cover rounded-xl shadow-2xl
-                "
-                style={{ backgroundColor: themes.backgroundBlack }}
-              />
-            </div>
+           <div className="relative w-full">
  
-            <div className="hidden lg:block absolute z-10 left-[160px] xl:left-[200px] top-[80px] xl:top-[100px]">
-              <img
-                src={aboutImg2}
-                alt="Car detailing workshop"
-                className="
-                  w-[320px] lg:w-[360px] xl:w-[420px]
-                  h-[380px] lg:h-[420px] xl:h-[460px]
-                  object-cover rounded-xl shadow-xl
-                "
-                style={{ backgroundColor: themes.backgroundBlack }}
-              />
-            </div>
-          </div>
+  {/* 🔥 DESKTOP OVERLAP */}
+  <div className="hidden lg:block relative h-[520px]">
  
+    {/* FRONT */}
+    <div className="absolute z-20 w-[48%] aspect-[4/5] left-0 top-0">
+      <img
+        src={aboutImg1}
+        alt="Expert"
+        className="w-full h-full object-cover rounded-xl shadow-2xl"
+      />
+    </div>
+ 
+    {/* BACK */}
+    <div className="absolute z-10 w-[48%] aspect-[4/5] left-[38%] top-[14%]">
+      <img
+        src={aboutImg2}
+        alt="Workshop"
+        className="w-full h-full object-cover rounded-xl shadow-xl"
+      />
+    </div>
+  </div>
+ 
+  {/* 🧩 TABLET — SIDE BY SIDE */}
+{/* 🧩 TABLET — SIDE BY SIDE (SMALL SIZE) */}
+<div className="hidden sm:grid lg:hidden grid-cols-2 gap-6 justify-center max-w-[520px] mx-auto">
+  <div className="aspect-[4/5]">
+    <img
+      src={aboutImg1}
+      alt="Expert"
+      className="w-full h-full object-cover rounded-xl shadow-xl"
+    />
+  </div>
+ 
+  <div className="aspect-[4/5]">
+    <img
+      src={aboutImg2}
+      alt="Workshop"
+      className="w-full h-full object-cover rounded-xl shadow-xl"
+    />
+  </div>
+</div>
+ 
+ 
+  {/* 📱 MOBILE — STACK */}
+{/* 📱 MOBILE — SMALL STACKED IMAGES */}
+<div className="grid sm:hidden gap-5 max-w-[280px] mx-auto">
+  <div className="aspect-[4/5]">
+    <img
+      src={aboutImg1}
+      alt="Expert"
+      className="w-full h-full object-cover rounded-xl shadow-xl"
+    />
+  </div>
+ 
+  <div className="aspect-[4/5]">
+    <img
+      src={aboutImg2}
+      alt="Workshop"
+      className="w-full h-full object-cover rounded-xl shadow-xl"
+    />
+  </div>
+</div>
+ 
+ 
+</div>
+ 
+
           {/* RIGHT CONTENT */}
           <div className="text-center lg:text-left">
             <div className="flex justify-center lg:justify-start mb-4">
               <DecoratedTitle text="ABOUT US" color={themes.backgroundBlack} />
             </div>
- 
+
             <h2
               className="text-[clamp(28px,4vw,56px)] font-semibold leading-tight mb-6"
               style={{
@@ -447,7 +483,7 @@ export default function About() {
             >
               Car Detailing for Long-Lasting Protection
             </h2>
- 
+
             <p
               className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
               style={{ color: themes.backgroundBlack }}
@@ -456,18 +492,18 @@ export default function About() {
               vehicles through expert detailing services using premium products
               and proven techniques.
             </p>
- 
-            <p
+
+            {/* <p
               className="leading-relaxed max-w-xl mx-auto lg:mx-0"
               style={{ color: themes.backgroundGray }}
             >
               From exterior hand washing to ceramic coating, we focus on detail,
               trust, and long-term care to keep your car at its best.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
- 
+
       {/* ================= TEAM SECTION ================= */}
       <section
         className="py-20 px-4 sm:px-6"
@@ -476,10 +512,26 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
             {[
-              { img: team1, name: "Thomas Bennett", role: "Lead Detail Specialist" },
-              { img: team2, name: "Hailey Cooper", role: "Customer Care Manager" },
-              { img: team3, name: "Joshua Henry", role: "Paint Correction Expert" },
-              { img: team4, name: "Jackson Reed", role: "Ceramic Coating Technician" },
+              {
+                img: team1,
+                name: "Thomas Bennett",
+                role: "Lead Detail Specialist",
+              },
+              {
+                img: team2,
+                name: "Hailey Cooper",
+                role: "Customer Care Manager",
+              },
+              {
+                img: team3,
+                name: "Joshua Henry",
+                role: "Paint Correction Expert",
+              },
+              {
+                img: team4,
+                name: "Jackson Reed",
+                role: "Ceramic Coating Technician",
+              },
             ].map((member, i) => (
               <div
                 key={i}
@@ -497,7 +549,7 @@ export default function About() {
                   className="w-full h-[320px] object-cover"
                   style={{ backgroundColor: themes.backgroundBlack }}
                 />
- 
+
                 <div className="p-3 text-center">
                   <h3
                     className="text-xl font-semibold"
@@ -505,14 +557,14 @@ export default function About() {
                   >
                     {member.name}
                   </h3>
- 
+
                   <p
                     className="text-sm mt-2"
                     style={{ color: themes.backgroundBlack }}
                   >
                     {member.role}
                   </p>
- 
+
                   <div className="flex justify-center gap-4 mt-2">
                     {[FaFacebookF, FaXTwitter, FaInstagram].map((Icon, idx) => (
                       <div
@@ -537,14 +589,13 @@ export default function About() {
           </div>
         </div>
       </section>
- 
+
       {/* ================= VISION & MISSION ================= */}
       <section
         className="py-20 px-4 sm:px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
- 
           <div>
             <h3
               className="text-xl font-semibold mb-6"
@@ -555,7 +606,7 @@ export default function About() {
             >
               Our Vision
             </h3>
- 
+
             <p
               className="text-lg leading-[1.9] max-w-xl"
               style={{ color: themes.backgroundBlack }}
@@ -565,7 +616,7 @@ export default function About() {
               deliver unmatched customer satisfaction.
             </p>
           </div>
- 
+
           <div>
             <h3
               className="text-xl font-semibold mb-8"
@@ -576,7 +627,7 @@ export default function About() {
             >
               Our Mission
             </h3>
- 
+
             {[1, 2, 3].map((num) => (
               <div key={num} className="flex gap-6 items-start mb-8">
                 <div
@@ -595,14 +646,15 @@ export default function About() {
                 >
                   {num}
                 </div>
- 
+
                 <p
                   className="leading-relaxed"
                   style={{ color: themes.backgroundBlack }}
                 >
                   {num === 1 && (
                     <>
-                      <span>Premium Car Care:</span> Professional detailing solutions.
+                      <span>Premium Car Care:</span> Professional detailing
+                      solutions.
                     </>
                   )}
                   {num === 2 && (
@@ -612,20 +664,16 @@ export default function About() {
                   )}
                   {num === 3 && (
                     <>
-                      <span>Customer Excellence:</span> Reliable service and transparent communication.
+                      <span>Customer Excellence:</span> Reliable service and
+                      transparent communication.
                     </>
                   )}
                 </p>
               </div>
             ))}
           </div>
- 
         </div>
       </section>
     </>
   );
 }
- 
- 
-
-

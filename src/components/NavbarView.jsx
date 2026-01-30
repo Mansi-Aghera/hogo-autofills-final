@@ -99,7 +99,7 @@ flex items-center justify-between"
             />
 </Link>
  
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-4 md:gap-6 lg:gap-10 xl:gap-12">
 
             {[
 

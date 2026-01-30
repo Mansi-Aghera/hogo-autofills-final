@@ -422,29 +422,36 @@ export default function AboutView() {
         <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
  
           {/* ================= IMAGES (GROW GRADUALLY) ================= */}
-          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-            <img
-              src={about2}
-              alt="Detailing"
-              className={`
-                w-full sm:w-[48%] h-[260px] sm:h-[460px]
-                rounded-2xl object-cover
-                transition-all duration-1200 ease-out
-                ${visible ? "scale-100 opacity-100" : "scale-95 opacity-0"}
-              `}
-            />
+         <div className="relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full">
  
-            <img
-              src={about1}
-              alt="Detailing"
-              className={`
-                w-full sm:w-[48%] h-[260px] sm:h-[460px]
-                rounded-2xl object-cover sm:mt-14
-                transition-all duration-1200 ease-out delay-200
-                ${visible ? "scale-100 opacity-100" : "scale-95 opacity-0"}
-              `}
-            />
-          </div>
+  {/* LEFT IMAGE */}
+  <img
+    src={about2}
+    alt="Detailing"
+    className={`
+      w-full sm:w-[48%]
+      h-[240px] sm:h-[360px] md:h-[420px] lg:h-[460px]
+      rounded-2xl object-cover
+      transition-all duration-1200 ease-out
+      ${visible ? "scale-100 opacity-100" : "scale-95 opacity-0"}
+    `}
+  />
+ 
+  {/* RIGHT IMAGE (OVERLAP EFFECT ON BIG SCREENS ONLY) */}
+  <img
+    src={about1}
+    alt="Detailing"
+    className={`
+      w-full sm:w-[48%]
+      h-[240px] sm:h-[360px] md:h-[420px] lg:h-[460px]
+      rounded-2xl object-cover
+      sm:mt-10 md:mt-16
+      transition-all duration-1200 ease-out delay-200
+      ${visible ? "scale-100 opacity-100" : "scale-95 opacity-0"}
+    `}
+  />
+</div>
+ 
  
           {/* ================= CONTENT (HOME HERO STYLE) ================= */}
           <div className="space-y-8">
