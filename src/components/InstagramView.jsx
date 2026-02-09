@@ -27,7 +27,7 @@
 //           className="text-3xl md:text-5xl font-bold mt-6"
 //           style={{ color: themes.textWhite }}
 //         >
-//           @hogo_autofills
+//           @hogo_Autofilms
 //         </h2>
 //       </div>
  
@@ -127,7 +127,7 @@ export default function InstagramView() {
           `}
           style={{ color: themes.backgroundBlack }}
         >
-          @hogo_autofills
+          @hogo_Autofilms
         </h2>
       </div>
  

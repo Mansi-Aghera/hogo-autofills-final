@@ -42,7 +42,7 @@
 // >
 //         <div className="max-w-[1200px] mx-auto px-6">
 //           <div className="text-center mb-14 pt-14">
-//             <DecoratedTitle text="WELCOME TO Hogo Autofills" style={{ color: themes.backgroundBlack }}/>
+//             <DecoratedTitle text="WELCOME TO Hogo Autofilms" style={{ color: themes.backgroundBlack }}/>
  
 // <SectionHeading
 //   secondLine=""
@@ -205,7 +205,7 @@ export default function ServicesView() {
               `}
             >
               <DecoratedTitle
-                text="WELCOME TO Hogo Autofills"
+                text="WELCOME TO Hogo Autofilms"
                 style={{ color: themes.backgroundBlack }}
               />
             </div>

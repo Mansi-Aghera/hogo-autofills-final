@@ -92,7 +92,7 @@ flex items-center justify-between"
 
               src={logo}
 
-              alt="Hogo Autofills"
+              alt="Hogo Autofilms"
 
               className="h-10 sm:h-12 cursor-pointer"
 
@@ -268,7 +268,7 @@ overflow-y-auto"
 
                   src={logo}
 
-                  alt="Hogo Autofills"
+                  alt="Hogo Autofilms"
 
                   className="h-10 sm:h-12 cursor-pointer"
 

@@ -32,7 +32,7 @@ export default function FooterView() {
          <Link to="/">
   <img
     src={logo}
-    alt="Hogo Autofills"
+    alt="Hogo Autofilms"
     className="h-25 sm:h-27 cursor-pointer"
   />
 </Link>
@@ -157,7 +157,7 @@ majority have suffered alteration in some formThere are many variations of passa
               <p>
                 <span className="font-medium">Email Us</span>
                 <br />
-                <span className="opacity-80">support@Hogo Autofills.com</span>
+                <span className="opacity-80">support@Hogo Autofilms.com</span>
               </p>
             </div>
           </div>
@@ -170,7 +170,7 @@ majority have suffered alteration in some formThere are many variations of passa
         style={{ borderTop: `1px solid ${themes.backgroundGray}` }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
-          <p>© 2026 - Hogo Autofills</p>
+          <p>© 2026 - Hogo Autofilms</p>
  
           <div className="flex gap-8">
             {["Terms & Conditions", "Privacy Policy"].map((item, i) => (
