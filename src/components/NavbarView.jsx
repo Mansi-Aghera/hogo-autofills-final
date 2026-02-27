@@ -107,7 +107,15 @@ flex items-center justify-between"
 
           <div className="flex items-center gap-3">
             {/* <RollingButton text="Make Appointment" /> */}
-            <RollingButton text="Distributor Login" />
+           <RollingButton
+  text="Distributor Login"
+  onClick={() =>
+    window.open(
+      "https://hogo-autofills-distributor-profile.vercel.app/",
+      "_blank"
+    )
+  }
+/>
 
             {/* MOBILE NAVBAR HAMBURGER */}
             <div
