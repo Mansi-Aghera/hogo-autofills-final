@@ -481,7 +481,7 @@ export default function ContactPage() {
         className="py-10 px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center lg:text-left">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center lg:text-left ">
           {/* Location Cards (UNCHANGED) */}
           {[
             {
@@ -500,7 +500,7 @@ export default function ContactPage() {
               phone: "📞 (408) 555-0390",
             },
           ].map((loc, i) => (
-            <div key={i} className="space-y-4">
+            <div key={i} className="space-y-4 rounded-xl shadow-md p-6" style={{ backgroundColor: themes.textWhite }}>
               <h3
                 className="text-xl font-bold"
                 style={{ color: themes.backgroundBlack }}

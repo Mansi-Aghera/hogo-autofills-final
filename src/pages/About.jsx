@@ -7,7 +7,7 @@
 // import { FaFacebookF, FaInstagram } from "react-icons/fa";
 // import { FaXTwitter } from "react-icons/fa6";
 
-// import team1 from "../assets/images/car-detailing-upper-img.webp";
+// import team1 from "../assets/images/.webp";
 // import team2 from "../assets/images/about-us-card-2nd.webp";
 // import team3 from "../assets/images/about-us-card-3rd.webp";
 // import team4 from "../assets/images/about-us-card-4th.webp";
@@ -407,7 +407,7 @@ export default function About() {
     {/* FRONT */}
     <div className="absolute z-20 w-[48%] aspect-[4/5] left-0 top-0">
       <img
-        src={aboutImg1}
+        src={team3}
         alt="Expert"
         className="w-full h-full object-cover rounded-xl shadow-2xl"
       />
@@ -514,22 +514,22 @@ export default function About() {
             {[
               {
                 img: team1,
-                name: "Thomas Bennett",
+                name: "Rajesh Sharma",
                 role: "Lead Detail Specialist",
               },
               {
                 img: team2,
-                name: "Hailey Cooper",
+                name: "Ramesh Varma",
                 role: "Customer Care Manager",
               },
               {
                 img: team3,
-                name: "Joshua Henry",
+                name: "Nilesh Gupta",
                 role: "Paint Correction Expert",
               },
               {
                 img: team4,
-                name: "Jackson Reed",
+                name: "Jayesh Ahir",
                 role: "Ceramic Coating Technician",
               },
             ].map((member, i) => (

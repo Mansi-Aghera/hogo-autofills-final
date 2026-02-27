@@ -391,7 +391,7 @@ import { useEffect, useRef, useState } from "react";
 import DecoratedTitle from "./DecoratedTitle";
 import RollingButton from "./RollingButton";
 import { themes } from "../config/themeConfig";
- 
+ import { useNavigate } from "react-router-dom";
 import about2 from "../assets/images/about2.webp";
 import about1 from "../assets/images/about1.jpg";
  
@@ -399,7 +399,7 @@ export default function AboutView() {
   /* ================= SCROLL ANIMATION STATE ================= */
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
- 
+  const navigate = useNavigate();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -513,7 +513,10 @@ export default function AboutView() {
                 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
               `}
             >
-              <RollingButton text="Read More" />
+              <RollingButton
+      text="Read More"
+      onClick={() => navigate("/about")}
+    />
             </div>
           </div>
         </div>

@@ -173,21 +173,14 @@ majority have suffered alteration in some formThere are many variations of passa
           <p>© 2026 - Hogo Autofilms</p>
  
           <div className="flex gap-8">
-            {["Terms & Conditions", "Privacy Policy"].map((item, i) => (
-              <span
-                key={i}
-                className="cursor-pointer transition-all"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = themes.hover)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = themes.textWhite)
-                }
-              >
-                {item}
-              </span>
-            ))}
-          </div>
+  <Link to="/terms" className="cursor-pointer transition-all hover:text-[var(--primary)]">
+    Terms & Conditions
+  </Link>
+
+  <Link to="/privacy" className="cursor-pointer transition-all hover:text-[var(--primary)]">
+    Privacy Policy
+  </Link>
+</div>
         </div>
       </div>
     </footer>

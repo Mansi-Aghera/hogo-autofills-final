@@ -308,7 +308,7 @@ function ServiceCard({ item, visible, delay }) {
             group-hover:translate-y-0
           "
         >
-          <RollingButton text="View Details" />
+          {/* <RollingButton text="View Details" /> */}
         </div>
       </div>
     </div>

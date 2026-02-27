@@ -498,7 +498,7 @@ export default function ServicesPage() {
                 <p className="mb-6 text-sm leading-relaxed" style={{ color: themes.textWhite }}>
                   {item.desc}
                 </p>
-                <RollingButton text="Read More" />
+                {/* <RollingButton text="Read More" /> */}
               </div>
  
               <span className="absolute top-4 left-4 text-white/80 text-lg font-semibold z-20">

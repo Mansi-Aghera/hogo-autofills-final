@@ -50,6 +50,8 @@ import SingleBlog from "../pages/SingleBlog";  // 👈 ADD
 import Gallery from "../pages/Gallery";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
+import TermsPage from "../pages/TermsPage";
+import PrivacyPage from "../pages/PrivacyPage";
  
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,9 @@ export const router = createBrowserRouter([
  
       { path: "gallery", element: <Gallery /> },
       { path: "contact", element: <Contact /> },
+      { path: "terms", element: <TermsPage /> },
+      { path: "privacy", element: <PrivacyPage /> },
+
     ],
   },
 ]);

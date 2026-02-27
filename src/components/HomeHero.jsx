@@ -8,7 +8,7 @@ import ParallaxCarSection from "./ParallaxCarSection";
 // import websiteBackground from "../assets/images/website-background.webp"; 
 import websiteBackground from "../assets/images/Homepage-background.png"; 
 
-
+import QuoteFormModal from "./QuoteFormModal";
 import { themes } from "../config/themeConfig";
 import WhyChoose from "./WhyChoose";
 import TestimonialsView from "./TestimonialView";
@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 
 export default function HomeHero() {
       const [animate, setAnimate] = useState(false);
- 
+ const [quoteOpen, setQuoteOpen] = useState(false);
   // 👇 Trigger animation after component mounts
   useEffect(() => {
     setAnimate(true);
@@ -125,7 +125,10 @@ export default function HomeHero() {
           ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
-        <RollingButton text="Get Quote" />
+       <RollingButton 
+  text="Get Quote" 
+  onClick={() => setQuoteOpen(true)}
+/>
       </div>
     </div>
 
@@ -219,7 +222,10 @@ export default function HomeHero() {
         <InstagramView />
       </div>
 
-
+<QuoteFormModal 
+  open={quoteOpen}
+  onClose={() => setQuoteOpen(false)}
+/>
 
     </>
   );
