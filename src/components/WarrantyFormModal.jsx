@@ -134,13 +134,25 @@ export default function WarrantyFormModal({ open, onClose }) {
             ))}
           </select>
 
-          {/* WARRANTY */}
-          <input
-            className="p-3 rounded border bg-gray-100"
-            value={form.warranty_period}
-            placeholder="Warranty Period"
-            disabled
-          />
+          {/* PRODUCT NAME */}
+<input
+  className="p-3 rounded border bg-gray-100"
+  value={
+    products.find(
+      (p) => String(p.id) === String(form.product_id)
+    )?.product_name || ""
+  }
+  placeholder="Product"
+  disabled
+/>
+
+{/* WARRANTY PERIOD */}
+<input
+  className="p-3 rounded border bg-gray-100"
+  value={form.warranty_period}
+  placeholder="Warranty Period"
+  disabled
+/>
 
           <input
             className={`p-3 rounded border ${err("detailer_name")}`}
