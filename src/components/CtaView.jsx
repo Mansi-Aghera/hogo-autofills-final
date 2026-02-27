@@ -40,10 +40,10 @@ import { themes } from "../config/themeConfig";
 import RollingButton from "./RollingButton";
 import WarrantyFormModal from "./WarrantyFormModal";
 import { useState } from "react";
-
+import CheckWarrantyModal from "./CheckWarrantyModal";
 export default function CtaView() {
   const [openWarranty, setOpenWarranty] = useState(false);
-
+const [checkOpen, setCheckOpen] = useState(false);
   return (
     <section className="py-16" style={{ backgroundColor: themes.primary }}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -64,10 +64,10 @@ export default function CtaView() {
           />
 
           <RollingButton
-            text="Check Warranty"
-            className="border border-white bg-transparent"
-            onClick={() => alert("Check Warranty coming soon")}
-          />
+  text="Check Warranty"
+  className="border border-white bg-transparent"
+  onClick={() => setCheckOpen(true)}
+/>
         </div>
       </div>
 
@@ -75,6 +75,10 @@ export default function CtaView() {
         open={openWarranty}
         onClose={() => setOpenWarranty(false)}
       />
+      <CheckWarrantyModal
+  open={checkOpen}
+  onClose={() => setCheckOpen(false)}
+/>
     </section>
   );
 }
