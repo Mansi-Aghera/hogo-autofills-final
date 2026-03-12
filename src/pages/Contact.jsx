@@ -550,32 +550,32 @@ export default function ContactPage() {
             <div
               key={i}
               className="space-y-4 rounded-xl shadow-md p-6"
-              style={{ backgroundColor: themes.textWhite }}
+              style={{ backgroundColor: themes.backgroundBlack }}
             >
               <h3
                 className="text-xl font-bold"
-                style={{ color: themes.backgroundBlack }}
+                style={{ color: themes.textWhite }}
               >
                 {loc.title}
               </h3>
 
               <p
                 className="text-sm"
-                style={{ color: themes.backgroundBlack }}
+                style={{ color: themes.textWhite }}
               >
                 {loc.address}
               </p>
 
               <p
                 className="text-sm"
-                style={{ color: themes.backgroundBlack }}
+                style={{ color: themes.textWhite }}
               >
                 {loc.phone}
               </p>
 
               <p
                 className="text-sm"
-                style={{ color: themes.backgroundBlack }}
+                style={{ color: themes.textWhite }}
               >
                 ⏰ Monday - Friday 08.00 - 18.00
               </p>
