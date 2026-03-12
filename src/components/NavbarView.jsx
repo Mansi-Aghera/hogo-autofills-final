@@ -87,7 +87,10 @@ flex items-center justify-between"
 
               { label: "Gallery", path: "/gallery" },
 
-              { label: "blog", path: "/blog" },
+              { label: "Blog", path: "/blog" },
+
+            { label: "Product", path: "/product" },
+
             ].map((item) => (
               <NavLink
   key={item.label}

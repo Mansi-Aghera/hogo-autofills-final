@@ -11,6 +11,8 @@
 }
 body {
   font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -50,4 +52,16 @@ body {
 
 .animate-scaleIn {
   animation: scaleIn .3s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

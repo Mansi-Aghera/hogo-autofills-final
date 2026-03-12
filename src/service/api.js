@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = "https://hogofilm.pythonanywhere.com";
+export const BASE = "https://hogofilm.pythonanywhere.com";
 
 export const apiInfo = axios.create({
   baseURL: BASE,

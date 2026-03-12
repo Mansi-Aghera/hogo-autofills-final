@@ -52,6 +52,8 @@ import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import TermsPage from "../pages/TermsPage";
 import PrivacyPage from "../pages/PrivacyPage";
+import ShopView from "../pages/ShopView";
+import ProductDetails from "../pages/ProductDetails";
  
 export const router = createBrowserRouter([
   {
@@ -70,6 +72,10 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "terms", element: <TermsPage /> },
       { path: "privacy", element: <PrivacyPage /> },
+      { path: "product", element: <ShopView /> },
+      { path: "product/:id", element: <ProductDetails /> },
+
+
 
     ],
   },
