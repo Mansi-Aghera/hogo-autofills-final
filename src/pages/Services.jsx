@@ -384,6 +384,7 @@ import s3 from "../assets/images/service3.jpg";
 import s4 from "../assets/images/service4.png";
 import s5 from "../assets/images/service5.jpg";
 import s6 from "../assets/images/service6.png";
+import InnerBanner from "../components/InnerBanner";
  
 const services = [
   { id: "01", title: "Exterior Hand Wash & Wax", desc: "Gentle yet thorough hand wash using pH-balanced soaps, followed by premium wax.", img: s1 },
@@ -423,47 +424,13 @@ export default function ServicesPage() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section
-        className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] flex items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
- 
-        {/* Content */}
-        <div
-          ref={heroRef}
-          className={`
-            relative z-10 max-w-4xl w-full
-            transition-all duration-700 ease-out
-            ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          `}
-        >
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
-            style={{ color: themes.textWhite, fontFamily: themes.fontPrimary }}
-          >
-            Our Services
-          </h1>
- 
-          <div className="w-full h-[1px] my-6 bg-white/20" />
- 
-          <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-            <Link to="/" className="font-bold" style={{ color: themes.backgroundGray }}>
-              Home
-            </Link>
-            <span style={{ color: themes.textWhite }}>›</span>
-            <span className="font-bold" style={{ color: themes.textWhite }}>
-              Our Services
-            </span>
-          </div>
-        </div>
-      </section>
- 
+    <InnerBanner
+  title="Our Services"
+  parent=""
+  parentLink=""
+  current="Our Services"
+  bg={bg}
+/>
       {/* ================= GRID ================= */}
       <section className="py-24 px-6" style={{ backgroundColor: themes.backgroundBlack }}>
         <div

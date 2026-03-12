@@ -315,6 +315,8 @@ import team2 from "../assets/images/about-us-card-2nd.webp";
 import team3 from "../assets/images/about-us-card-3rd.webp";
 import team4 from "../assets/images/about-us-card-4th.webp";
 import { Link } from "react-router-dom";
+import InnerBanner from "../components/InnerBanner";
+import aboutBanner from "../assets/images/about-us-page-bg.webp";
 
 export default function About() {
   /* ================= HERO ANIMATION ================= */
@@ -336,61 +338,11 @@ export default function About() {
   return (
     <>
       {/* ================= ABOUT HERO ================= */}
-      <section
-        className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
-        />
-
-        {/* HERO CONTENT (ANIMATED) */}
-        <div
-          ref={heroRef}
-          className={`
-            relative z-10 max-w-4xl w-full
-            transition-all duration-700 ease-out
-            ${
-              heroVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }
-          `}
-        >
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
-            style={{
-              color: themes.textWhite,
-              fontFamily: themes.fontPrimary,
-            }}
-          >
-            About Us
-          </h1>
-
-          <div className="w-full h-[1px] my-6 bg-white/20" />
-
-          <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-            <Link
-              to="/"
-              className="font-bold transition"
-              style={{ color: themes.backgroundGray }}
-            >
-              Home
-            </Link>
-
-            <span style={{ color: themes.textWhite }}>›</span>
-
-            <span className="font-bold" style={{ color: themes.textWhite }}>
-              About Us
-            </span>
-          </div>
-        </div>
-      </section>
+     <InnerBanner
+  title="About Us"
+  current="About Us"
+  bg={aboutBanner}
+/>
 
       {/* ================= ABOUT CONTENT ================= */}
       <section

@@ -5,9 +5,10 @@ import "react-photo-view/dist/react-photo-view.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { themes } from "../config/themeConfig";
- 
+ import InnerBanner from "../components/InnerBanner";
+import galleryBanner from "../assets/images/gallery-page-bg.webp";
+
 // HERO BG
-import bg from "../assets/images/gallery-page-bg.webp";
  
 // IMAGES
 import img1 from "../assets/images/gallery1.jpg";
@@ -35,40 +36,11 @@ export default function Gallery() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section
-        className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px]
-                   flex items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/65" />
- 
-        <div className="relative z-10 max-w-4xl w-full
-                        transition-all duration-700 ease-out
-                        animate-[fadeUp_0.8s_ease-out]">
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
-            style={{ color: themes.textWhite, fontFamily: themes.fontPrimary }}
-          >
-            Gallery
-          </h1>
- 
-          <div className="w-full h-[1px] my-6 bg-white/20" />
- 
-          <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-            <Link to="/" className="font-bold" style={{ color: themes.backgroundGray }}>
-              Home
-            </Link>
-            <span style={{ color: themes.textWhite }}>›</span>
-            <span className="font-bold" style={{ color: themes.textWhite }}>
-              Gallery
-            </span>
-          </div>
-        </div>
-      </section>
+      <InnerBanner
+  title="Gallery"
+  current="Gallery"
+  bg={galleryBanner}
+/>
  
       {/* ================= FILTER + GRID ================= */}
       <section

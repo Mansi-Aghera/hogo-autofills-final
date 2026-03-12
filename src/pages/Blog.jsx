@@ -4,8 +4,8 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { themes } from "../config/themeConfig";
-import bg from "../assets/images/blogBanner.jpg";
- 
+ import InnerBanner from "../components/InnerBanner";
+import blogBanner from "../assets/images/blogBanner.jpg";
 export default function Blog() {
   const heroRef = useRef(null);
   const gridRef = useRef(null);
@@ -62,43 +62,11 @@ export default function Blog() {
   return (
     <>
       {/* HERO */}
-  <section
-  className="relative w-full h-[320px] flex items-center justify-center text-center px-6"
-  style={{
-    backgroundImage: `url(${bg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  <div className="absolute inset-0 bg-black/65" />
- 
-  <div
-    ref={heroRef}
-    className={`relative z-10 max-w-4xl w-full
-      transition-all duration-700 ease-out
-      ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-      animate-[fadeUp_0.8s_ease-out]`}
-  >
-    <h1
-      className="text-3xl sm:text-4xl md:text-5xl font-bold"
-      style={{ color: themes.textWhite, fontFamily: themes.fontPrimary }}
-    >
-      Blog
-    </h1>
- 
-    <div className="w-full h-[1px] my-6 bg-white/20" />
- 
-    <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-      <Link to="/" className="font-bold" style={{ color: themes.backgroundGray }}>
-        Home
-      </Link>
-      <span style={{ color: themes.textWhite }}>›</span>
-      <span className="font-bold" style={{ color: themes.textWhite }}>
-        Blog
-      </span>
-    </div>
-  </div>
-</section>
+<InnerBanner
+  title="Blog"
+  current="Blog"
+  bg={blogBanner}
+/>
  
  
       {/* BLOG GRID */}

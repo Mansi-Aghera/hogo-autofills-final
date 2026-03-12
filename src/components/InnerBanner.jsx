@@ -93,7 +93,7 @@ export default function InnerBanner({ title, parent, parentLink, current, bg }) 
 
   return (
     <section
-      className="relative w-full h-[220px] sm:h-[260px] md:h-[320px] flex items-center justify-center text-center px-4 sm:px-6"
+      className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] flex items-center justify-center text-center px-6"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",

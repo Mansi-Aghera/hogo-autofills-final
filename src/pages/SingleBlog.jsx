@@ -2,7 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import bg from "../assets/images/blogBanner.jpg";
- 
+ import InnerBanner from "../components/InnerBanner";
+import blogBanner from "../assets/images/blogBanner.jpg";
+
 export default function SingleBlog() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -56,29 +58,13 @@ export default function SingleBlog() {
     <section style={{ backgroundColor: themes.backgroundBlack }}>
  
       {/* HERO */}
-      <section
-        className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] flex items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/65" />
-        <div key={blog.id} className="relative z-10 max-w-4xl w-full opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            {blog.title}
-          </h1>
-          <div className="w-full h-[1px] my-6 bg-white/20" />
-          <div className="flex justify-center gap-2 text-sm">
-            <Link to="/" className="font-bold text-gray-300">Home</Link>
-            <span className="text-white">›</span>
-            <Link to="/blog" className="font-bold text-gray-300">Blog</Link>
-            <span className="text-white">›</span>
-            <span className="text-white">{blog.title}</span>
-          </div>
-        </div>
-      </section>
+      <InnerBanner
+  title={blog.title}
+  parent="Blog"
+  parentLink="/blog"
+  current={blog.title}
+  bg={blogBanner}
+/>
  
       {/* MAIN */}
       <div className="max-w-7xl mx-auto px-6 py-16 text-white">
