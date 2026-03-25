@@ -317,6 +317,7 @@ import team4 from "../assets/images/about-us-card-4th.webp";
 import { Link } from "react-router-dom";
 import InnerBanner from "../components/InnerBanner";
 import aboutBanner from "../assets/images/about-us-page-bg.webp";
+import ParallaxCarSection2 from "../components/ParallaxCarSection2";
 
 export default function About() {
   /* ================= HERO ANIMATION ================= */
@@ -455,7 +456,9 @@ export default function About() {
           </div>
         </div>
       </section>
-
+<section>
+  <ParallaxCarSection2 />
+</section>
       {/* ================= TEAM SECTION ================= */}
       <section
         className="py-20 px-4 sm:px-6"
