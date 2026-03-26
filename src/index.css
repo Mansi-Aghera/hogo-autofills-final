@@ -15,7 +15,9 @@ body {
   padding: 0;
 }
 
-
+html, body {
+  overflow-x: hidden;
+}
  
 @keyframes marquee {
   0% {
