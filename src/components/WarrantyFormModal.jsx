@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import RollingButton from "./RollingButton";
 import { apiInfo } from "../service/api";
+import Swal from "sweetalert2";
 
 const isEmpty = (v) => !v || v === "";
 
@@ -48,12 +49,30 @@ export default function WarrantyFormModal({ open, onClose }) {
       product_id: String(s?.product || s?.product_id || ""),
     }));
   };
+useEffect(() => {
+  if (!open) {
+    setForm({
+      serial_id: "",
+      product_id: "",
+      warranty_period: "",
+      detailer_name: "",
+      detailer_mobile: "",
+      car_registration_number: "",
+      car_brand: "",
+      car_model: "",
+      installation_date: "",
+      car_images: [],
+      installation_images: [],
+      invoice_image: null,
+    });
 
+    setSubmitted(false);
+    setLoading(false);
+  }
+}, [open]);
   /* ================= PRODUCT → WARRANTY ================= */
   useEffect(() => {
-    const p = products.find(
-      (x) => String(x.id) === String(form.product_id)
-    );
+    const p = products.find((x) => String(x.id) === String(form.product_id));
     if (p?.warranty) {
       setForm((f) => ({ ...f, warranty_period: p.warranty }));
     }
@@ -62,62 +81,77 @@ export default function WarrantyFormModal({ open, onClose }) {
   const onChange = (k, v) => setForm((p) => ({ ...p, [k]: v }));
 
   /* ================= SAVE ================= */
-  const handleSave = async () => {
-    setSubmitted(true);
+const handleSave = async () => {
+  let newErrors = {};
 
-    if (
-      isEmpty(form.serial_id) ||
-      isEmpty(form.product_id) ||
-      isEmpty(form.warranty_period) ||
-      isEmpty(form.detailer_name) ||
-      isEmpty(form.detailer_mobile) ||
-      isEmpty(form.car_registration_number) ||
-      isEmpty(form.car_brand) ||
-      isEmpty(form.car_model) ||
-      isEmpty(form.installation_date)
-    )
-      return;
+  if (isEmpty(form.serial_id)) newErrors.serial_id = "Select serial";
+  if (isEmpty(form.product_id)) newErrors.product_id = "Product missing";
+  if (isEmpty(form.detailer_name)) newErrors.detailer_name = "Required";
+  if (isEmpty(form.detailer_mobile)) newErrors.detailer_mobile = "Required";
+  if (isEmpty(form.car_registration_number)) newErrors.car_registration_number = "Required";
+  if (isEmpty(form.car_brand)) newErrors.car_brand = "Required";
+  if (isEmpty(form.car_model)) newErrors.car_model = "Required";
+  if (isEmpty(form.installation_date)) newErrors.installation_date = "Required";
 
-    setLoading(true);
+  setSubmitted(true);
 
-    const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => {
-      if (Array.isArray(v)) v.forEach((f) => fd.append(k, f));
-      else if (v) fd.append(k, v);
+  if (Object.keys(newErrors).length > 0) {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Fields",
+      text: "Please fill all required fields",
+    });
+    return;
+  }
+
+  setLoading(true);
+
+  const fd = new FormData();
+  Object.entries(form).forEach(([k, v]) => {
+    if (Array.isArray(v)) v.forEach((f) => fd.append(k, f));
+    else if (v) fd.append(k, v);
+  });
+
+  try {
+    await apiInfo.post("/warranty/", fd);
+
+    Swal.fire({
+      icon: "success",
+      title: "Success 🎉",
+      text: "Warranty Added Successfully",
     });
 
-    try {
-      await apiInfo.post("/warranty/", fd);
-      alert("Warranty Added Successfully");
-      onClose();
-    } catch (e) {
-      alert("Error saving warranty");
-    } finally {
-      setLoading(false);
-    }
-  };
+    onClose(); // auto reset trigger
+  } catch (e) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Failed to save warranty",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
   const err = (f) => (submitted && isEmpty(form[f]) ? "border-red-500" : "");
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center px-4 py-6 overflow-y-auto">
       {/* backdrop */}
       <div className="absolute inset-0 bg-black/60" onClick={onClose} />
 
       {/* modal */}
       <div
-        className="relative w-full max-w-2xl rounded-2xl p-6 sm:p-8 animate-scaleIn"
+        className="relative w-full max-w-2xl rounded-2xl p-6 sm:p-8 animate-scaleIn max-h-[90vh] overflow-y-auto"
         style={{ backgroundColor: "#f3f3f3" }}
       >
         <button onClick={onClose} className="absolute top-4 right-4">
           ✕
         </button>
 
-        <h2 className="text-xl font-semibold mb-6">
-          Add Warranty
-        </h2>
+        <h2 className="text-xl font-semibold mb-6">Add Warranty</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* SERIAL */}
@@ -135,24 +169,23 @@ export default function WarrantyFormModal({ open, onClose }) {
           </select>
 
           {/* PRODUCT NAME */}
-<input
-  className="p-3 rounded border bg-gray-100"
-  value={
-    products.find(
-      (p) => String(p.id) === String(form.product_id)
-    )?.product_name || ""
-  }
-  placeholder="Product"
-  disabled
-/>
+          <input
+            className="p-3 rounded border bg-gray-100"
+            value={
+              products.find((p) => String(p.id) === String(form.product_id))
+                ?.product_name || ""
+            }
+            placeholder="Product"
+            disabled
+          />
 
-{/* WARRANTY PERIOD */}
-<input
-  className="p-3 rounded border bg-gray-100"
-  value={form.warranty_period}
-  placeholder="Warranty Period"
-  disabled
-/>
+          {/* WARRANTY PERIOD */}
+          <input
+            className="p-3 rounded border bg-gray-100"
+            value={form.warranty_period}
+            placeholder="Warranty Period"
+            disabled
+          />
 
           <input
             className={`p-3 rounded border ${err("detailer_name")}`}
@@ -189,68 +222,59 @@ export default function WarrantyFormModal({ open, onClose }) {
           <input
             type="date"
             className={`p-3 rounded border ${err("installation_date")}`}
-            onChange={(e) =>
-              onChange("installation_date", e.target.value)
-            }
+            onChange={(e) => onChange("installation_date", e.target.value)}
           />
 
           {/* FILES */}
-          
-{/* CAR IMAGES */}
-<div>
-  <label className="text-xs opacity-70 block mb-1">
-    Car Images
-  </label>
-  <input
-    type="file"
-    multiple
-    className="w-full text-sm"
-    onChange={(e) =>
-      onChange("car_images", Array.from(e.target.files))
-    }
-  />
-  <p className="text-xs opacity-60 mt-1">
-    Upload full car photos (front, back, sides)
-  </p>
-</div>
 
-{/* INSTALLATION IMAGES */}
-<div>
-  <label className="text-xs opacity-70 block mb-1">
-    Installation Images
-  </label>
-  <input
-    type="file"
-    multiple
-    className="w-full text-sm"
-    onChange={(e) =>
-      onChange(
-        "installation_images",
-        Array.from(e.target.files)
-      )
-    }
-  />
-  <p className="text-xs opacity-60 mt-1">
-    Film installation process photos
-  </p>
-</div>
+          {/* CAR IMAGES */}
+          <div>
+            <label className="text-xs opacity-70 block mb-1">Car Images</label>
+            <input
+              type="file"
+              multiple
+              className="w-full text-sm"
+              onChange={(e) =>
+                onChange("car_images", Array.from(e.target.files))
+              }
+            />
+            <p className="text-xs opacity-60 mt-1">
+              Upload full car photos (front, back, sides)
+            </p>
+          </div>
 
-{/* INVOICE */}
-<div>
-  <label className="text-xs opacity-70 block mb-1">
-    Invoice Image
-  </label>
-  <input
-    type="file"
-    className="w-full text-sm"
-    onChange={(e) =>
-      onChange("invoice_image", e.target.files[0])
-    }
-  />
-  <p className="text-xs opacity-60 mt-1">
-    Upload purchase invoice or bill
-  </p>
-</div>
+          {/* INSTALLATION IMAGES */}
+          <div>
+            <label className="text-xs opacity-70 block mb-1">
+              Installation Images
+            </label>
+            <input
+              type="file"
+              multiple
+              className="w-full text-sm"
+              onChange={(e) =>
+                onChange("installation_images", Array.from(e.target.files))
+              }
+            />
+            <p className="text-xs opacity-60 mt-1">
+              Film installation process photos
+            </p>
+          </div>
+
+          {/* INVOICE */}
+          <div>
+            <label className="text-xs opacity-70 block mb-1">
+              Invoice Image
+            </label>
+            <input
+              type="file"
+              className="w-full text-sm"
+              onChange={(e) => onChange("invoice_image", e.target.files[0])}
+            />
+            <p className="text-xs opacity-60 mt-1">
+              Upload purchase invoice or bill
+            </p>
+          </div>
         </div>
 
         <div className="mt-6">
