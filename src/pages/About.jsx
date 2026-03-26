@@ -437,14 +437,27 @@ export default function About() {
               Car Detailing for Long-Lasting Protection
             </h2>
 
-            <p
-              className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
-              style={{ color: themes.backgroundBlack }}
-            >
-              At AutoDetail, we are passionate about restoring and preserving
-              vehicles through expert detailing services using premium products
-              and proven techniques.
-            </p>
+            
+
+            <p  className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
+              style={{ color: themes.backgroundBlack }}>
+            HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
+            46 years in the automotive industry. Since its inception in 1979,
+            the group has been driven by a clear vision to deliver uncompromised
+            quality and lasting value to customers.
+          </p>
+
+          <p  className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
+              style={{ color: themes.backgroundBlack }}>
+            With an unwavering focus on quality and consistency, the organization
+            established a strong presence across automotive accessories and auto
+            components. Over the years, it expanded its portfolio to include
+            premium seat covers, body covers, floor mats, steering covers, and a
+            wide range of auto components, serving both the aftermarket and
+            leading automobile manufacturers.
+          </p>
+
+
 
             {/* <p
               className="leading-relaxed max-w-xl mx-auto lg:mx-0"

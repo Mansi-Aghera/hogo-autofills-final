@@ -35,11 +35,10 @@ export default function FooterView() {
           </Link>
 
           <p className="leading-[1.9] opacity-80 max-w-xl">
-            majority have suffered alteration in some formThere are many
-            variations of passages of Lorem Ipsum available, but the majority
-            have suffered alteration in some formThere are many variations of
-            passages of Lorem Ipsum available, but the majority have suffered
-            alteration in some form
+           HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
+            46 years in the automotive industry. Since its inception in 1979,
+            the group has been driven by a clear vision to deliver uncompromised
+            quality and lasting value to customers.
           </p>
 
           {/* Social Icons */}

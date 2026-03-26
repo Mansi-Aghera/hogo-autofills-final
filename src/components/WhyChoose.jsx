@@ -314,9 +314,7 @@ export default function WhyChoose() {
             className="max-w-3xl mx-auto"
             style={{ color: themes.backgroundBlack, opacity: 0.8 }}
           >
-            Interior deep clean was amazing! All the stains and p, <br />
-            Interior deep clean was amazing! All the stains and pet hair are
-            gone.
+            HOGO AUTOFILMS delivers premium-quality protection with advanced technology, exceptional durability, and trusted OEM heritage—ensuring superior shine, long-term performance, and reliable protection for your vehicle in every condition.
           </p>
         </div>
       </div>

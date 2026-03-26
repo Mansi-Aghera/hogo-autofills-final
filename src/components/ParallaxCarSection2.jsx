@@ -25,21 +25,7 @@ export default function ParallaxCarSection() {
         {/* TEXT */}
         <div className="space-y-5 text-[13px] md:text-[15px] leading-relaxed text-gray-200">
 
-          <p>
-            HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
-            46 years in the automotive industry. Since its inception in 1979,
-            the group has been driven by a clear vision to deliver uncompromised
-            quality and lasting value to customers.
-          </p>
-
-          <p>
-            With an unwavering focus on quality and consistency, the organization
-            established a strong presence across automotive accessories and auto
-            components. Over the years, it expanded its portfolio to include
-            premium seat covers, body covers, floor mats, steering covers, and a
-            wide range of auto components, serving both the aftermarket and
-            leading automobile manufacturers.
-          </p>
+          
 
           <p>
             This commitment to excellence has earned approvals from major OEMs

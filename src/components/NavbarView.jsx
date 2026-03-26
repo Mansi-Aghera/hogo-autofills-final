@@ -35,21 +35,21 @@ export default function NavbarView() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-//   useEffect(() => {
-//   const handleClickOutside = (e) => {
-//     const sidebar = document.getElementById("sidebar");
+  //   useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     const sidebar = document.getElementById("sidebar");
 
-//     if (open && sidebar && !sidebar.contains(e.target)) {
-//       setOpen(false);
-//     }
-//   };
+  //     if (open && sidebar && !sidebar.contains(e.target)) {
+  //       setOpen(false);
+  //     }
+  //   };
 
-//   document.addEventListener("mousedown", handleClickOutside);
+  //   document.addEventListener("mousedown", handleClickOutside);
 
-//   return () => {
-//     document.removeEventListener("mousedown", handleClickOutside);
-//   };
-// }, [open]);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [open]);
 
   //   const handleDistributorLogin = () => {
 
@@ -66,28 +66,28 @@ export default function NavbarView() {
   //   }, 100);
 
   // };
-useEffect(() => {
-  const handleClickOutside = (e) => {
-    const mobileNav = document.getElementById("mobileNav");
-    const hamburger = document.getElementById("hamburgerBtn");
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      const mobileNav = document.getElementById("mobileNav");
+      const hamburger = document.getElementById("hamburgerBtn");
 
-    if (
-      mobileMenu &&
-      mobileNav &&
-      !mobileNav.contains(e.target) &&
-      hamburger &&
-      !hamburger.contains(e.target)
-    ) {
-      setMobileMenu(false);
-    }
-  };
+      if (
+        mobileMenu &&
+        mobileNav &&
+        !mobileNav.contains(e.target) &&
+        hamburger &&
+        !hamburger.contains(e.target)
+      ) {
+        setMobileMenu(false);
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [mobileMenu]);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileMenu]);
   return (
     <>
       {/* ================= NAVBAR ================= */}
@@ -120,13 +120,14 @@ flex items-center justify-between"
 
               { label: "About us", path: "/about" },
 
-              { label: "Contact us", path: "/contact" },
 
               { label: "Gallery", path: "/gallery" },
 
-              { label: "Blog", path: "/blog" },
 
               { label: "Product", path: "/product" },
+
+              { label: "Contact us", path: "/contact" },
+
             ].map((item) => (
               <NavLink
                 key={item.label}
@@ -159,12 +160,11 @@ flex items-center justify-between"
             {/* MOBILE NAVBAR HAMBURGER */}
             <div
               id="hamburgerBtn"
-
               className="md:hidden text-white cursor-pointer text-2xl"
               onClick={() => {
-  setMobileMenu(!mobileMenu);
-  setOpen(false); // 👈 close sidebar
-}}
+                setMobileMenu(!mobileMenu);
+                setOpen(false); // 👈 close sidebar
+              }}
             >
               ☰
             </div>
@@ -174,9 +174,9 @@ flex items-center justify-between"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               onClick={() => {
-  setOpen(true);
-  setMobileMenu(false); // 👈 close hamburger menu
-}}
+                setOpen(true);
+                setMobileMenu(false); // 👈 close hamburger menu
+              }}
             >
               <span
                 className={`block h-[2px] w-8 transition-all duration-300 origin-right ${
@@ -195,13 +195,13 @@ flex items-center justify-between"
       </nav>
 
       {/* MOBILE NAV MENU */}
-<div
-  id="mobileNav"
-  className={`md:hidden fixed top-[70px] left-0 w-full z-40 ${
-    mobileMenu ? "block" : "hidden"
-  }`}
-  style={{ backgroundColor: themes.sidebar }}   // ✅ ADD THIS
->
+      <div
+        id="mobileNav"
+        className={`md:hidden fixed top-[70px] left-0 w-full z-40 ${
+          mobileMenu ? "block" : "hidden"
+        }`}
+        style={{ backgroundColor: themes.sidebar }} // ✅ ADD THIS
+      >
         {[
           { label: "Home", path: "/" },
 
@@ -209,13 +209,12 @@ flex items-center justify-between"
 
           { label: "About us", path: "/about" },
 
-          { label: "Contact us", path: "/contact" },
-
           { label: "Gallery", path: "/gallery" },
 
-          { label: "Blog", path: "/blog" },
 
           { label: "Product", path: "/product" },
+
+          { label: "Contact us", path: "/contact" },
         ].map((item) => (
           <NavLink
             key={item.label}
@@ -242,13 +241,13 @@ flex items-center justify-between"
 
       {/* ================ SIDEBAR ================= */}
       <div
-  id="sidebar"
-  className={`fixed top-0 right-0 h-full w-[75vw] sm:w-[380px] md:w-[400px]
+        id="sidebar"
+        className={`fixed top-0 right-0 h-full w-[75vw] sm:w-[380px] md:w-[400px]
     z-50 shadow-2xl transition-transform duration-400 ${
       open ? "translate-x-0" : "translate-x-full"
     }`}
-  style={{ backgroundColor: themes.backgroundBlack }}
->
+        style={{ backgroundColor: themes.backgroundBlack }}
+      >
         <div
           className="h-full flex flex-col justify-between p-6 sm:p-8
 
@@ -359,3 +358,7 @@ overflow-y-auto"
     </>
   );
 }
+
+
+             // { label: "Blog", path: "/blog" },
+         // { label: "Blog", path: "/blog" },

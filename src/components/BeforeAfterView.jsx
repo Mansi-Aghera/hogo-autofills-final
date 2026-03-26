@@ -86,7 +86,7 @@ export default function BeforeAfterView() {
             }`}
             style={{ color: themes.textWhite }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Experience stunning before-and-after transformations with HOGO AUTOFILMS, where advanced protection solutions restore shine, enhance aesthetics, and deliver a flawless, showroom-like finish that keeps your vehicle looking brand new.
           </p>
         </div>
  
