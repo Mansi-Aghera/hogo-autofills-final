@@ -473,7 +473,7 @@ export default function About() {
   <ParallaxCarSection2 />
 </section>
       {/* ================= TEAM SECTION ================= */}
-      <section
+      {/* <section
         className="py-20 px-4 sm:px-6"
         style={{ backgroundColor: themes.backgroundBlack }}
       >
@@ -556,10 +556,10 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= VISION & MISSION ================= */}
-      <section
+      {/* <section
         className="py-20 px-4 sm:px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
@@ -641,7 +641,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -636,4 +636,3 @@ function StatItem({ item, start }) {
     </div>
   );
 }
- AboutView.jsx
