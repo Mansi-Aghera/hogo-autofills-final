@@ -11,12 +11,12 @@ import galleryBanner from "../assets/images/serviceBanner.jpg";
 // HERO BG
  
 // IMAGES
-import img1 from "../assets/images/Red Porche.png";
-import img2 from "../assets/images/Black Fortuner.png";
-import img3 from "../assets/images/Blue_Skoda.png";
-import img4 from "../assets/images/White Tuscon.png";
-import img5 from "../assets/images/Black BMW 1.png";
-import img6 from "../assets/images/Red Audi.png";
+import img1 from "../assets/images/Black_BMW_1-removebg-preview.png";
+import img2 from "../assets/images/Black_Fortuner-removebg-preview.png";
+import img3 from "../assets/images/Blue_Skoda-removebg-preview.png";
+import img4 from "../assets/images/Red_Audi-removebg-preview.png";
+import img5 from "../assets/images/White_Tuscon-removebg-preview.png";
+import img6 from "../assets/images/Red_Porche-removebg-preview.png";
 // import img7 from "../assets/images/gallery7.jpg";
 // import img8 from "../assets/images/gallery8.jpg";
 // import img9 from "../assets/images/gallery4.jpg";
@@ -99,9 +99,10 @@ export default function Gallery() {
             alt="Gallery"
             className="
               w-full h-[220px] sm:h-[260px] lg:h-[300px]
-              object-cover
+              object-contain
               transition-transform duration-700
               group-hover:scale-110
+              bg-white
             "
           />
 

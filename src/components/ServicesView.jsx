@@ -163,13 +163,13 @@ import s4 from "../assets/images/service4.png";
 import s5 from "../assets/images/service5.jpg";
 import s6 from "../assets/images/service6.png";
  
-import b1 from "../assets/images/brand1.jpg";
+import b1 from "../assets/images/brand1.svg";
 import b2 from "../assets/images/brand2.jpg";
-import b3 from "../assets/images/brand3.jpg";
+import b3 from "../assets/images/brand3.png";
 import b4 from "../assets/images/brand4.jpg";
-import b5 from "../assets/images/brand5.jpg";
+import b5 from "../assets/images/brand5.png";
 import b6 from "../assets/images/brand6.jpg";
-import b7 from "../assets/images/brand7.jpg";
+import b7 from "../assets/images/brand7.png";
 import b8 from "../assets/images/brand8.jpg";
  
 // Data
