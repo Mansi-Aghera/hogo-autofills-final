@@ -50,17 +50,20 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto">
  
           {/* FILTER */}
-<div className="flex justify-center gap-3 mb-12 flex-wrap">
+<div className="flex justify-center gap-2 sm:gap-3 mb-12 whitespace-nowrap">
   {["all", "interior", "exterior", "facility"].map((key) => {
     const isActive = activeFilter === key;
- 
+
     return (
       <RollingButton
         key={key}
         text={key.toUpperCase()}
         onClick={() => setActiveFilter(key)}
         variant="filter"
-        className="text-sm"
+        className="
+          text-[10px] sm:text-sm
+          px-2 py-1 sm:px-4 sm:py-2
+        "
         style={{
           backgroundColor: isActive
             ? themes.primary
@@ -70,7 +73,6 @@ export default function Gallery() {
     );
   })}
 </div>
- 
           {/* GRID (KEY IS MAIN MAGIC) */}
           {/* GRID */}
 <PhotoProvider>
