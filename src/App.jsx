@@ -22,10 +22,11 @@
 import NavbarView from "./components/NavbarView";
 import FooterView from "./components/FooterView";
 import { Outlet } from "react-router-dom";
- 
+ import ScrollToTop from "./components/ScrollToTop";
 export default function App() {
   return (
     <div className="min-h-screen bg-[var(--bg-secondary)]">
+     <ScrollToTop /> 
       <NavbarView />
  
       {/* HERO ONLY ON HOME PAGE */}

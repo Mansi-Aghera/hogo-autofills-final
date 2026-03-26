@@ -1,6 +1,5 @@
- 
 import { themes } from "../config/themeConfig";
- 
+
 import {
   FaFacebookF,
   FaTwitter,
@@ -10,13 +9,11 @@ import {
 } from "react-icons/fa";
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 import logo from "../assets/images/logo.png";
-import { Link ,useNavigate} from "react-router-dom";
- 
- 
- 
+import { Link, useNavigate } from "react-router-dom";
+
 export default function FooterView() {
   const navigate = useNavigate();
- 
+
   return (
     <footer
       className="pt-16 sm:pt-20 md:pt-24"
@@ -29,19 +26,22 @@ export default function FooterView() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-14">
         {/* ABOUT – WIDE */}
         <div className="lg:col-span-2 lg:pr-14">
-         <Link to="/">
-  <img
-    src={logo}
-    alt="Hogo Autofilms"
-    className="h-25 sm:h-27 cursor-pointer"
-  />
-</Link>
- 
- 
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Hogo Autofilms"
+              className="h-25 sm:h-27 cursor-pointer"
+            />
+          </Link>
+
           <p className="leading-[1.9] opacity-80 max-w-xl">
-majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+            majority have suffered alteration in some formThere are many
+            variations of passages of Lorem Ipsum available, but the majority
+            have suffered alteration in some formThere are many variations of
+            passages of Lorem Ipsum available, but the majority have suffered
+            alteration in some form
           </p>
- 
+
           {/* Social Icons */}
           <div className="flex gap-3 sm:gap-4 mt-8">
             {[FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaWhatsapp].map(
@@ -60,36 +60,40 @@ majority have suffered alteration in some formThere are many variations of passa
                 >
                   <Icon style={{ color: themes.textWhite }} />
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
- 
+
         {/* COMPANY */}
         <div className="lg:pl-2">
           <h3 className="text-lg font-semibold mb-8">Company</h3>
-     
-<ul className="space-y-4 list-none">
-  {[
-    { name: "Home", path: "/" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "About Us", path: "/about" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
-  ].map((item, i) => (
-    <li
-      key={i}
-      className="cursor-pointer transition-all opacity-80"
-      onClick={() => navigate(item.path)}
-      onMouseEnter={(e) => (e.currentTarget.style.color = themes.hover)}
-      onMouseLeave={(e) => (e.currentTarget.style.color = themes.textWhite)}
-    >
-      {item.name}
-    </li>
-  ))}
-</ul>
+
+          <ul className="space-y-4 list-none">
+            {[
+              { name: "Home", path: "/" },
+              { name: "Gallery", path: "/gallery" },
+              { name: "About Us", path: "/about" },
+              { name: "Blog", path: "/blog" },
+              { name: "Contact", path: "/contact" },
+            ].map((item, i) => (
+              <li
+                key={i}
+                className="cursor-pointer transition-all opacity-80"
+                onClick={() => navigate(item.path)}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = themes.hover)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = themes.textWhite)
+                }
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
         </div>
- 
+
         {/* SERVICE */}
         <div className="lg:pl-1">
           <h3 className="text-lg font-semibold mb-8">Our PPF</h3>
@@ -117,11 +121,11 @@ majority have suffered alteration in some formThere are many variations of passa
             ))}
           </ul>
         </div>
- 
+
         {/* CONTACT */}
         <div className="lg:pl-1">
           <h3 className="text-lg font-semibold mb-8">Contact Us</h3>
- 
+
           <div className="space-y-6">
             <div className="flex gap-3 sm:gap-4">
               <MdLocationOn
@@ -136,7 +140,7 @@ majority have suffered alteration in some formThere are many variations of passa
                 </span>
               </p>
             </div>
- 
+
             <div className="flex gap-3 sm:gap-4">
               <MdPhone
                 className="text-xl mt-1"
@@ -148,7 +152,7 @@ majority have suffered alteration in some formThere are many variations of passa
                 <span className="opacity-80">+1 800 987 654</span>
               </p>
             </div>
- 
+
             <div className="flex gap-3 sm:gap-4">
               <MdEmail
                 className="text-xl mt-1"
@@ -163,7 +167,7 @@ majority have suffered alteration in some formThere are many variations of passa
           </div>
         </div>
       </div>
- 
+
       {/* BOTTOM BAR */}
       <div
         className="mt-20"
@@ -171,20 +175,24 @@ majority have suffered alteration in some formThere are many variations of passa
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
           <p>© 2026 - Hogo Autofilms</p>
- 
-          <div className="flex gap-8">
-  <Link to="/terms" className="cursor-pointer transition-all hover:text-[var(--primary)]">
-    Terms & Conditions
-  </Link>
 
-  <Link to="/privacy" className="cursor-pointer transition-all hover:text-[var(--primary)]">
-    Privacy Policy
-  </Link>
-</div>
+          <div className="flex gap-8">
+            <Link
+              to="/terms"
+              className="cursor-pointer transition-all hover:text-[var(--primary)]"
+            >
+              Terms & Conditions
+            </Link>
+
+            <Link
+              to="/privacy"
+              className="cursor-pointer transition-all hover:text-[var(--primary)]"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
- 
- 
