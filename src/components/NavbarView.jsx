@@ -89,36 +89,35 @@ flex items-center justify-between"
 
               { label: "Blog", path: "/blog" },
 
-            { label: "Product", path: "/product" },
-
+              { label: "Product", path: "/product" },
             ].map((item) => (
               <NavLink
-  key={item.label}
-  to={item.path}
-  className={({ isActive }) =>
-    `relative font-medium transition-all ${
-      isActive
-        ? "text-[var(--primary)]"
-        : "text-white hover:text-[var(--primary)]"
-    }`
-  }
->
-  {item.label}
-</NavLink>
+                key={item.label}
+                to={item.path}
+                className={({ isActive }) =>
+                  `relative font-medium transition-all ${
+                    isActive
+                      ? "text-[var(--primary)]"
+                      : "text-white hover:text-[var(--primary)]"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
             {/* <RollingButton text="Make Appointment" /> */}
-           <RollingButton
-  text="Distributor Login"
-  onClick={() =>
-    window.open(
-      "https://hogo-autofills-distributor-profile.vercel.app/",
-      "_blank"
-    )
-  }
-/>
+            <RollingButton
+              text="Distributor Login"
+              onClick={() =>
+                window.open(
+                  "https://hogo-autofills-distributor-profile.vercel.app/",
+                  "_blank",
+                )
+              }
+            />
 
             {/* MOBILE NAVBAR HAMBURGER */}
             <div
@@ -169,24 +168,21 @@ flex items-center justify-between"
           { label: "Gallery", path: "/gallery" },
 
           { label: "Blog", path: "/blog" },
-          
-            { label: "Product", path: "/product" },
 
+          { label: "Product", path: "/product" },
         ].map((item) => (
           <NavLink
-  key={item.label}
-  to={item.path}
-  onClick={() => setMobileMenu(false)}
-  className={({ isActive }) =>
-    `block px-6 py-4 border-b border-white/10 transition ${
-      isActive
-        ? "text-[var(--primary)] bg-white/5"
-        : "text-white"
-    }`
-  }
->
-  {item.label}
-</NavLink>
+            key={item.label}
+            to={item.path}
+            onClick={() => setMobileMenu(false)}
+            className={({ isActive }) =>
+              `block px-6 py-4 border-b border-white/10 transition ${
+                isActive ? "text-[var(--primary)] bg-white/5" : "text-white"
+              }`
+            }
+          >
+            {item.label}
+          </NavLink>
         ))}
       </div>
 
@@ -195,7 +191,6 @@ flex items-center justify-between"
         className={`fixed inset-0 bg-black/60 z-40 transition-opacity ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
-        onClick={() => setOpen(false)}
       ></div>
 
       {/* ================ SIDEBAR ================= */}
