@@ -23,7 +23,7 @@ export default function FooterView() {
       }}
     >
       {/* GRID: About (wide) + Company + Service + Contact */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-14">
         {/* ABOUT – WIDE */}
         <div className="lg:col-span-2 lg:pr-14">
           <Link to="/">
@@ -39,7 +39,18 @@ export default function FooterView() {
             46 years in the automotive industry. Since its inception in 1979,
             the group has been driven by a clear vision to deliver uncompromised
             quality and lasting value to customers.
-          </p>
+          </p><br />
+         <div className="flex gap-3 sm:gap-4">
+              <MdEmail
+                className="text-xl mt-1"
+                style={{ color: themes.primary }}
+              />
+              <p>
+                <span className="font-medium">Email Us</span>
+                <br />
+                <span className="opacity-80">support@Hogo Autofilms.com</span>
+              </p>
+            </div>
 
           {/* Social Icons */}
           <div className="flex gap-3 sm:gap-4 mt-8">
@@ -122,7 +133,7 @@ export default function FooterView() {
         </div>
 
         {/* CONTACT */}
-        <div className="lg:pl-1">
+        {/* <div className="lg:pl-1">
           <h3 className="text-lg font-semibold mb-8">Contact Us</h3>
 
           <div className="space-y-6">
@@ -164,7 +175,7 @@ export default function FooterView() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* BOTTOM BAR */}

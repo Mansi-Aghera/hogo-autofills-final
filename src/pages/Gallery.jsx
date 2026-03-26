@@ -6,20 +6,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { themes } from "../config/themeConfig";
  import InnerBanner from "../components/InnerBanner";
-import galleryBanner from "../assets/images/gallery-page-bg.webp";
+import galleryBanner from "../assets/images/serviceBanner.jpg";
 
 // HERO BG
  
 // IMAGES
-import img1 from "../assets/images/gallery1.jpg";
-import img2 from "../assets/images/gallery2.jpg";
-import img3 from "../assets/images/gallery3.jpg";
-import img4 from "../assets/images/gallery4.jpg";
-import img5 from "../assets/images/gallery5.jpg";
-import img6 from "../assets/images/gallery6.jpg";
-import img7 from "../assets/images/gallery7.jpg";
-import img8 from "../assets/images/gallery8.jpg";
-import img9 from "../assets/images/gallery4.jpg";
+import img1 from "../assets/images/Red Porche.png";
+import img2 from "../assets/images/Black Fortuner.png";
+import img3 from "../assets/images/Blue_Skoda.png";
+import img4 from "../assets/images/White Tuscon.png";
+import img5 from "../assets/images/Black BMW 1.png";
+import img6 from "../assets/images/Red Audi.png";
+// import img7 from "../assets/images/gallery7.jpg";
+// import img8 from "../assets/images/gallery8.jpg";
+// import img9 from "../assets/images/gallery4.jpg";
  
 import RollingButton from "../components/RollingButton";
  
@@ -27,10 +27,10 @@ export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState("all");
  
   const galleryImages = {
-    all: [img1, img2, img3, img4, img5, img6, img7, img8, img9],
-    interior: [img1, img2, img3],
-    exterior: [img4, img5, img6],
-    facility: [img7, img8, img9],
+    all: [img1, img2, img3, img4, img5, img6],
+    // interior: [img1, img2, img3],
+    // exterior: [img4, img5, img6],
+    // facility: [img7, img8, img9],
   };
  
   return (
@@ -50,7 +50,7 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto">
  
           {/* FILTER */}
-<div className="flex justify-center gap-2 sm:gap-3 mb-12 whitespace-nowrap">
+{/* <div className="flex justify-center gap-2 sm:gap-3 mb-12 whitespace-nowrap">
   {["all", "interior", "exterior", "facility"].map((key) => {
     const isActive = activeFilter === key;
 
@@ -72,7 +72,7 @@ export default function Gallery() {
       />
     );
   })}
-</div>
+</div> */}
           {/* GRID (KEY IS MAIN MAGIC) */}
           {/* GRID */}
 <PhotoProvider>
