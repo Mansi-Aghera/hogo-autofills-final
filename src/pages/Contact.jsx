@@ -199,34 +199,33 @@ export default function ContactPage() {
                   </span>
                 )}
               </div>
+<div className="relative">
+  <input
+    type="email"
+    placeholder="Your Email"
+    value={form.email}
+    onChange={(e) => onChange("email", e.target.value)}
+    className="w-full px-5 py-3 pr-10 rounded-lg bg-transparent border outline-none transition-all"
+    style={{
+      borderColor: errors.email ? "#ef4444" : themes.textWhite,
+      color: themes.textWhite,
+    }}
+  />
 
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  value={form.email}
-                  onChange={(e) => onChange("email", e.target.value)}
-                  className="w-full px-5 py-3 pr-20 rounded-lg bg-transparent border outline-none transition-all"
-                  style={{
-                    borderColor: errors.email ? "#ef4444" : themes.textWhite,
-                    color: themes.textWhite,
-                  }}
-                />
+  {/* Error icon */}
+  {errors.email && (
+    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-sm">
+      ⚠️
+    </span>
+  )}
+</div>
 
-                {/* 🔴 Error icon */}
-                {errors.email && (
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-sm">
-                    ⚠️
-                  </span>
-                )}
-
-                {/* ✨ Error text (inline, not breaking UI) */}
-                {errors.email && (
-                  <span className="absolute right-10 top-1/2 -translate-y-1/2 text-[11px] text-red-400 whitespace-nowrap">
-                    {errors.email}
-                  </span>
-                )}
-              </div>
+{/* ✅ Error text BELOW input */}
+{errors.email && (
+  <p className="mt-1 text-xs text-red-400">
+    {errors.email}
+  </p>
+)}
               <div className="relative">
                 <input
                   type="tel"
@@ -277,7 +276,7 @@ export default function ContactPage() {
       </section>
 
       {/* ================= LOCATIONS ================= */}
-      {/* <section
+      <section
         className="py-10 px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
@@ -325,7 +324,7 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
     </>
   );
 }
