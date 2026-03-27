@@ -1,23 +1,90 @@
-import { useEffect } from "react";
+
+
+import { useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import RollingButton from "./RollingButton";
+import { apiInfo } from "../service/api";
 
 export default function QuoteFormModal({ open, onClose }) {
-  // Close on ESC
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+
+  const [form, setForm] = useState({
+    full_name: "",
+    email: "",
+    contact: "",
+    address: "",
+    brand_id: "",
+    model_id: "",
+    service: "",
+  });
+
+  // ESC close
   useEffect(() => {
     const handleEsc = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", handleEsc);
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
+  // Fetch brands
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const res = await apiInfo.get("/carbrands/");
+        setBrands(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchBrands();
+  }, []);
+
+  // Fetch models
+  useEffect(() => {
+    if (!form.brand_id) return;
+
+    const fetchModels = async () => {
+      try {
+        const res = await apiInfo.get("/carmodels/");
+        const filtered = res.data.filter(
+          (m) => m.brand_id === Number(form.brand_id)
+        );
+        setModels(filtered);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchModels();
+  }, [form.brand_id]);
+
+  const handleChange = (key, value) => {
+    setForm((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await apiInfo.post("/quotes/", form);
+      alert("Quote submitted ✅");
+      onClose();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-      
+
       {/* BACKDROP */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fadeIn"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
@@ -25,86 +92,120 @@ export default function QuoteFormModal({ open, onClose }) {
       <div
         className="
           relative w-full max-w-lg
+          h-[90vh]
+          bg-[#f3f3f3]
           rounded-2xl shadow-2xl
-          p-6 sm:p-8
-          animate-scaleIn
+          p-5 sm:p-6
+          overflow-y-auto
+          hide-scrollbar
         "
-        style={{ backgroundColor: "#f3f3f3" }}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* CLOSE */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-black"
+          className="absolute top-3 right-4 text-gray-600 text-xl"
         >
           ✕
         </button>
 
         {/* HEADER */}
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-5">
           <div
             className="w-8 h-8 rounded-md flex items-center justify-center"
             style={{ backgroundColor: themes.primary }}
           >
             <span className="text-white font-bold">🚗</span>
           </div>
-          <h2 className="text-xl font-semibold">Get Quote</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Get Quote</h2>
         </div>
 
-        <p className="text-sm text-gray-600 mb-6">
+        <p className="text-sm text-gray-600 mb-5">
           Please fill the form and our team will contact you.
         </p>
 
         {/* FORM */}
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+
           <input
             type="text"
             placeholder="Full Name"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={form.full_name}
+            onChange={(e) => handleChange("full_name", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
           />
 
           <input
             type="email"
             placeholder="Email"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={form.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
           />
 
           <input
             type="tel"
             placeholder="Contact Number"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={form.contact}
+            onChange={(e) => handleChange("contact", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
           />
 
           <textarea
             placeholder="Address"
             rows="3"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={form.address}
+            onChange={(e) => handleChange("address", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
           />
 
-          <div className="grid grid-cols-2 gap-3">
-            <select className="px-4 py-3 rounded-md border border-gray-300">
-              <option>City</option>
-              <option>Dubai</option>
-              <option>Abu Dhabi</option>
-            </select>
+          {/* Brand */}
+          <select
+            value={form.brand_id}
+            onChange={(e) => handleChange("brand_id", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
+          >
+            <option value="">Select Brand</option>
+            {brands.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.name}
+              </option>
+            ))}
+          </select>
 
-            <select className="px-4 py-3 rounded-md border border-gray-300">
-              <option>Select Service</option>
-              <option>PPF</option>
-              <option>Window Film</option>
-              <option>Ceramic</option>
-            </select>
-          </div>
+          {/* Model */}
+          <select
+            value={form.model_id}
+            onChange={(e) => handleChange("model_id", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
+          >
+            <option value="">Select Model</option>
+            {models.map((m) => (
+              <option key={m.id} value={m.id}>
+                {m.name}
+              </option>
+            ))}
+          </select>
 
-       
+          {/* Service */}
+          <select
+            value={form.service}
+            onChange={(e) => handleChange("service", e.target.value)}
+            className="w-full px-4 py-3 rounded-md border"
+          >
+            <option value="">Select Service</option>
+            <option>SUNROOF PROTECTION FILM</option>
+            <option>PAINT PROTECTION FILM</option>
+            <option>WINDOW FILM</option>
+            <option>WINDSCREEN PROTECTION FILM</option>
+          </select>
 
           {/* BUTTON */}
-          <div className="pt-3">
-            <RollingButton
-              text="SUBMIT"
-              className="w-full justify-center"
-              style={{ background: themes.primary }}
-            />
-          </div>
+          <RollingButton
+            text="SUBMIT"
+            className="w-full justify-center mt-2"
+            style={{ background: themes.primary }}
+          />
         </form>
       </div>
     </div>

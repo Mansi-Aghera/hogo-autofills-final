@@ -3,7 +3,6 @@ import { themes } from "../config/themeConfig";
 import RollingButton from "./RollingButton";
 import { apiInfo } from "../service/api";
 import Swal from "sweetalert2";
-
 const isEmpty = (v) => !v || v === "";
 
 export default function WarrantyFormModal({ open, onClose }) {
