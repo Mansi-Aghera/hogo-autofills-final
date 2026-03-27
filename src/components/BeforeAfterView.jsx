@@ -178,7 +178,7 @@ export default function BeforeAfterView() {
        
           <div
             className="
-        relative w-full max-w-4xl
+        relative w-full max-w-lg
         h-[85vh] sm:h-[80vh]
         bg-[#0b0f2a] rounded-xl
         overflow-hidden
@@ -202,22 +202,21 @@ export default function BeforeAfterView() {
                   transform: `translateX(-${current * 100}%)`,
                 }}
               >
-                {Array.from({ length: Math.ceil(images.length / 2) }).map(
-                  (_, i) => (
-                    <div
-                      key={i}
-                      className="min-w-full grid grid-cols-2 gap-3 h-full"
-                    >
-                      {images.slice(i * 2, i * 2 + 2).map((img, idx) => (
-                        <img
-                          key={idx}
-                          src={img}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      ))}
-                    </div>
-                  ),
-                )}
+                {images.map((img, i) => (
+  <div
+    key={i}
+    className="min-w-full flex items-center justify-center h-full"
+  >
+    <div className="w-full h-full flex items-center justify-center rounded-lg">
+
+      <img
+        src={img}
+        className="max-h-full max-w-full object-contain"
+      />
+
+    </div>
+  </div>
+))}
               </div>
             </div>
 
@@ -232,7 +231,7 @@ export default function BeforeAfterView() {
             <button
               onClick={() =>
                 setCurrent((prev) =>
-                  prev === Math.ceil(images.length / 2) - 1 ? prev : prev + 1,
+                  prev === images.length - 1 ? prev : prev + 1,
                 )
               }
               className="absolute right-3 top-1/2 -translate-y-1/2 bg-black px-3 py-1 rounded text-white"
