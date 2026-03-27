@@ -97,6 +97,7 @@ export default function RollingButton({
         px-4 sm:px-6 py-2
         rounded-[6px]
         font-medium
+        cursor-pointer
         transition-all duration-300
         ${
           variant === "primary"
