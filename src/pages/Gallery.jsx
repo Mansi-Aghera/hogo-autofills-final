@@ -17,9 +17,12 @@ import img3 from "../assets/images/Blue_Skoda-removebg-preview.png";
 import img4 from "../assets/images/Red_Audi-removebg-preview.png";
 import img5 from "../assets/images/White_Tuscon-removebg-preview.png";
 import img6 from "../assets/images/Red_Porche-removebg-preview.png";
-// import img7 from "../assets/images/gallery7.jpg";
-// import img8 from "../assets/images/gallery8.jpg";
-// import img9 from "../assets/images/gallery4.jpg";
+import img7 from "../assets/images/insta1.jpeg";
+import img8 from "../assets/images/insta2.jpeg";
+import img9 from "../assets/images/insta3.jpeg";
+import img10 from "../assets/images/insta4.jpeg";
+import img11 from "../assets/images/insta5.jpeg";
+
  
 import RollingButton from "../components/RollingButton";
  
@@ -27,7 +30,7 @@ export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState("all");
  
   const galleryImages = {
-    all: [img1, img2, img3, img4, img5, img6],
+    all: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11],
     // interior: [img1, img2, img3],
     // exterior: [img4, img5, img6],
     // facility: [img7, img8, img9],

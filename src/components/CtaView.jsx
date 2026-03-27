@@ -52,7 +52,7 @@ const [checkOpen, setCheckOpen] = useState(false);
           className="text-2xl md:text-3xl font-semibold text-center md:text-left"
           style={{ color: themes.textWhite }}
         >
-          Want your car to shine like new again?
+          Protection You Can Trust, Warranty You Can Count On.
         </h2>
 
         {/* Buttons */}

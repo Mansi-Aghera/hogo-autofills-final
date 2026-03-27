@@ -7,8 +7,8 @@ import DecoratedTitle from "./DecoratedTitle";
 import RollingButton from "./RollingButton";
 import { themes } from "../config/themeConfig";
  import { useNavigate } from "react-router-dom";
-import about2 from "../assets/images/about2.webp";
-import about1 from "../assets/images/about1.jpg";
+import about2 from "../assets/images/aboutpage3.jpeg";
+import about1 from "../assets/images/aboutpage2.jpeg";
  
 export default function AboutView() {
   /* ================= SCROLL ANIMATION STATE ================= */
@@ -146,7 +146,7 @@ function StatsBand() {
     { label: "Hours of Works", value: 65250, icon: "briefcase" },
     { label: "Happy Customers", value: 23160, icon: "thumb" },
     { label: "Experienced Workers", value: 1500, icon: "users" },
-    { label: "Years of Experience", value: 20, icon: "medal" },
+    { label: "Years of Experience", value: 46, icon: "medal" },
   ];
  
   const [start, setStart] = useState(false);

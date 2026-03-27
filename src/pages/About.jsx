@@ -304,7 +304,7 @@ import { useRef, useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import bg from "../assets/images/about-us-page-bg.webp";
 import aboutImg1 from "../assets/images/car-detailing-upper-img.webp";
-import aboutImg2 from "../assets/images/car-detailing-back-img.webp";
+import aboutImg2 from "../assets/images/aboutpage4.jpeg";
 import DecoratedTitle from "../components/DecoratedTitle";
 
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
@@ -312,7 +312,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import team1 from "../assets/images/car-detailing-upper-img.webp";
 import team2 from "../assets/images/about-us-card-2nd.webp";
-import team3 from "../assets/images/about-us-card-3rd.webp";
+import team3 from "../assets/images/aboutpage1.jpeg";
 import team4 from "../assets/images/about-us-card-4th.webp";
 import { Link } from "react-router-dom";
 import InnerBanner from "../components/InnerBanner";

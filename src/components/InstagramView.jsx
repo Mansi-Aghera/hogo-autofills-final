@@ -63,10 +63,10 @@ import { themes } from "../config/themeConfig";
 import DecoratedTitle from "./DecoratedTitle";
 import { FaInstagram } from "react-icons/fa";
  
-import insta1 from "../assets/images/insta1.jpg";
-import insta2 from "../assets/images/insta2.jpg";
-import insta3 from "../assets/images/insta3.jpg";
-import insta4 from "../assets/images/insta4.jpg";
+import insta1 from "../assets/images/insta1.jpeg";
+import insta2 from "../assets/images/insta2.jpeg";
+import insta3 from "../assets/images/insta3.jpeg";
+import insta4 from "../assets/images/insta5.jpeg";
 import insta5 from "../assets/images/insta5.jpg";
 import insta6 from "../assets/images/insta6.jpg";
 import insta7 from "../assets/images/insta7.jpg";

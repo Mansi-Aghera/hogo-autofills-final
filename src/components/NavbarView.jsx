@@ -117,13 +117,15 @@ flex items-center justify-between"
             {[
               { label: "Home", path: "/" },
 
-              { label: "Services", path: "/services" },
 
               { label: "About us", path: "/about" },
 
               { label: "Gallery", path: "/gallery" },
 
               { label: "Product", path: "/product" },
+
+              { label: "Warranty", path: "/#warranty" },
+
 
               { label: "Contact us", path: "/contact" },
             ].map((item) => (
@@ -203,7 +205,6 @@ flex items-center justify-between"
         {[
           { label: "Home", path: "/" },
 
-          { label: "Services", path: "/services" },
 
           { label: "About us", path: "/about" },
 
@@ -271,12 +272,12 @@ flex items-center justify-between"
             {/* ===== OUR SERVICE SECTION ===== */}
             <h3 className="text-white font-semibold mb-3">Our Service</h3>
             <ul className="space-y-2 text-gray-300 mb-6">
-              <li>Self healing property</li>
-              <li>High gloss film</li>
-              <li>Super hydrophobic property</li>
-              <li>Excellent stain resistance</li>
-              <li>Good optical clarity</li>
-              <li>Anti-yellowing property</li>
+              <li>Sunroof Protection Film</li>
+              <li>Paint Protection Film</li>
+              <li>Window Film</li>
+              <li>Windscreen Protection Film</li>
+              {/* <li>Good optical clarity</li>
+              <li>Anti-yellowing property</li> */}
             </ul>
 
             <hr className="border-gray-700 mb-6" />
@@ -358,3 +359,4 @@ flex items-center justify-between"
 
 // { label: "Blog", path: "/blog" },
 // { label: "Blog", path: "/blog" },
+        //  { label: "Services", path: "/services" },

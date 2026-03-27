@@ -276,7 +276,7 @@ export default function ContactPage() {
       </section>
 
       {/* ================= LOCATIONS ================= */}
-      <section
+      {/* <section
         className="py-10 px-6"
         style={{ backgroundColor: themes.backgroundGray }}
       >
@@ -324,7 +324,7 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -169,13 +169,15 @@ export default function HomeHero() {
       </div>
 
       {/* Cta SECTION */}
+      <div id="warranty">
       <div
         className=""
         style={{ backgroundColor: themes.backgroundGray }}
+        
       >
         <CtaView />
       </div>
-
+</div>
       {/* testimonial SECTION */}
       <div
         className="py-8 sm:py-12 md:py-16"
