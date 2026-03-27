@@ -9,10 +9,31 @@ import {
 } from "react-icons/fa";
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 import logo from "../assets/images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { apiInfo } from "../service/api"; // 👈 your axios instance
+import { useNavigate, Link } from "react-router-dom";
 
 export default function FooterView() {
-  const navigate = useNavigate();
+const [products, setProducts] = useState([]);
+const navigate = useNavigate();
+
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const res = await apiInfo.get("/products/");
+
+      console.log("FULL RESPONSE:", res.data);
+
+      const data = res.data.data || [];
+
+      setProducts(data.slice(0, 6));
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    }
+  };
+
+  fetchProducts();
+}, []);
 
   return (
     <footer
@@ -84,7 +105,6 @@ export default function FooterView() {
               { name: "Home", path: "/" },
               { name: "Gallery", path: "/gallery" },
               { name: "About Us", path: "/about" },
-              { name: "Blog", path: "/blog" },
               { name: "Contact", path: "/contact" },
             ].map((item, i) => (
               <li
@@ -107,29 +127,27 @@ export default function FooterView() {
         {/* SERVICE */}
         <div className="lg:pl-1">
           <h3 className="text-lg font-semibold mb-8">Our PPF</h3>
-          <ul className="space-y-4 list-none">
-            {[
-              "Full Car Paint Protection Film Installation",
-              "Partial PPF (Bonnet, Bumper, Mirrors, Door Edges)",
-              "Self-Healing Scratch Protection",
-              "Stone Chip & Road Debris Protection",
-              "UV & Color Fade Protection",
-              "High-Impact Area Protection",
-            ].map((item, i) => (
-              <li
-                key={i}
-                className="cursor-pointer transition-all opacity-80"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = themes.hover)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = themes.textWhite)
-                }
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+         <ul className="space-y-4 list-none">
+  {products.length === 0 ? (
+    <li className="opacity-50">Loading...</li>
+  ) : (
+    products.map((item) => (
+      <li
+        key={item.id}
+        className="cursor-pointer transition-all opacity-80"
+        onClick={() => navigate(`/product/${item.id}`)}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.color = themes.hover)
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.color = themes.textWhite)
+        }
+      >
+        {item.product_name}
+      </li>
+    ))
+  )}
+</ul>
         </div>
 
         {/* CONTACT */}
@@ -206,3 +224,6 @@ export default function FooterView() {
     </footer>
   );
 }
+
+
+//  { name: "Blog", path: "/blog" },

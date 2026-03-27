@@ -25,7 +25,7 @@ import { Outlet } from "react-router-dom";
  import ScrollToTop from "./components/ScrollToTop";
 export default function App() {
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)]">
+    <div className="min-h-screen bg-[var(--bg-secondary)] hide-scrollbar">
      <ScrollToTop /> 
       <NavbarView />
  

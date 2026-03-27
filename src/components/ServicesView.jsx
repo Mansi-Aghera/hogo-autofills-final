@@ -24,6 +24,7 @@ import b5 from "../assets/images/brand5.png";
 import b6 from "../assets/images/brand6.jpg";
 import b7 from "../assets/images/brand7.png";
 import b8 from "../assets/images/brand8.jpg";
+import ServiceCard from "../pages/ServiceCard";
  
 // Data
 const services = [
@@ -104,69 +105,7 @@ export default function ServicesView() {
  
 /* ================= SERVICE CARD ================= */
  
-function ServiceCard({ item, visible, delay }) {
-  return (
-    <div
-      className={`
-        relative group h-[220px] sm:h-[260px] md:h-[300px]
-        rounded-2xl overflow-hidden
-        transition-all duration-700 ease-out
-        ${
-          visible
-            ? "opacity-100 translate-x-0 translate-y-0"
-            : "opacity-0 translate-x-12 translate-y-6"
-        }
-      `}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {/* Image */}
-      <img
-        src={item.img}
-        alt={item.title}
-        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:blur-[5px]"
-      />
- 
-      {/* Overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundColor: themes.backgroundBlack,
-          opacity: 0.6,
-        }}
-      />
- 
-      {/* Number */}
-      <div
-        className="absolute top-5 left-5 text-xl font-bold z-10"
-        style={{ color: themes.textWhite }}
-      >
-        {item.id}
-      </div>
- 
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-        <h3
-          className="text-xl md:text-2xl font-semibold mb-4"
-          style={{ color: themes.textWhite }}
-        >
-          {item.title}
-        </h3>
- 
-        {/* Button animation (same system-wide style) */}
-        <div
-          className="
-            opacity-0 translate-y-4
-            transition-all duration-700 ease-out
-            group-hover:opacity-100
-            group-hover:translate-y-0
-          "
-        >
-          {/* <RollingButton text="View Details" /> */}
-        </div>
-      </div>
-    </div>
-  );
-}
+
  
 /* ================= BRAND BAND ================= */
  

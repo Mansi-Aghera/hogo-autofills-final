@@ -15,6 +15,7 @@ import {
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function NavbarView() {
   const [scrolled, setScrolled] = useState(false);
@@ -120,14 +121,11 @@ flex items-center justify-between"
 
               { label: "About us", path: "/about" },
 
-
               { label: "Gallery", path: "/gallery" },
-
 
               { label: "Product", path: "/product" },
 
               { label: "Contact us", path: "/contact" },
-
             ].map((item) => (
               <NavLink
                 key={item.label}
@@ -211,7 +209,6 @@ flex items-center justify-between"
 
           { label: "Gallery", path: "/gallery" },
 
-
           { label: "Product", path: "/product" },
 
           { label: "Contact us", path: "/contact" },
@@ -249,9 +246,7 @@ flex items-center justify-between"
         style={{ backgroundColor: themes.backgroundBlack }}
       >
         <div
-          className="h-full flex flex-col justify-between p-6 sm:p-8
-
-overflow-y-auto"
+          className="h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto hide-scrollbar"
         >
           {/* TOP: LOGO + CLOSE */}
           <div>
@@ -290,7 +285,7 @@ overflow-y-auto"
             <h3 className="text-white font-semibold mb-3">Contact Us</h3>
 
             <div className="space-y-3 text-gray-300 mb-6">
-              <div className="flex items-start gap-3">
+              {/* <div className="flex items-start gap-3">
                 <span className="text-[var(--primary)]">🕒</span>
                 <p>Monday - Friday 08.00 - 18.00</p>
               </div>
@@ -303,6 +298,17 @@ overflow-y-auto"
               <div className="flex items-start gap-3">
                 <span className="text-[var(--primary)]">✉️</span>
                 <p>contact@wastewise.com</p>
+              </div> */}
+              <div className="flex gap-3 sm:gap-4">
+                <MdEmail
+                  className="text-xl mt-1"
+                  style={{ color: themes.primary }}
+                />
+                <p>
+                  <span className="font-medium">Email Us</span>
+                  <br />
+                  <span className="opacity-80">support@Hogo Autofilms.com</span>
+                </p>
               </div>
             </div>
 
@@ -311,19 +317,10 @@ overflow-y-auto"
             {/* ===== ABOUT US SECTION ===== */}
             <h3 className="text-white font-semibold mb-3">About Us</h3>
             <p className="text-gray-400 text-sm leading-relaxed max-h-[180px] overflow-y-auto">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some formThere are
-              many variations of passages of Lorem Ipsum available, but the
-              majority have suffered alteration in some formThere are many
-              variations of passages of Lorem Ipsum available, but the majority
-              have suffered alteration in some formThere are many variations of
-              passages of Lorem Ipsum available, but the majority have suffered
-              alteration in some formThere are many variations of passages of
-              Lorem Ipsum available, but the majority have suffered alteration
-              in some formThere are many variations of passages of Lorem Ipsum
-              available, but the majority have suffered alteration in some
-              formThere are many variations of passages of Lorem Ipsum
-              available, but the majority have suffered alteration in some form
+              HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
+              46 years in the automotive industry. Since its inception in 1979,
+              the group has been driven by a clear vision to deliver
+              uncompromised quality and lasting value to customers.
             </p>
           </div>
 
@@ -359,6 +356,5 @@ overflow-y-auto"
   );
 }
 
-
-             // { label: "Blog", path: "/blog" },
-         // { label: "Blog", path: "/blog" },
+// { label: "Blog", path: "/blog" },
+// { label: "Blog", path: "/blog" },
