@@ -95,15 +95,7 @@ export default function QuoteFormModal({ open, onClose }) {
             </select>
           </div>
 
-          <div>
-            <label className="text-sm text-gray-600">
-              Upload your Resume
-            </label>
-            <input
-              type="file"
-              className="mt-1 block w-full text-sm"
-            />
-          </div>
+       
 
           {/* BUTTON */}
           <div className="pt-3">
