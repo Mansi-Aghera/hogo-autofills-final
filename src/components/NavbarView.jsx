@@ -271,12 +271,12 @@ flex items-center justify-between"
             {/* ===== OUR SERVICE SECTION ===== */}
             <h3 className="text-white font-semibold mb-3">Our Service</h3>
             <ul className="space-y-2 text-gray-300 mb-6">
-              <li>Exterior Hand Wash & Wax</li>
-              <li>Paint Correction</li>
-              <li>Interior Deep Cleaning</li>
-              <li>Ceramic Coating Protection</li>
-              <li>Engine Bay Detailing</li>
-              <li>Headlight Restoration</li>
+              <li>Self healing property</li>
+              <li>High gloss film</li>
+              <li>Super hydrophobic property</li>
+              <li>Excellent stain resistance</li>
+              <li>Good optical clarity</li>
+              <li>Anti-yellowing property</li>
             </ul>
 
             <hr className="border-gray-700 mb-6" />

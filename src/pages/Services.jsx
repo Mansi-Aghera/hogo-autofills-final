@@ -16,12 +16,12 @@ import InnerBanner from "../components/InnerBanner";
 import ServiceCard from "./ServiceCard";
  
 const services = [
-  { id: "01", title: "Exterior Hand Wash & Wax", desc: "Gentle yet thorough hand wash using pH-balanced soaps, followed by premium wax.", img: s1 },
-  { id: "02", title: "Interior Deep Cleaning", desc: "Deep vacuuming, steam cleaning, and leather treatment.", img: s2 },
-  { id: "03", title: "Paint Correction", desc: "Removes swirl marks, oxidation, and light scratches.", img: s3 },
-  { id: "04", title: "Ceramic Coating", desc: "Long-lasting protection with mirror-like gloss.", img: s4 },
-  { id: "05", title: "Engine Bay Detailing", desc: "Degreasing and detailing for a like-new engine look.", img: s5 },
-  { id: "06", title: "Headlight Restoration", desc: "Restore clarity and brightness of headlights.", img: s6 },
+  { id: "01", title: "Self healing property", img: s1 },
+  { id: "02", title: "High gloss film", img: s2 },
+  { id: "03", title: "Super hydrophobic property", img: s3 },
+  { id: "04", title: "Excellent stain resistance", img: s4 },
+  { id: "05", title: "Good optical clarity", img: s5 },
+  { id: "06", title: "Anti-yellowing property", img: s6 },
 ];
  
 export default function ServicesPage() {

@@ -1,51 +1,5 @@
 
 
-// import { Link } from "react-router-dom";
-// import { themes } from "../config/themeConfig";
-// import { BASE } from "../service/api";
-
-// export default function ProductCard({ product }) {
-
-//   return (
-
-//     <Link to={`/product/${product.id}`} className="block">
-
-//       <div
-//         className="rounded-2xl overflow-hidden shadow-lg transition hover:-translate-y-2 duration-300 border border-white"
-//         style={{ background: themes.textWhite }}
-//       >
-
-//         {/* Image */}
-//         <div className="h-[220px] overflow-hidden">
-
-//           <img
-//             src={`${BASE}${product.thumbnail_image}`}
-//             alt={product.product_name}
-//             className="w-full h-full object-contain"
-//           />
-
-//         </div>
-
-//         {/* Content */}
-//         <div
-//           className="p-6"
-//           style={{ background: themes.backgroundBlack }}
-//         >
-
-//           <h3 className="text-white text-lg font-semibold mb-2">
-//             {product.product_name}
-//           </h3>
-
-          
-
-//         </div>
-
-//       </div>
-
-//     </Link>
-//   );
-// }
-
 import { Link } from "react-router-dom";
 import { themes } from "../config/themeConfig";
 import { BASE } from "../service/api";

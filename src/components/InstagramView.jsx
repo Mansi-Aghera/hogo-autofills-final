@@ -135,7 +135,7 @@ export default function InstagramView() {
       <div
         className={`
           grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8
-          transition-all duration-900 ease-out delay-300
+          transition-all duration-700 ease-out delay-300
           ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
         `}
       >

@@ -79,8 +79,7 @@ export default function ServicesView() {
                 ${headerVisible ? "opacity-80 translate-y-0" : "opacity-0 translate-y-10"}
               `}
             >
-              There are many variations of passages of Lorem Ipsum available, but
-              the majority have suffered alteration in some form
+              Ensuring superior shine, long-term performance, and reliable protection for your vehicle in every condition.
             </p>
           </div>
  
@@ -103,7 +102,6 @@ export default function ServicesView() {
   );
 }
  
-/* ================= SERVICE CARD ================= */
  
 
  
