@@ -93,7 +93,7 @@ export default function NavbarView() {
     <>
       {/* ================= NAVBAR ================= */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 sm:py-6 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-4 sm:pt-4 ${
           scrolled ? "shadow-md" : ""
         }`}
         style={{
@@ -109,7 +109,7 @@ flex items-center justify-between"
             <img
               src={logo}
               alt="Hogo Autofilms"
-              className="h-10 sm:h-12 cursor-pointer"
+              className="h-16 sm:h-16 cursor-pointer"
             />
           </Link>
 
@@ -308,7 +308,7 @@ flex items-center justify-between"
                 <p>
                   <span className="font-medium">Email Us</span>
                   <br />
-                  <span className="opacity-80">support@hogoautofilms.com</span>
+                  <span className="opacity-80">info@hogoautofilms.com</span>
                 </p>
               </div>
             </div>

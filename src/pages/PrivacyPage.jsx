@@ -39,7 +39,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-2xl font-semibold">Contact</h2>
           <p>
-            For privacy concerns, contact us at support@hogoautofilms.com.
+            For privacy concerns, contact us at info@hogoautofilms.com.
           </p>
 
         </div>
