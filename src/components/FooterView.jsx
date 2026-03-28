@@ -69,7 +69,7 @@ useEffect(() => {
               <p>
                 <span className="font-medium">Email Us</span>
                 <br />
-                <span className="opacity-80">support@Hogo Autofilms.com</span>
+                <span className="opacity-80">support@hogoautofilms.com</span>
               </p>
             </div>
 
@@ -189,7 +189,7 @@ useEffect(() => {
               <p>
                 <span className="font-medium">Email Us</span>
                 <br />
-                <span className="opacity-80">support@Hogo Autofilms.com</span>
+                <span className="opacity-80">support@hogoautofilms.com</span>
               </p>
             </div>
           </div>
