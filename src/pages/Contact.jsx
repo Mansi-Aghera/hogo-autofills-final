@@ -221,11 +221,11 @@ export default function ContactPage() {
 </div>
 
 {/* ✅ Error text BELOW input */}
-{errors.email && (
+{/* {errors.email && (
   <p className="mt-1 text-xs text-red-400">
     {errors.email}
   </p>
-)}
+)} */}
               <div className="relative">
                 <input
                   type="tel"
