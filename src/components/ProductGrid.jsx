@@ -9,33 +9,60 @@ export default function ProductGrid({ selectedCategory, setCategories }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
 
-    const fetchProducts = async () => {
-      try {
+      let res;
 
-        const res = await apiInfo.get("/products/");
-        const data = res.data.data || [];
-
-        setProducts(data);
-
-        const cats = [...new Set(data.map(p => p.category_name))];
-        setCategories(cats);
-
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoading(false);
+      // ✅ If "All" selected → use sequence API
+      if (!selectedCategory) {
+        res = await apiInfo.get("/products/sequence/");
+      } else {
+        // ✅ Otherwise normal API
+        res = await apiInfo.get("/products/");
       }
-    };
 
-    fetchProducts();
+      const data = res.data.data || [];
+      setProducts(data);
 
-  }, [setCategories]);
+      // ✅ Extract categories ONLY from normal API
+      if (!selectedCategory) return;
 
-  const filteredProducts = selectedCategory
-    ? products.filter(p => p.category_name === selectedCategory)
-    : products;
+      const cats = [...new Set(data.map(p => p.category_name))];
+      setCategories(cats);
+
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProducts();
+}, [selectedCategory, setCategories]);
+
+const filteredProducts = selectedCategory
+  ? products.filter(p => p.category_name === selectedCategory)
+  : products;
+
+  useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await apiInfo.get("/products/");
+      const data = res.data.data || [];
+
+      const cats = [...new Set(data.map(p => p.category_name))];
+      setCategories(cats);
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  fetchCategories();
+}, [setCategories]);
 
   if (loading) {
     return (
