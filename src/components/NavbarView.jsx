@@ -308,7 +308,9 @@ flex items-center justify-between"
                 <p>
                   <span className="font-medium">Email Us</span>
                   <br />
-                  <span className="opacity-80">info@hogoautofilms.com</span>
+                  <span className="opacity-80">info@hogoautofilms.in</span><br />
+                  <span className="opacity-80">sales@hogoautofilms.in</span>
+
                 </p>
               </div>
             </div>
