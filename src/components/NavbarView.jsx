@@ -153,7 +153,8 @@ flex items-center justify-between"
             {/* <RollingButton text="Make Appointment" /> */}
             <RollingButton
               text="Distributor Login"
-              className="text-sm"
+              className="text-xs bg-white"
+              style={{color: themes.primary}}
               onClick={() =>
                 window.open(
                   "https://hogo-autofills-distributor-profile.vercel.app/",

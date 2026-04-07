@@ -228,11 +228,11 @@ const handleSave = async () => {
 
           {/* CAR IMAGES */}
           <div>
-            <label className="text-xs opacity-70 block mb-1">Car Images</label>
+            <label className="text-xs  mb-1 text-black">Car Images</label>
             <input
               type="file"
               multiple
-              className="w-full text-sm"
+              className="w-full text-sm p-3 rounded border"
               onChange={(e) =>
                 onChange("car_images", Array.from(e.target.files))
               }
@@ -244,13 +244,13 @@ const handleSave = async () => {
 
           {/* INSTALLATION IMAGES */}
           <div>
-            <label className="text-xs opacity-70 block mb-1">
+            <label className="text-xs text-black block mb-1">
               Installation Images
             </label>
             <input
               type="file"
               multiple
-              className="w-full text-sm"
+              className="w-full text-sm p-3 rounded border"
               onChange={(e) =>
                 onChange("installation_images", Array.from(e.target.files))
               }
@@ -262,12 +262,12 @@ const handleSave = async () => {
 
           {/* INVOICE */}
           <div>
-            <label className="text-xs opacity-70 block mb-1">
+            <label className="text-xs text-black block mb-1">
               Invoice Image
             </label>
             <input
               type="file"
-              className="w-full text-sm"
+              className="w-full text-sm p-3 rounded border"
               onChange={(e) => onChange("invoice_image", e.target.files[0])}
             />
             <p className="text-xs opacity-60 mt-1">
