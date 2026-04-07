@@ -330,7 +330,7 @@ flex items-center justify-between"
           {/* ===== SOCIAL ICONS ===== */}
 
           {/* ===== SOCIAL ICONS ===== */}
-          <div className="flex items-center gap-4 mt-8">
+          {/* <div className="flex items-center gap-4 mt-8">
             {[
               { icon: <FaFacebookF />, link: "https://facebook.com" },
 
@@ -352,7 +352,7 @@ flex items-center justify-between"
                 <span className="text-lg">{item.icon}</span>
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

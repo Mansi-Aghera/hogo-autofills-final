@@ -1,4 +1,3 @@
-
 // import { themes } from "../config/themeConfig";
 
 // export default function ShopSidebar({ categories, setSelectedCategory }) {
@@ -52,7 +51,6 @@ import { useEffect, useRef, useState } from "react";
 import { themes } from "../config/themeConfig";
 
 export default function ShopSidebar({ categories, setSelectedCategory }) {
-
   const [active, setActive] = useState("");
   const [visible, setVisible] = useState(false);
   const sidebarRef = useRef(null);
@@ -63,7 +61,6 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
   };
 
   useEffect(() => {
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -72,13 +69,12 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (sidebarRef.current) observer.observe(sidebarRef.current);
 
     return () => observer.disconnect();
-
   }, []);
 
   return (
@@ -94,7 +90,6 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
         ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}
       `}
     >
-
       <div
         className="
         p-5 sm:p-6
@@ -105,7 +100,6 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
       "
         style={{ background: themes.sidebar }}
       >
-
         {/* Title */}
         <h3 className="mb-5 text-lg sm:text-xl font-bold text-white">
           Categories
@@ -113,10 +107,8 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
 
         {/* Categories */}
         <div className="space-y-3 text-sm sm:text-base text-gray-300">
-
           {/* All */}
           <label className="flex items-center gap-3 cursor-pointer group">
-
             <input
               type="radio"
               name="category"
@@ -134,17 +126,14 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
             >
               All
             </span>
-
           </label>
 
           {/* Dynamic Categories */}
           {categories.map((cat) => (
-
             <label
               key={cat}
               className="flex items-center gap-3 cursor-pointer group"
             >
-
               <input
                 type="radio"
                 name="category"
@@ -156,22 +145,15 @@ export default function ShopSidebar({ categories, setSelectedCategory }) {
                 className={`
                   transition-all duration-300
                   group-hover:text-white
-                  ${active === cat
-                    ? "text-white font-semibold scale-105"
-                    : ""}
+                  ${active === cat ? "text-white font-semibold scale-105" : ""}
                 `}
               >
                 {cat}
               </span>
-
             </label>
-
           ))}
-
         </div>
-
       </div>
-
     </div>
   );
 }

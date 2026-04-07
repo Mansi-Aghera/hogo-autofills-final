@@ -6,7 +6,7 @@ import AboutView from "./AboutView";
 import ServicesView from "./ServicesView";
 import ParallaxCarSection from "./ParallaxCarSection";
 // import websiteBackground from "../assets/images/website-background.webp"; 
-import websiteBackground from "../assets/images/Homepage-background.png"; 
+import websiteBackground from "../assets/images/Homepage-background.png";
 
 import QuoteFormModal from "./QuoteFormModal";
 import { themes } from "../config/themeConfig";
@@ -19,15 +19,15 @@ import BeforeAfterView from "./BeforeAfterView";
 import { useEffect, useState } from "react";
 
 export default function HomeHero() {
-      const [animate, setAnimate] = useState(false);
- const [quoteOpen, setQuoteOpen] = useState(false);
+  const [animate, setAnimate] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
   // 👇 Trigger animation after component mounts
   useEffect(() => {
     setAnimate(true);
   }, []);
   return (
     <>
-{/* <section
+      {/* <section
   className="
     relative w-full
     flex flex-col items-center 
@@ -41,22 +41,22 @@ export default function HomeHero() {
   }}
 > */}
 
-<section
-  className="
+      <section
+        className="
     relative w-full
     flex flex-col items-center 
     pt-24 sm:pt-32
     pb-6 sm:pb-12
     bg-cover bg-center bg-no-repeat
   "
-  style={{
-    backgroundImage: `url(${websiteBackground})`,
-    backgroundColor: themes.backgroundBlack,
-  }}
->
+        style={{
+          backgroundImage: `url(${websiteBackground})`,
+          backgroundColor: themes.backgroundBlack,
+        }}
+      >
 
 
-{/* <section
+        {/* <section
   className="
     relative w-full
     flex flex-col items-center 
@@ -70,24 +70,24 @@ export default function HomeHero() {
 > */}
 
 
-  {/* 🔹 LIGHT OVERLAY (BACKGROUND OPACITY DOWN) */}
-<div
-  className="absolute inset-0"
-  style={{
-    backgroundColor: themes.backgroundBlack,
-    opacity: 0.6,
-  }}
-></div>
-  {/* ↑ change 20/30/40 as per need */}
+        {/* 🔹 LIGHT OVERLAY (BACKGROUND OPACITY DOWN) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: themes.backgroundBlack,
+            opacity: 0.6,
+          }}
+        ></div>
+        {/* ↑ change 20/30/40 as per need */}
 
-  {/* CONTENT (ABOVE OVERLAY) */}
- <div
-      className="relative max-w-7xl mx-auto px-6 text-center"
-      style={{ color: themes.textWhite }}
-    >
-      {/* HEADING */}
-      <h1
-        className={`
+        {/* CONTENT (ABOVE OVERLAY) */}
+        <div
+          className="relative max-w-7xl mx-auto px-6 text-center"
+          style={{ color: themes.textWhite }}
+        >
+          {/* HEADING */}
+          <h1
+            className={`
           uppercase text-center mx-auto
           text-[clamp(28px,4.5vw,72px)]
           leading-[1.08]
@@ -96,48 +96,48 @@ export default function HomeHero() {
           transition-all duration-700 ease-out
           ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
-      >
-        Ultimate Shield for Your Car's Perfection
- 
-      </h1>
- 
-      {/* PARAGRAPH */}
-      <p
-        className={`
+          >
+            Ultimate Shield for Your Car's Perfection
+
+          </h1>
+
+          {/* PARAGRAPH */}
+          <p
+            className={`
           mt-6 max-w-xl mx-auto mt-6 max-w-xl mx-auto text-base sm:text-lg
           transition-all duration-700 ease-out delay-150
           ${animate ? "opacity-80 translate-y-0" : "opacity-0 translate-y-10"}
         `}
-        style={{
-          fontFamily: themes.fontPrimary,
-          fontWeight: "400",
-          color: themes.textWhite,
-        }}
-      >
-        Explore Our Advanced Paint Protection & Window Films
-      </p>
- 
-      {/* BUTTON */}
-      <div
-        className={`
+            style={{
+              fontFamily: themes.fontPrimary,
+              fontWeight: "400",
+              color: themes.textWhite,
+            }}
+          >
+            Explore Our Advanced Paint Protection & Window Films
+          </p>
+
+          {/* BUTTON */}
+          <div
+            className={`
           mt-6 sm:mt-10 flex justify-center
           transition-all duration-700 ease-out delay-300
           ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
-      >
-       <RollingButton 
-  text="Get Quote" 
-  onClick={() => setQuoteOpen(true)}
-/>
-      </div>
-    </div>
+          >
+            <RollingButton
+              text="Get Quote"
+              onClick={() => setQuoteOpen(true)}
+            />
+          </div>
+        </div>
 
-  {/* CAR IMAGE */}
-  <div className="relative w-full flex justify-center mt-8">
-  <img
-    src={car}
-    alt="Car"
-    className="
+        {/* CAR IMAGE */}
+        <div className="relative w-full flex justify-center mt-8">
+          <img
+            src={car}
+            alt="Car"
+            className="
       w-[95%]
       sm:w-[90%]
       md:w-[85%]
@@ -146,10 +146,10 @@ export default function HomeHero() {
       h-auto
       object-contain
     "
-  />
-</div>
+          />
+        </div>
 
-</section>
+      </section>
 
 
       {/* SERVICES SECTION */}
@@ -157,7 +157,7 @@ export default function HomeHero() {
         className=""
         style={{ backgroundColor: themes.backgroundGray }}
       >
-        <ServicesView />
+        {/* <ServicesView /> */}
       </div>
 
       {/* ABOUT SECTION */}
@@ -170,14 +170,14 @@ export default function HomeHero() {
 
       {/* Cta SECTION */}
       <div id="warranty">
-      <div
-        className=""
-        style={{ backgroundColor: themes.backgroundGray }}
-        
-      >
-        <CtaView />
+        <div
+          className=""
+          style={{ backgroundColor: themes.backgroundGray }}
+
+        >
+          <CtaView />
+        </div>
       </div>
-</div>
       {/* testimonial SECTION */}
       <div
         className="py-8 sm:py-12 md:py-16"
@@ -193,7 +193,7 @@ export default function HomeHero() {
         <WhyChoose />
       </div>
 
-          {/* BeforeAfterView SECTION */}
+      {/* BeforeAfterView SECTION */}
       <div
         className=""
         style={{ backgroundColor: themes.backgroundBlack }}
@@ -208,7 +208,7 @@ export default function HomeHero() {
       >
         <ParallaxCarSection />
       </div>
-                {/* FAQ SECTION */}
+      {/* FAQ SECTION */}
       <div
         className=""
         style={{ backgroundColor: themes.backgroundBlack }}
@@ -216,7 +216,7 @@ export default function HomeHero() {
         <FAQView />
       </div>
 
-                {/* Instagram SECTION */}
+      {/* Instagram SECTION */}
       <div
         className=""
         style={{ backgroundColor: themes.backgroundBlack }}
@@ -224,10 +224,10 @@ export default function HomeHero() {
         <InstagramView />
       </div>
 
-<QuoteFormModal 
-  open={quoteOpen}
-  onClose={() => setQuoteOpen(false)}
-/>
+      <QuoteFormModal
+        open={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+      />
 
     </>
   );

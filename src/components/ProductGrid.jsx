@@ -21,7 +21,7 @@ useEffect(() => {
         res = await apiInfo.get("/products/sequence/");
       } else {
         // ✅ Otherwise normal API
-        res = await apiInfo.get("/products/");
+        res = await apiInfo.get("/products/sequence/");
       }
 
       const data = res.data.data || [];
@@ -43,9 +43,14 @@ useEffect(() => {
   fetchProducts();
 }, [selectedCategory, setCategories]);
 
-const filteredProducts = selectedCategory
+const filteredProducts = (selectedCategory
   ? products.filter(p => p.category_name === selectedCategory)
-  : products;
+  : products
+).sort((a, b) => {
+  const seqA = a.course_sequence ?? 9999;
+  const seqB = b.course_sequence ?? 9999;
+  return seqA - seqB;
+});
 
   useEffect(() => {
   const fetchCategories = async () => {

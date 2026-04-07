@@ -7,7 +7,7 @@ import contactImg from "../assets/images/contactImg.jpg";
 import DecoratedTitle from "../components/DecoratedTitle";
 import { apiInfo } from "../service/api";
 import InnerBanner from "../components/InnerBanner";
-import contactBanner from "../assets/images/contactBanner.jpg";
+import contactBanner from "../assets/images/contactBannerImg.jpg";
 import Swal from "sweetalert2";
 
 export default function ContactPage() {

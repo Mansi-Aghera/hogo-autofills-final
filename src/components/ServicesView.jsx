@@ -1,13 +1,13 @@
 
 
 
- 
+
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import DecoratedTitle from "./DecoratedTitle";
 import SectionHeading from "./SectionHeading";
 import RollingButton from "./RollingButton";
 import { themes } from "../config/themeConfig";
- 
+
 // Images
 import s1 from "../assets/images/service1.jpg";
 import s2 from "../assets/images/service2.jpg";
@@ -15,7 +15,7 @@ import s3 from "../assets/images/service3.jpg";
 import s4 from "../assets/images/service4.png";
 import s5 from "../assets/images/service5.jpg";
 import s6 from "../assets/images/service6.png";
- 
+
 import b1 from "../assets/images/brand1.svg";
 import b2 from "../assets/images/brand2.jpg";
 import b3 from "../assets/images/brand3.png";
@@ -25,7 +25,7 @@ import b6 from "../assets/images/brand6.jpg";
 import b7 from "../assets/images/brand7.png";
 import b8 from "../assets/images/brand8.jpg";
 import ServiceCard from "../pages/ServiceCard";
- 
+
 // Data
 const services = [
   { id: "01", title: "Self healing property", img: s1 },
@@ -35,13 +35,13 @@ const services = [
   { id: "05", title: "Good optical clarity", img: s5 },
   { id: "06", title: "Anti-yellowing property", img: s6 },
 ];
- 
+
 const brands = [b1, b2, b3, b4, b5, b6, b7, b8];
- 
+
 export default function ServicesView() {
   const [headerRef, headerVisible] = useScrollAnimation();
   const [gridRef, gridVisible] = useScrollAnimation();
- 
+
   return (
     <>
       <section
@@ -63,7 +63,7 @@ export default function ServicesView() {
                 style={{ color: themes.backgroundBlack }}
               />
             </div>
- 
+
             <div
               className={`mt-4 transition-all duration-700 ease-out delay-150
                 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
@@ -73,7 +73,7 @@ export default function ServicesView() {
                 Premium Car Detailing
               </SectionHeading>
             </div>
- 
+
             <p
               className={`max-w-2xl mx-auto mt-4 transition-all duration-700 ease-out delay-300
                 ${headerVisible ? "opacity-80 translate-y-0" : "opacity-0 translate-y-10"}
@@ -82,7 +82,7 @@ export default function ServicesView() {
               Ensuring superior shine, long-term performance, and reliable protection for your vehicle in every condition.
             </p>
           </div>
- 
+
           {/* SERVICES GRID */}
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((item, index) => (
@@ -96,17 +96,17 @@ export default function ServicesView() {
           </div>
         </div>
       </section>
- 
+
       <BrandBand />
     </>
   );
 }
- 
- 
 
- 
+
+
+
 /* ================= BRAND BAND ================= */
- 
+
 function BrandBand() {
   return (
     <div
