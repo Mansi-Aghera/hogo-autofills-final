@@ -361,7 +361,7 @@ import team3 from "../assets/images/aboutpage1.jpeg";
 import team4 from "../assets/images/about-us-card-4th.webp";
 import { Link } from "react-router-dom";
 import InnerBanner from "../components/InnerBanner";
-import aboutBanner from "../assets/images/carModify2.png";
+import aboutBanner from "../assets/images/carmodify2.png";
 // import aboutBanner from "../assets/images/carModify.png";
 import ParallaxCarSection2 from "../components/ParallaxCarSection2";
 
