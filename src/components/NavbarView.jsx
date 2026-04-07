@@ -109,7 +109,7 @@ flex items-center justify-between"
             <img
               src={logo}
               alt="Hogo Autofilms"
-              className="h-16 sm:h-16 cursor-pointer"
+              className="h-19 sm:h-21 cursor-pointer"
             />
           </Link>
 
@@ -153,6 +153,7 @@ flex items-center justify-between"
             {/* <RollingButton text="Make Appointment" /> */}
             <RollingButton
               text="Distributor Login"
+              className="text-sm"
               onClick={() =>
                 window.open(
                   "https://hogo-autofills-distributor-profile.vercel.app/",
