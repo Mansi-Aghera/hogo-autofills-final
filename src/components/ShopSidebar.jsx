@@ -46,9 +46,12 @@
 //     </div>
 //   );
 // }
+
+
 import { useEffect, useRef, useState } from "react";
 import { themes } from "../config/themeConfig";
 import axios from "axios";
+import { apiInfo } from "../service/api";
 
 export default function ShopSidebar({ setSelectedCategory }) {
   const [active, setActive] = useState("");
@@ -63,8 +66,8 @@ export default function ShopSidebar({ setSelectedCategory }) {
 
   // ✅ FETCH CATEGORY FROM API
   useEffect(() => {
-    axios
-      .get("https://hogofilm.pythonanywhere.com/category/")
+    apiInfo
+  .get("/category/")
       .then((res) => {
         // adjust if structure different
         setCategories(res.data.data || []);

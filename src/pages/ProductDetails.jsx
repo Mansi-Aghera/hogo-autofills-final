@@ -453,13 +453,13 @@ export default function ProductDetails() {
               {product.product_name}
             </h2>
             <div
-              className="text-sm space-y-2"
+              className="text-sm space-y-2 "
               style={{ color: themes.primary }}
             >
-              <p>
+              <p className="text-lg">
                 Description :
                 <span
-                  className="ml-2"
+                  className="ml-2 text-lg"
                   style={{
                     color: themes.backgroundGray,
                     fontFamily: themes.fontPrimary,

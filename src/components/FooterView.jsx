@@ -177,14 +177,15 @@ import logo from "../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { apiInfo } from "../service/api";
 
 export default function FooterView() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://hogofilm.pythonanywhere.com/products/")
+    apiInfo
+  .get("/products/sequence/")
       .then((res) => {
         setProducts(res.data.data || []);
       })
