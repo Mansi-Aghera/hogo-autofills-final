@@ -1,73 +1,69 @@
-
-
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { apiInfo } from "../service/api";
 
 export default function ProductGrid({ selectedCategory, setCategories }) {
-
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
 
-      let res;
+        let res;
 
-      // ✅ If "All" selected → use sequence API
-      if (!selectedCategory) {
-        res = await apiInfo.get("/products/sequence/");
-      } else {
-        // ✅ Otherwise normal API
-        res = await apiInfo.get("/products/sequence/");
+        // ✅ If "All" selected → use sequence API
+        if (!selectedCategory) {
+          res = await apiInfo.get("/products/sequence/?status=true");
+        } else {
+          // ✅ Otherwise normal API
+          res = await apiInfo.get("/products/sequence/?status=true");
+        }
+
+        const data = res.data.data || [];
+        setProducts(data);
+
+        // ✅ Extract categories ONLY from normal API
+        if (!selectedCategory) return;
+
+        const cats = [...new Set(data.map((p) => p.category_name))];
+        setCategories(cats);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
       }
+    };
 
-      const data = res.data.data || [];
-      setProducts(data);
+    fetchProducts();
+  }, [selectedCategory, setCategories]);
 
-      // ✅ Extract categories ONLY from normal API
-      if (!selectedCategory) return;
-
-      const cats = [...new Set(data.map(p => p.category_name))];
-      setCategories(cats);
-
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchProducts();
-}, [selectedCategory, setCategories]);
-
-const filteredProducts = (selectedCategory
-  ? products.filter(p => p.category_name === selectedCategory)
-  : products
-).sort((a, b) => {
-  const seqA = a.course_sequence ?? 9999;
-  const seqB = b.course_sequence ?? 9999;
-  return seqA - seqB;
-});
+  const filteredProducts = (
+    selectedCategory
+      ? products.filter((p) => p.category_name === selectedCategory)
+      : products
+  ).sort((a, b) => {
+    const seqA = a.course_sequence ?? 9999;
+    const seqB = b.course_sequence ?? 9999;
+    return seqA - seqB;
+  });
 
   useEffect(() => {
-  const fetchCategories = async () => {
-    try {
-      const res = await apiInfo.get("/products/");
-      const data = res.data.data || [];
+    const fetchCategories = async () => {
+      try {
+        const res = await apiInfo.get("/products/");
+        const data = res.data.data || [];
 
-      const cats = [...new Set(data.map(p => p.category_name))];
-      setCategories(cats);
+        const cats = [...new Set(data.map((p) => p.category_name))];
+        setCategories(cats);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  fetchCategories();
-}, [setCategories]);
+    fetchCategories();
+  }, [setCategories]);
 
   if (loading) {
     return (
@@ -84,7 +80,6 @@ const filteredProducts = (selectedCategory
 
   return (
     <div className="w-full">
-
       <div
         className="
         grid
@@ -97,16 +92,18 @@ const filteredProducts = (selectedCategory
         sm:gap-8
       "
       >
-
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-          />
-        ))}
-
+        {filteredProducts.length === 0 ? (
+          <div className="col-span-full text-center py-20">
+            <h2 className="text-white text-xl font-semibold">
+              No Products Available
+            </h2>
+          </div>
+        ) : (
+          filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        )}
       </div>
-
     </div>
   );
 }
