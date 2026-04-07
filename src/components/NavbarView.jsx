@@ -117,7 +117,6 @@ flex items-center justify-between"
             {[
               { label: "Home", path: "/" },
 
-
               { label: "About us", path: "/about" },
 
               { label: "Gallery", path: "/gallery" },
@@ -126,20 +125,25 @@ flex items-center justify-between"
 
               { label: "Warranty", path: "/#warranty" },
 
-
               { label: "Contact us", path: "/contact" },
+
+              { label: "Media", path: "#" },
+
+              { label: "Our Team", path: "#" },
             ].map((item) => (
               <NavLink
-                key={item.label}
-                to={item.path}
-                className={({ isActive }) =>
-                  `relative font-medium transition-all ${
-                    isActive
-                      ? "text-[var(--primary)]"
-                      : "text-white hover:text-[var(--primary)]"
-                  }`
-                }
-              >
+  key={item.label}
+  to={item.path}
+  className={({ isActive }) => {
+    const isHash = item.path.includes("#");
+
+    return `relative font-medium transition-all ${
+      !isHash && isActive
+        ? "text-[var(--primary)]"
+        : "text-white hover:text-[var(--primary)]"
+    }`;
+  }}
+>
                 {item.label}
               </NavLink>
             ))}
@@ -205,7 +209,6 @@ flex items-center justify-between"
         {[
           { label: "Home", path: "/" },
 
-
           { label: "About us", path: "/about" },
 
           { label: "Gallery", path: "/gallery" },
@@ -213,17 +216,24 @@ flex items-center justify-between"
           { label: "Product", path: "/product" },
 
           { label: "Contact us", path: "/contact" },
+          { label: "Media", path: "#" },
+          { label: "Our Team", path: "#" },
+
         ].map((item) => (
           <NavLink
-            key={item.label}
-            to={item.path}
-            onClick={() => setMobileMenu(false)}
-            className={({ isActive }) =>
-              `block px-6 py-4 border-b border-white/10 transition ${
-                isActive ? "text-[var(--primary)] bg-white/5" : "text-white"
-              }`
-            }
-          >
+  key={item.label}
+  to={item.path}
+  onClick={() => setMobileMenu(false)}
+  className={({ isActive }) => {
+    const isHash = item.path.includes("#");
+
+    return `block px-6 py-4 border-b border-white/10 transition ${
+      !isHash && isActive
+        ? "text-[var(--primary)] bg-white/5"
+        : "text-white"
+    }`;
+  }}
+>
             {item.label}
           </NavLink>
         ))}
@@ -246,9 +256,7 @@ flex items-center justify-between"
     }`}
         style={{ backgroundColor: themes.backgroundBlack }}
       >
-        <div
-          className="h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto hide-scrollbar"
-        >
+        <div className="h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto hide-scrollbar">
           {/* TOP: LOGO + CLOSE */}
           <div>
             <div className="flex items-center justify-between mb-6">
@@ -270,12 +278,12 @@ flex items-center justify-between"
             <hr className="border-gray-700 mb-6" />
 
             {/* ===== OUR SERVICE SECTION ===== */}
-            <h3 className="text-white font-semibold mb-3">Our Service</h3>
+            <h3 className="text-white font-semibold mb-3">Our Products</h3>
             <ul className="space-y-2 text-gray-300 mb-6">
+              <li>Paint Protection Film - gloss/matte/color</li>
+              <li>Window Film - safety glaze</li>
               <li>Sunroof Protection Film</li>
-              <li>Paint Protection Film</li>
-              <li>Window Film</li>
-              <li>Windscreen Protection Film</li>
+              <li>Windshield Protection Film</li>
               {/* <li>Good optical clarity</li>
               <li>Anti-yellowing property</li> */}
             </ul>
@@ -308,9 +316,9 @@ flex items-center justify-between"
                 <p>
                   <span className="font-medium">Email Us</span>
                   <br />
-                  <span className="opacity-80">info@hogoautofilms.in</span><br />
+                  <span className="opacity-80">info@hogoautofilms.in</span>
+                  <br />
                   <span className="opacity-80">sales@hogoautofilms.in</span>
-
                 </p>
               </div>
             </div>
@@ -361,4 +369,4 @@ flex items-center justify-between"
 
 // { label: "Blog", path: "/blog" },
 // { label: "Blog", path: "/blog" },
-        //  { label: "Services", path: "/services" },
+//  { label: "Services", path: "/services" },

@@ -485,7 +485,19 @@ export default function About() {
               components. Over the years, it expanded its portfolio to include
               premium seat covers, body covers, floor mats, steering covers, and a
               wide range of auto components, serving both the aftermarket and
-              leading automobile manufacturers.
+              leading automobile manufacturers.       This commitment to excellence has earned approvals from major OEMs
+            such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
+            MG Motor reinforcing its reputation as a trusted partner for
+            high-quality automotive solutions.
+            </p>
+            <p
+              className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
+              style={{ color: themes.backgroundBlack }}
+            >
+            This commitment to excellence has earned approvals from major OEMs
+            such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
+            MG Motor reinforcing its reputation as a trusted partner for
+            high-quality automotive solutions.
             </p>
           </div>
         </div>

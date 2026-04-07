@@ -21,7 +21,7 @@ export default function BeforeAfterView() {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  const images = [about1, about2, about3, about4];
+  const images = [about1, about2, about3];
 
   /* ================= LEFT CONTENT ANIMATION ================= */
   useEffect(() => {

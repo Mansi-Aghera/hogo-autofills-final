@@ -247,19 +247,19 @@ import SectionHeading from "./SectionHeading";
 const cards = [
   {
     title: "Expert Technicians",
-    desc: "majority have suffered alteration in some form, by injected humour, or randomised ",
+    // desc: "majority have suffered alteration in some form, by injected humour, or randomised ",
   },
   {
     title: "Premium Products",
-    desc: "words which don't look even slightly believable. If you are going to use a pas best results.",
+    // desc: "words which don't look even slightly believable. If you are going to use a pas best results.",
   },
   {
     title: "Affordable Pricing",
-    desc: "suffered alteration in some form, by injected humour, or randomisedsuffered alteration in some form,.",
+    // desc: "suffered alteration in some form, by injected humour, or randomisedsuffered alteration in some form,.",
   },
   {
     title: "Customer Satisfaction",
-    desc: "which don't look even suffered alteration in some form, by injected humour, or randomised.",
+    // desc: "which don't look even suffered alteration in some form, by injected humour, or randomised.",
   },
 ];
 
@@ -338,11 +338,11 @@ export default function WhyChoose() {
           <div
             ref={ref}
             key={index}
-            className="p-5 sm:p-6 rounded-lg transition-all duration-300"
+            className="p-7 sm:p-8 rounded-lg transition-all duration-300"
             style={{ backgroundColor: themes.backgroundBlack }}
           >
             <h3
-              className="text-lg sm:text-xl font-semibold mb-2"
+              className="text-lg sm:text-xl font-semibold mb-2 text-center justify-center"
               style={{ color: themes.textWhite }}
             >
               {card.title}

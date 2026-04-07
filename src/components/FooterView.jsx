@@ -241,7 +241,7 @@ export default function FooterView() {
 
         {/* Column 2 */}
         <div className="flex flex-col items-center w-full">
-          <h3 className="text-lg font-semibold mb-6 text-center">Our PPF</h3>
+          <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
           <ul className="flex flex-col items-center space-y-3">
             {products.slice(0, 5).map((product) => (
               <li
@@ -259,7 +259,7 @@ export default function FooterView() {
 
         {/* Column 3 */}
         <div className="flex flex-col items-center w-full">
-          <h3 className="text-lg font-semibold mb-6 text-center">Our PPF</h3>
+          <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
           <ul className="flex flex-col items-center space-y-3">
             {products.slice(5, 10).map((product) => (
               <li
