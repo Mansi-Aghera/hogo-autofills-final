@@ -127,7 +127,7 @@ export default function InstagramView() {
           `}
           style={{ color: themes.backgroundBlack }}
         >
-          @hogo_Autofilms
+          @hogoautofilms_india
         </h2>
       </div>
  

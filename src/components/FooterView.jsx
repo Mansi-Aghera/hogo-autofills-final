@@ -280,27 +280,34 @@ export default function FooterView() {
       {/* Social Icons */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 md:mt-16">
         <div className="flex justify-center gap-4 flex-wrap">
-          {[FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaWhatsapp].map(
-            (Icon, i) => (
-              <div
-                key={i}
-                className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
-                style={{ backgroundColor: themes.backgroundGray }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D20000";
-                  const svg = e.currentTarget.querySelector("svg");
-                  if (svg) svg.style.color = "black";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = themes.backgroundGray;
-                  const svg = e.currentTarget.querySelector("svg");
-                  if (svg) svg.style.color = themes.textWhite;
-                }}
-              >
-                <Icon style={{ color: themes.textWhite }} size={18} />
-              </div>
-            )
-          )}
+          {[
+            { Icon: FaFacebookF, link: "#" },
+            { Icon: FaTwitter, link: "#" },
+            { Icon: FaYoutube, link: "#" },
+            { Icon: FaInstagram, link: "https://www.instagram.com/hogoautofilms_india?igsh=MTVldDk3cXF1c3kzbw==" },
+            { Icon: FaWhatsapp, link: "#" },
+          ].map(({ Icon, link }, i) => (
+            <a
+              key={i}
+              href={link}
+              target={link !== "#" ? "_blank" : undefined}
+              rel={link !== "#" ? "noopener noreferrer" : undefined}
+              className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
+              style={{ backgroundColor: themes.backgroundGray }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#D20000";
+                const svg = e.currentTarget.querySelector("svg");
+                if (svg) svg.style.color = "black";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = themes.backgroundGray;
+                const svg = e.currentTarget.querySelector("svg");
+                if (svg) svg.style.color = themes.textWhite;
+              }}
+            >
+              <Icon style={{ color: themes.textWhite }} size={18} />
+            </a>
+          ))}
         </div>
       </div>
 
