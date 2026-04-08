@@ -127,7 +127,9 @@ export default function InstagramView() {
           `}
           style={{ color: themes.backgroundBlack }}
         >
+        <a href="https://www.instagram.com/hogoautofilms_india?igsh=MTVldDk3cXF1c3kzbw==">
           @hogoautofilms_india
+          </a>
         </h2>
       </div>
  
