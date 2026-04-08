@@ -125,11 +125,12 @@ flex items-center justify-between"
 
               { label: "Warranty", path: "/#warranty" },
 
-              { label: "Contact us", path: "/contact" },
 
               { label: "Media", path: "#" },
 
               { label: "Our Team", path: "#" },
+              { label: "Contact us", path: "/contact" },
+
             ].map((item) => (
               <NavLink
   key={item.label}
@@ -217,9 +218,10 @@ flex items-center justify-between"
 
           { label: "Product", path: "/product" },
 
-          { label: "Contact us", path: "/contact" },
           { label: "Media", path: "#" },
           { label: "Our Team", path: "#" },
+          { label: "Contact us", path: "/contact" },
+
 
         ].map((item) => (
           <NavLink
@@ -283,7 +285,7 @@ flex items-center justify-between"
             <h3 className="text-white font-semibold mb-3">Our Products</h3>
             <ul className="space-y-2 text-gray-300 mb-6">
               <li>Paint Protection Film - gloss/matte/color</li>
-              <li>Safety glaze</li>
+              <li>Safety Glaze</li>
               <li>Sunroof Protection Film</li>
               <li>Windshield Protection Film</li>
               {/* <li>Good optical clarity</li>
