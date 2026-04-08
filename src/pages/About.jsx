@@ -397,66 +397,25 @@ export default function About() {
         style={{ backgroundColor: themes.backgroundGray }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:pb-0 md:pb-0 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* LEFT IMAGES */}
-          <div className="relative w-full">
-
-            {/* 🔥 DESKTOP OVERLAP */}
-            <div className="hidden lg:block relative h-[520px]">
-
-              <div className="absolute z-20 w-[48%] aspect-[4/5] left-0 top-0">
-                <img
-                  src={team3}
-                  alt="Expert"
-                  className="w-full h-full object-cover rounded-xl shadow-2xl"
-                />
-              </div>
-
-              <div className="absolute z-10 w-[48%] aspect-[4/5] left-[38%] top-[14%]">
-                <img
-                  src={aboutImg2}
-                  alt="Workshop"
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                />
-              </div>
+          <div className="relative w-full h-[420px] sm:h-[480px] lg:h-[520px] mt-5">
+            {/* FRONT */}
+            <div className="absolute z-20 left-0 top-0 w-[62%] h-[78%] lg:w-[48%] lg:h-auto lg:aspect-[4/5]">
+              <img
+                src={team3}
+                alt="Expert"
+                className="w-full h-full object-cover rounded-xl shadow-2xl"
+              />
             </div>
 
-            {/* 🧩 TABLET */}
-            <div className="hidden sm:grid lg:hidden grid-cols-2 gap-6 justify-center max-w-[520px] mx-auto">
-              <div className="aspect-[4/5]">
-                <img
-                  src={aboutImg1}
-                  alt="Expert"
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                />
-              </div>
-
-              <div className="aspect-[4/5]">
-                <img
-                  src={aboutImg2}
-                  alt="Workshop"
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                />
-              </div>
-            </div>
-
-            {/* 📱 MOBILE */}
-            <div className="grid sm:hidden gap-5 max-w-[280px] mx-auto">
-              <div className="aspect-[4/5]">
-                <img
-                  src={aboutImg1}
-                  alt="Expert"
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                />
-              </div>
-
-              <div className="aspect-[4/5]">
-                <img
-                  src={aboutImg2}
-                  alt="Workshop"
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                />
-              </div>
+            {/* BACK */}
+            <div className="absolute z-10 right-0 bottom-0 lg:right-auto lg:bottom-auto lg:left-[38%] lg:top-[14%] w-[62%] h-[78%] lg:w-[48%] lg:h-auto lg:aspect-[4/5]">
+              <img
+                src={aboutImg2}
+                alt="Workshop"
+                className="w-full h-full object-cover rounded-xl shadow-xl"
+              />
             </div>
           </div>
 
@@ -486,18 +445,18 @@ export default function About() {
               premium seat covers, body covers, floor mats, steering covers, and a
               wide range of auto components, serving both the aftermarket and
               leading automobile manufacturers.       This commitment to excellence has earned approvals from major OEMs
-            such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
-            MG Motor reinforcing its reputation as a trusted partner for
-            high-quality automotive solutions.
+              such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
+              MG Motor reinforcing its reputation as a trusted partner for
+              high-quality automotive solutions.
             </p>
             <p
               className="leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
               style={{ color: themes.backgroundBlack }}
             >
-            This commitment to excellence has earned approvals from major OEMs
-            such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
-            MG Motor reinforcing its reputation as a trusted partner for
-            high-quality automotive solutions.
+              This commitment to excellence has earned approvals from major OEMs
+              such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
+              MG Motor reinforcing its reputation as a trusted partner for
+              high-quality automotive solutions.
             </p>
           </div>
         </div>
