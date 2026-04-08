@@ -152,13 +152,6 @@ export default function ParallaxCarSection() {
         {/* PARAGRAPHS */}
         <div className="space-y-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[2] text-white/70 text-center">
           <p>
-            This commitment to excellence has earned approvals from major OEMs
-            such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
-            MG Motor reinforcing its reputation as a trusted partner for
-            high-quality automotive solutions.
-          </p>
-
-          <p>
             Recognizing the rapid growth of the car detailing industry, the group
             strategically diversified into the premium automotive care segment
             with the launch of advanced solutions under the brand HOGONN.

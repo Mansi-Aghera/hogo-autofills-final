@@ -185,7 +185,7 @@ export default function FooterView() {
 
   useEffect(() => {
     apiInfo
-  .get("/products/sequence/")
+  .get("/products/sequence/?status=true")
       .then((res) => {
         setProducts(res.data.data || []);
       })
