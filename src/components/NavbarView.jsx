@@ -152,17 +152,7 @@ flex items-center justify-between"
 
           <div className="flex items-center gap-3">
             {/* <RollingButton text="Make Appointment" /> */}
-            <RollingButton
-              text="Distributor Login"
-              className="text-xs bg-white"
-              style={{color: themes.primary}}
-              onClick={() =>
-                window.open(
-                  "https://hogo-autofills-distributor-profile.vercel.app/",
-                  "_blank",
-                )
-              }
-            />
+            
 
             {/* MOBILE NAVBAR HAMBURGER */}
             <div
@@ -330,13 +320,18 @@ flex items-center justify-between"
             <hr className="border-gray-700 mb-6" />
 
             {/* ===== ABOUT US SECTION ===== */}
-            <h3 className="text-white font-semibold mb-3">About Us</h3>
-            <p className="text-gray-400 text-sm leading-relaxed max-h-[180px] overflow-y-auto">
-              HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
-              46 years in the automotive industry. Since its inception in 1979,
-              the group has been driven by a clear vision to deliver
-              uncompromised quality and lasting value to customers.
-            </p>
+            <h3 className="text-white font-semibold mb-3">Distributor Login</h3>
+            <RollingButton
+              text="Distributor Login"
+              className=""
+              
+              onClick={() =>
+                window.open(
+                  "https://hogo-autofills-distributor-profile.vercel.app/",
+                  "_blank",
+                )
+              }
+            />
           </div>
 
           {/* ===== SOCIAL ICONS ===== */}

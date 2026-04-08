@@ -36,7 +36,7 @@ export default function ProductCard({ product }) {
         style={{ background: themes.textWhite }}
       >
         {/* Image - fixed height, prevents shrinking */}
-        <div className="h-[200px] sm:h-[200px] md:h-[300px] overflow-hidden flex items-center justify-center bg-white flex-shrink-0">
+        <div className="h-[200px] sm:h-[200px] md:h-[300px] overflow-hidden flex items-center justify-center bg-[#f7f7f7] flex-shrink-0">
           <img
             src={`${BASE}${product.thumbnail_image}`}
             alt={product.product_name}

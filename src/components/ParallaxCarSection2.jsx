@@ -141,7 +141,7 @@ export default function ParallaxCarSection() {
             </span>
           </h2>
 
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-15 flex items-center gap-4">
             {/* <div className="w-12 h-[2px]" style={{ backgroundColor: themes.primary }}></div> */}
             <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium tracking-widest text-white/90 uppercase">
               Where Quality Meets <br className="hidden sm:block xl:hidden" />
