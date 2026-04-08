@@ -89,8 +89,11 @@
 //   );
 // }
 
+
+
 import { themes } from "../config/themeConfig";
 import bgCar from "../assets/images/background-car.webp";
+import DecoratedTitle from "./DecoratedTitle";
 
 export default function ParallaxCarSection() {
   return (
@@ -121,65 +124,51 @@ export default function ParallaxCarSection() {
         }}
       />
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-white flex flex-col items-center">
-
-        {/* TOP ACCENT LINE */}
-        <div
-          className="w-12 h-[3px] rounded-full mb-8"
-          style={{ backgroundColor: themes.primary }}
-        />
-
-        {/* TITLE */}
-        <h2 className="text-[26px] sm:text-[34px] md:text-[44px] font-semibold text-center leading-tight tracking-wide mb-8">
-          About HOGO AUTOFILMS
-          <br />
-          <span className="text-[18px] sm:text-[22px] md:text-[28px] font-light opacity-75 tracking-widest">
-            India Pvt. Ltd.
-          </span>
-        </h2>
-
-        {/* DIVIDER */}
-        <div className="flex items-center gap-3 mb-10 w-full justify-center">
-          <div className="flex-1 max-w-[80px] h-[1px] bg-white/20" />
-          <div
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ backgroundColor: themes.primary }}
-          />
-          <div className="flex-1 max-w-[80px] h-[1px] bg-white/20" />
+      {/* CONTENT GRID */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        
+        {/* LEFT SIDE: HEADING */}
+        <div className="text-left w-full">
+          <div className="mb-6">
+            <DecoratedTitle text="ABOUT" color={themes.textWhite} />
+          </div>
+          
+          <h2 className="text-[32px] sm:text-[40px] md:text-[50px] font-semibold leading-tight tracking-wide text-white">
+            HOGO AUTOFILMS
+            <br />
+            <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light opacity-75 tracking-widest mt-2 block">
+              India Pvt. Ltd.
+            </span>
+          </h2>
         </div>
 
-        {/* PARAGRAPHS */}
-        <div className="space-y-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[2] text-white/70 text-center">
-          <p>
-            Recognizing the rapid growth of the car detailing industry, the group
-            strategically diversified into the premium automotive care segment
-            with the launch of advanced solutions under the brand HOGONN.
-          </p>
+        {/* RIGHT SIDE: DESCRIPTION IN A BOX */}
+        <div className="bg-[#0a0a0a]/80 backdrop-blur-md p-8 sm:p-10 shadow-2xl border border-white/5 rounded-xl">
+          <div className="space-y-6 text-[14px] sm:text-[15px] leading-[1.9] text-white/80">
+            <p>
+              Recognizing the rapid growth of the car detailing industry, the group
+              strategically diversified into the premium automotive care segment
+              with the launch of advanced solutions under the brand HOGONN.
+            </p>
 
-          <p>
-            At the heart of this journey lies a guiding principle "Quality and
-            Consistency in Quality."
-          </p>
+            <p>
+              At the heart of this journey lies a guiding principle "Quality and
+              Consistency in Quality."
+            </p>
 
-          <p>
-            Our products are developed using advanced technologies, premium raw
-            materials, and rigorous quality control processes.
-          </p>
+            <p>
+              Our products are developed using advanced technologies, premium raw
+              materials, and rigorous quality control processes.
+            </p>
 
-          <p>
-            With a strong legacy and a forward-looking vision, HOGO AUTOFILMS
-            India Pvt. Ltd. remains committed to delivering innovative,
-            reliable, and world-class automotive care solutions ensuring
-            exceptional value and complete customer satisfaction.
-          </p>
+            <p>
+              With a strong legacy and a forward-looking vision, HOGO AUTOFILMS
+              India Pvt. Ltd. remains committed to delivering innovative,
+              reliable, and world-class automotive care solutions ensuring
+              exceptional value and complete customer satisfaction.
+            </p>
+          </div>
         </div>
-
-        {/* BOTTOM ACCENT LINE */}
-        <div
-          className="w-12 h-[3px] rounded-full mt-10"
-          style={{ backgroundColor: themes.primary }}
-        />
 
       </div>
     </section>

@@ -114,7 +114,7 @@ export default function HomeHero() {
               color: themes.textWhite,
             }}
           >
-            Explore Our Advanced Paint Protection & Window Films
+            Explore Our Advanced Paint Protection
           </p>
 
           {/* BUTTON */}
