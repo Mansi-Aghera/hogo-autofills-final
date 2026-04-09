@@ -11,17 +11,17 @@ import galleryBanner from "../assets/images/serviceBanner.jpg";
 // HERO BG
  
 // IMAGES
-import img1 from "../assets/images/Black_BMW_1-removebg-preview.png";
-import img2 from "../assets/images/Black_Fortuner-removebg-preview.png";
-import img3 from "../assets/images/Blue_Skoda-removebg-preview.png";
-import img4 from "../assets/images/Red_Audi-removebg-preview.png";
-import img5 from "../assets/images/White_Tuscon-removebg-preview.png";
-import img6 from "../assets/images/Red_Porche-removebg-preview.png";
-import img7 from "../assets/images/insta1.jpeg";
-import img8 from "../assets/images/insta2.jpeg";
-import img9 from "../assets/images/insta3.jpeg";
-import img10 from "../assets/images/insta4.jpeg";
-import img11 from "../assets/images/insta5.jpeg";
+import img1 from "../assets/images/gallery1.jpeg";
+import img2 from "../assets/images/gallery2.jpeg";
+import img3 from "../assets/images/gallery3.jpeg";
+import img4 from "../assets/images/gallery4.jpeg";
+import img5 from "../assets/images/gallery5.jpeg";
+import img6 from "../assets/images/gallery6.jpeg";
+import img7 from "../assets/images/gallery7.jpeg";
+import img8 from "../assets/images/gallery8.jpeg";
+import img9 from "../assets/images/gallery9.jpeg";
+// import img10 from "../assets/images/gallery1.jpeg";
+// import img11 from "../assets/images/gallery1.jpeg";
 
  
 import RollingButton from "../components/RollingButton";
@@ -30,7 +30,7 @@ export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState("all");
  
   const galleryImages = {
-    all: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11],
+    all: [img1, img2, img3, img4, img5, img6, img7, img8, img9],
     // interior: [img1, img2, img3],
     // exterior: [img4, img5, img6],
     // facility: [img7, img8, img9],
