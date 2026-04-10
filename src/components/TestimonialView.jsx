@@ -16,28 +16,28 @@ import t4 from "../assets/images/testimonial4.jpg";
 const testimonials = [
   {
     name: "Anjali Mehta",
-    date: "15 Jan 2026",
+    date: "07 Mar 2026",
     rating: 5,
     text: "Got my new Defender treated with TPU PPF. The finish is invisible and the self-healing property actually works! Best detailing studio in India for high-end cars.",
     avatar: t1,
   },
   {
     name: "Priya Sharma",
-    date: "02 Jan 2026",
+    date: "14 Mar 2026",
     rating: 5,
     text: "The gloss on my Thar after the Ceramic Coating is unbelievable. It's been 3 months and the water still beads right off. Excellent professional service by the HGGO team!",
     avatar: t2,
   },
   {
     name: "Vikram Malhotra",
-    date: "28 Dec 2025",
+    date: "27 Mar 2026",
     rating: 5,
     text: "I was worried about highway stone chips on my BMW. The matte PPF installation was flawless and it gave my car a whole new aggressive look. Truly premium work.",
     avatar: t3,
   },
   {
     name: "Rohan Deshmukh",
-    date: "20 Dec 2025",
+    date: "5 Apr 2026",
     rating: 5,
     text: "Professional staff and top-tier materials. They explained the difference between TPH and TPU clearly. My Virtus looks better than it did at the showroom delivery.",
     avatar: t4,

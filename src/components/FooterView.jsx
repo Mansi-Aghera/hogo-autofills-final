@@ -1,3 +1,4 @@
+
 // import { themes } from "../config/themeConfig";
 // import {
 //   FaFacebookF,
@@ -10,16 +11,15 @@
 // import { Link, useNavigate } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
+// import { apiInfo } from "../service/api";
 
 // export default function FooterView() {
 //   const navigate = useNavigate();
-
 //   const [products, setProducts] = useState([]);
 
-//   // ✅ Fetch real products from API
 //   useEffect(() => {
-//     axios
-//       .get("https://hogofilm.pythonanywhere.com/products/")
+//     apiInfo
+//       .get("/products/sequence/?status=true")
 //       .then((res) => {
 //         setProducts(res.data.data || []);
 //       })
@@ -27,6 +27,13 @@
 //         console.error("Error fetching products:", err);
 //       });
 //   }, []);
+
+//   const handleProductClick = (id) => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//     setTimeout(() => {
+//       navigate(`/product/${id}`);
+//     }, 300);
+//   };
 
 //   return (
 //     <footer
@@ -38,10 +45,25 @@
 //     >
 //       {/* Main Grid */}
 //       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-x-8 items-start">
+
 //         {/* Column 1 */}
 //         <div className="flex flex-col items-center text-center space-y-5 w-full">
-//           <Link to="/" className="flex items-center justify-center gap-3">
-//             <img src={logo} alt="Hogo Autofilms" style={{ height: "60px" }} />
+//           <Link
+//             to="/"
+//             className="flex flex-row items-center justify-center gap-3 flex-nowrap"
+//           >
+//             <img
+//               src={logo}
+//               alt="Hogo Autofilms"
+//               className="flex-shrink-0 cursor-pointer"
+//               style={{ height: "72px", width: "auto" }}
+//             />
+//             <span
+//               className="whitespace-nowrap font-semibold"
+//               style={{ fontSize: "18px", lineHeight: "1.2" }}
+//             >
+//               HOGO AUTOFILMS
+//             </span>
 //           </Link>
 
 //           <p className="leading-[1.8] opacity-80 text-sm sm:text-base">
@@ -54,20 +76,15 @@
 
 //         {/* Column 2 */}
 //         <div className="flex flex-col items-center w-full">
-//           <h3 className="text-lg font-semibold mb-6 text-center">Our PPF</h3>
-
+//           <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
 //           <ul className="flex flex-col items-center space-y-3">
 //             {products.slice(0, 5).map((product) => (
 //               <li
 //                 key={product.id}
 //                 className="cursor-pointer text-sm sm:text-base opacity-80 transition-all duration-200"
-//                 onClick={() => navigate(`/product/${product.id}`)} // ✅ correct ID
-//                 onMouseEnter={
-//                   (e) => (e.currentTarget.style.color = "red") // ✅ red hover
-//                 }
-//                 onMouseLeave={(e) =>
-//                   (e.currentTarget.style.color = themes.textWhite)
-//                 }
+//                 onClick={() => handleProductClick(product.id)}
+//                 onMouseEnter={(e) => (e.currentTarget.style.color = themes.primary)}
+//                 onMouseLeave={(e) => (e.currentTarget.style.color = themes.textWhite)}
 //               >
 //                 {product.product_name}
 //               </li>
@@ -77,18 +94,15 @@
 
 //         {/* Column 3 */}
 //         <div className="flex flex-col items-center w-full">
-//           <h3 className="text-lg font-semibold mb-6 text-center">Our PPF</h3>
-
+//           <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
 //           <ul className="flex flex-col items-center space-y-3">
 //             {products.slice(5, 10).map((product) => (
 //               <li
 //                 key={product.id}
 //                 className="cursor-pointer text-sm sm:text-base opacity-80 transition-all duration-200"
-//                 onClick={() => navigate(`/product/${product.id}`)} // ✅ correct ID
-//                 onMouseEnter={(e) => (e.currentTarget.style.color = "red")}
-//                 onMouseLeave={(e) =>
-//                   (e.currentTarget.style.color = themes.textWhite)
-//                 }
+//                 onClick={() => handleProductClick(product.id)}
+//                 onMouseEnter={(e) => (e.currentTarget.style.color = themes.primary)}
+//                 onMouseLeave={(e) => (e.currentTarget.style.color = themes.textWhite)}
 //               >
 //                 {product.product_name}
 //               </li>
@@ -98,46 +112,39 @@
 //       </div>
 
 //       {/* Social Icons */}
-//       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 md:mt-16">
-//         <div className="flex justify-center gap-4 flex-wrap">
-//           {[FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaWhatsapp].map(
-//             (Icon, i) => (
-//               <div
-//                 key={i}
-//                 className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
-//                 style={{ backgroundColor: themes.backgroundGray }}
-//               >
-//                 <Icon style={{ color: themes.textWhite }} size={18} />
-//               </div>
-//             )
-//           )}
-//         </div>
-//       </div> */}
 //       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 md:mt-16">
 //         <div className="flex justify-center gap-4 flex-wrap">
-//           {[FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaWhatsapp].map(
-//             (Icon, i) => (
-//               <div
-//                 key={i}
-//                 className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
-//                 style={{ backgroundColor: themes.backgroundGray }}
-//                 onMouseEnter={(e) => {
-//                   e.currentTarget.style.backgroundColor = "#D20000";
-//                   const svg = e.currentTarget.querySelector("svg");
-//                   if (svg) svg.style.color = "black";
-//                 }}
-//                 onMouseLeave={(e) => {
-//                   e.currentTarget.style.backgroundColor = themes.backgroundGray;
-//                   const svg = e.currentTarget.querySelector("svg");
-//                   if (svg) svg.style.color = themes.textWhite;
-//                 }}
-//               >
-//                 <Icon style={{ color: themes.textWhite }} size={18} />
-//               </div>
-//             ),
-//           )}
+//           {[
+//             { Icon: FaFacebookF, link: "#" },
+//             { Icon: FaTwitter, link: "#" },
+//             { Icon: FaYoutube, link: "#" },
+//             { Icon: FaInstagram, link: "https://www.instagram.com/hogoautofilms_india?igsh=MTVldDk3cXF1c3kzbw==" },
+//             { Icon: FaWhatsapp, link: "#" },
+//           ].map(({ Icon, link }, i) => (
+//             <a
+//               key={i}
+//               href={link}
+//               target={link !== "#" ? "_blank" : undefined}
+//               rel={link !== "#" ? "noopener noreferrer" : undefined}
+//               className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
+//               style={{ backgroundColor: themes.backgroundGray }}
+//               onMouseEnter={(e) => {
+//                 e.currentTarget.style.backgroundColor = "#D20000";
+//                 const svg = e.currentTarget.querySelector("svg");
+//                 if (svg) svg.style.color = "black";
+//               }}
+//               onMouseLeave={(e) => {
+//                 e.currentTarget.style.backgroundColor = themes.backgroundGray;
+//                 const svg = e.currentTarget.querySelector("svg");
+//                 if (svg) svg.style.color = themes.textWhite;
+//               }}
+//             >
+//               <Icon style={{ color: themes.textWhite }} size={18} />
+//             </a>
+//           ))}
 //         </div>
 //       </div>
+
 //       {/* Bottom */}
 //       <div
 //         className="mt-12 md:mt-16"
@@ -166,18 +173,17 @@
 // }
 
 import { themes } from "../config/themeConfig";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaYoutube,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
 import logo from "../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { apiInfo } from "../service/api";
+
+// ✅ Import REAL icons
+import instagramIcon from "../assets/images/Instagram_icon.png";
+import facebookIcon from "../assets/images/facebook.svg";
+import youtubeIcon from "../assets/images/youtube.svg";
+import whatsappIcon from "../assets/images/whatsapp.svg";
+import twitterIcon from "../assets/images/twitter.svg";
 
 export default function FooterView() {
   const navigate = useNavigate();
@@ -185,7 +191,7 @@ export default function FooterView() {
 
   useEffect(() => {
     apiInfo
-  .get("/products/sequence/?status=true")
+      .get("/products/sequence/?status=true")
       .then((res) => {
         setProducts(res.data.data || []);
       })
@@ -203,136 +209,91 @@ export default function FooterView() {
 
   return (
     <footer
-      className="pt-16 sm:pt-20 md:pt-24"
+      className="pt-16"
       style={{
         backgroundColor: themes.backgroundBlack,
         color: themes.textWhite,
       }}
     >
-      {/* Main Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-x-8 items-start">
+      {/* GRID */}
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
 
-        {/* Column 1 */}
-        <div className="flex flex-col items-center text-center space-y-5 w-full">
-          <Link
-            to="/"
-            className="flex flex-row items-center justify-center gap-3 flex-nowrap"
-          >
-            <img
-              src={logo}
-              alt="Hogo Autofilms"
-              className="flex-shrink-0 cursor-pointer"
-              style={{ height: "72px", width: "auto" }}
-            />
-            <span
-              className="whitespace-nowrap font-semibold"
-              style={{ fontSize: "18px", lineHeight: "1.2" }}
-            >
-              HOGO AUTOFILMS
-            </span>
+        {/* LOGO */}
+        <div className="text-center space-y-4">
+          <Link to="/" className="flex justify-center items-center gap-3">
+            <img src={logo} alt="logo" style={{ height: "70px" }} />
+            <span className="font-semibold">HOGO AUTOFILMS</span>
           </Link>
 
-          <p className="leading-[1.8] opacity-80 text-sm sm:text-base">
+          <p className="text-sm opacity-80">
             HOGO AUTOFILMS India Pvt. Ltd. is built on a strong legacy of over
-            46 years in the automotive industry. Since its inception in 1979,
-            the group has been driven by a clear vision to deliver uncompromised
-            quality and lasting value to customers.
+            46 years in the automotive industry.
           </p>
         </div>
 
-        {/* Column 2 */}
-        <div className="flex flex-col items-center w-full">
-          <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
-          <ul className="flex flex-col items-center space-y-3">
-            {products.slice(0, 5).map((product) => (
+        {/* PRODUCTS 1 */}
+        <div className="text-center">
+          <h3 className="mb-4 font-semibold">Our Products</h3>
+          <ul className="space-y-2">
+            {products.slice(0, 5).map((p) => (
               <li
-                key={product.id}
-                className="cursor-pointer text-sm sm:text-base opacity-80 transition-all duration-200"
-                onClick={() => handleProductClick(product.id)}
-                onMouseEnter={(e) => (e.currentTarget.style.color = themes.primary)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = themes.textWhite)}
+                key={p.id}
+                className="cursor-pointer opacity-80 hover:text-red-500"
+                onClick={() => handleProductClick(p.id)}
               >
-                {product.product_name}
+                {p.product_name}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Column 3 */}
-        <div className="flex flex-col items-center w-full">
-          <h3 className="text-lg font-semibold mb-6 text-center">Our Products</h3>
-          <ul className="flex flex-col items-center space-y-3">
-            {products.slice(5, 10).map((product) => (
+        {/* PRODUCTS 2 */}
+        <div className="text-center">
+          <h3 className="mb-4 font-semibold">Our Products</h3>
+          <ul className="space-y-2">
+            {products.slice(5, 10).map((p) => (
               <li
-                key={product.id}
-                className="cursor-pointer text-sm sm:text-base opacity-80 transition-all duration-200"
-                onClick={() => handleProductClick(product.id)}
-                onMouseEnter={(e) => (e.currentTarget.style.color = themes.primary)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = themes.textWhite)}
+                key={p.id}
+                className="cursor-pointer opacity-80 hover:text-red-500"
+                onClick={() => handleProductClick(p.id)}
               >
-                {product.product_name}
+                {p.product_name}
               </li>
             ))}
           </ul>
         </div>
       </div>
 
-      {/* Social Icons */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 md:mt-16">
-        <div className="flex justify-center gap-4 flex-wrap">
-          {[
-            { Icon: FaFacebookF, link: "#" },
-            { Icon: FaTwitter, link: "#" },
-            { Icon: FaYoutube, link: "#" },
-            { Icon: FaInstagram, link: "https://www.instagram.com/hogoautofilms_india?igsh=MTVldDk3cXF1c3kzbw==" },
-            { Icon: FaWhatsapp, link: "#" },
-          ].map(({ Icon, link }, i) => (
-            <a
-              key={i}
-              href={link}
-              target={link !== "#" ? "_blank" : undefined}
-              rel={link !== "#" ? "noopener noreferrer" : undefined}
-              className="w-10 h-10 flex items-center justify-center rounded cursor-pointer transition-all duration-200 hover:scale-105"
-              style={{ backgroundColor: themes.backgroundGray }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#D20000";
-                const svg = e.currentTarget.querySelector("svg");
-                if (svg) svg.style.color = "black";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = themes.backgroundGray;
-                const svg = e.currentTarget.querySelector("svg");
-                if (svg) svg.style.color = themes.textWhite;
-              }}
-            >
-              <Icon style={{ color: themes.textWhite }} size={18} />
-            </a>
-          ))}
-        </div>
+      {/* 🔥 SOCIAL ICONS (REAL IMAGES) */}
+      <div className="flex justify-center gap-5 mt-10 flex-wrap">
+
+        {[
+          { icon: facebookIcon, link: "#" },
+          { icon: twitterIcon, link: "#" },
+          { icon: youtubeIcon, link: "#" },
+          { icon: instagramIcon, link: "https://www.instagram.com/hogoautofilms_india" },
+          { icon: whatsappIcon, link: "#" },
+        ].map((item, i) => (
+          <a
+            key={i}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-800 hover:scale-110 transition"
+          >
+            <img
+              src={item.icon}
+              alt="social"
+              className="w-6 h-6 object-contain"
+            />
+          </a>
+        ))}
+
       </div>
 
-      {/* Bottom */}
-      <div
-        className="mt-12 md:mt-16"
-        style={{ borderTop: `1px solid ${themes.backgroundGray}` }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
-          <p>© 2026 - Hogo Autofilms</p>
-          <div className="flex gap-6 sm:gap-8">
-            <Link
-              to="/terms"
-              className="cursor-pointer transition-all hover:text-[var(--primary)]"
-            >
-              Terms & Conditions
-            </Link>
-            <Link
-              to="/privacy"
-              className="cursor-pointer transition-all hover:text-[var(--primary)]"
-            >
-              Privacy Policy
-            </Link>
-          </div>
-        </div>
+      {/* BOTTOM */}
+      <div className="mt-10 border-t border-gray-700 py-5 text-center text-sm opacity-70">
+        © 2026 - Hogo Autofilms
       </div>
     </footer>
   );
