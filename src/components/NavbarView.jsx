@@ -274,7 +274,7 @@ flex items-center justify-between"
             {/* ===== OUR SERVICE SECTION ===== */}
             <h3 className="text-white font-semibold mb-3">Our Products</h3>
             <ul className="space-y-2 text-gray-300 mb-6">
-              <li>Paint Protection Film - gloss/matte/color</li>
+              <li>Paint Protection Film - Gloss/Matte/Color</li>
               <li>Safety Glaze</li>
               <li>Sunroof Protection Film</li>
               <li>Windshield Protection Film</li>
