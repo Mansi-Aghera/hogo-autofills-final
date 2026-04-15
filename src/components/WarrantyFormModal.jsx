@@ -24,6 +24,13 @@ export default function WarrantyFormModal({ open, onClose }) {
     car_images: [],
     installation_images: [],
     invoice_image: null,
+      color: "",
+  license_plate_no: "",
+  address: "",
+  owner_name: "",
+  owner_mobile: "",
+  owner_email: "",
+  email: "",
   });
 
   /* ================= LOAD DATA ================= */
@@ -63,6 +70,13 @@ useEffect(() => {
       car_images: [],
       installation_images: [],
       invoice_image: null,
+        color: "",
+  license_plate_no: "",
+  address: "",
+  owner_name: "",
+  owner_mobile: "",
+  owner_email: "",
+  email: "",
     });
 
     setSubmitted(false);
@@ -223,6 +237,48 @@ const handleSave = async () => {
             className={`p-3 rounded border ${err("installation_date")}`}
             onChange={(e) => onChange("installation_date", e.target.value)}
           />
+
+          <input
+  className="p-3 rounded border"
+  placeholder="Car Color"
+  onChange={(e) => onChange("color", e.target.value)}
+/>
+
+<input
+  className="p-3 rounded border"
+  placeholder="License Plate No"
+  onChange={(e) => onChange("license_plate_no", e.target.value)}
+/>
+
+<input
+  className="p-3 rounded border"
+  placeholder="Owner Name"
+  onChange={(e) => onChange("owner_name", e.target.value)}
+/>
+
+<input
+  className="p-3 rounded border"
+  placeholder="Owner Mobile"
+  onChange={(e) => onChange("owner_mobile", e.target.value)}
+/>
+
+<input
+  className="p-3 rounded border"
+  placeholder="Owner Email"
+  onChange={(e) => onChange("owner_email", e.target.value)}
+/>
+
+<input
+  className="p-3 rounded border"
+  placeholder="Email"
+  onChange={(e) => onChange("email", e.target.value)}
+/>
+
+<textarea
+  className="p-3 rounded border sm:col-span-2"
+  placeholder="Address"
+  onChange={(e) => onChange("address", e.target.value)}
+/>
 
           {/* FILES */}
 
