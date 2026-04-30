@@ -16,8 +16,8 @@ export default function Shop() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await apiInfo.get("/products/");
-        const data = Array.isArray(res.data) ? res.data : res.data?.results || [];
+        const res = await apiInfo.get("/products/sequence/?status=true/");
+        const data = res.data && Array.isArray(res.data.data) ? res.data.data : [];
         setProducts(data);
         setFilteredProducts(data);
         

@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const BASE = "https://hogofilm.pythonanywhere.com";
 
+// export const BASE = "https://apidata.hogoautofilms.in/";
+
 export const apiInfo = axios.create({
   baseURL: BASE,
 });

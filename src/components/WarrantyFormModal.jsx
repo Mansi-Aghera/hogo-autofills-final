@@ -10,6 +10,7 @@ export default function WarrantyFormModal({ open, onClose }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [serialInput, setSerialInput] = useState("");
 
   const [form, setForm] = useState({
     serial_id: "",
@@ -24,13 +25,13 @@ export default function WarrantyFormModal({ open, onClose }) {
     car_images: [],
     installation_images: [],
     invoice_image: null,
-      color: "",
-  license_plate_no: "",
-  address: "",
-  owner_name: "",
-  owner_mobile: "",
-  owner_email: "",
-  email: "",
+    color: "",
+    license_plate_no: "",
+    address: "",
+    owner_name: "",
+    owner_mobile: "",
+    owner_email: "",
+    email: "",
   });
 
   /* ================= LOAD DATA ================= */
@@ -47,42 +48,53 @@ export default function WarrantyFormModal({ open, onClose }) {
   }, [open]);
 
   /* ================= SERIAL → PRODUCT ================= */
-  const handleSerial = (v) => {
-    const s = serials.find((x) => String(x.id) === String(v));
-    setForm((p) => ({
-      ...p,
-      serial_id: v,
-      product_id: String(s?.product || s?.product_id || ""),
-    }));
+  const handleSerial = (val) => {
+    setSerialInput(val);
+    const s = serials.find((x) => String(x.serial_number).trim() === String(val).trim());
+    if (s) {
+      setForm((p) => ({
+        ...p,
+        serial_id: s.id,
+        product_id: String(s?.product || s?.product_id || ""),
+      }));
+    } else {
+      setForm((p) => ({
+        ...p,
+        serial_id: "",
+        product_id: "",
+        warranty_period: "",
+      }));
+    }
   };
-useEffect(() => {
-  if (!open) {
-    setForm({
-      serial_id: "",
-      product_id: "",
-      warranty_period: "",
-      detailer_name: "",
-      detailer_mobile: "",
-      car_registration_number: "",
-      car_brand: "",
-      car_model: "",
-      installation_date: "",
-      car_images: [],
-      installation_images: [],
-      invoice_image: null,
+  useEffect(() => {
+    if (!open) {
+      setForm({
+        serial_id: "",
+        product_id: "",
+        warranty_period: "",
+        detailer_name: "",
+        detailer_mobile: "",
+        car_registration_number: "",
+        car_brand: "",
+        car_model: "",
+        installation_date: "",
+        car_images: [],
+        installation_images: [],
+        invoice_image: null,
         color: "",
-  license_plate_no: "",
-  address: "",
-  owner_name: "",
-  owner_mobile: "",
-  owner_email: "",
-  email: "",
-    });
+        license_plate_no: "",
+        address: "",
+        owner_name: "",
+        owner_mobile: "",
+        owner_email: "",
+        email: "",
+      });
 
-    setSubmitted(false);
-    setLoading(false);
-  }
-}, [open]);
+      setSubmitted(false);
+      setLoading(false);
+      setSerialInput("");
+    }
+  }, [open]);
   /* ================= PRODUCT → WARRANTY ================= */
   useEffect(() => {
     const p = products.find((x) => String(x.id) === String(form.product_id));
@@ -94,57 +106,59 @@ useEffect(() => {
   const onChange = (k, v) => setForm((p) => ({ ...p, [k]: v }));
 
   /* ================= SAVE ================= */
-const handleSave = async () => {
-  let newErrors = {};
+  const handleSave = async () => {
+    let newErrors = {};
 
-  if (isEmpty(form.serial_id)) newErrors.serial_id = "Select serial";
-  if (isEmpty(form.product_id)) newErrors.product_id = "Product missing";
-  if (isEmpty(form.detailer_name)) newErrors.detailer_name = "Required";
-  if (isEmpty(form.detailer_mobile)) newErrors.detailer_mobile = "Required";
-  if (isEmpty(form.car_registration_number)) newErrors.car_registration_number = "Required";
-  if (isEmpty(form.car_brand)) newErrors.car_brand = "Required";
-  if (isEmpty(form.car_model)) newErrors.car_model = "Required";
-  if (isEmpty(form.installation_date)) newErrors.installation_date = "Required";
+    if (isEmpty(form.serial_id)) newErrors.serial_id = "Select serial";
+    if (isEmpty(form.product_id)) newErrors.product_id = "Product missing";
+    if (isEmpty(form.detailer_name)) newErrors.detailer_name = "Required";
+    if (isEmpty(form.detailer_mobile)) newErrors.detailer_mobile = "Required";
+    if (isEmpty(form.car_registration_number))
+      newErrors.car_registration_number = "Required";
+    if (isEmpty(form.car_brand)) newErrors.car_brand = "Required";
+    if (isEmpty(form.car_model)) newErrors.car_model = "Required";
+    if (isEmpty(form.installation_date))
+      newErrors.installation_date = "Required";
 
-  setSubmitted(true);
+    setSubmitted(true);
 
-  if (Object.keys(newErrors).length > 0) {
-    Swal.fire({
-      icon: "warning",
-      title: "Missing Fields",
-      text: "Please fill all required fields",
-    });
-    return;
-  }
+    if (Object.keys(newErrors).length > 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Fields",
+        text: "Please fill all required fields",
+      });
+      return;
+    }
 
-  setLoading(true);
+    setLoading(true);
 
-  const fd = new FormData();
-  Object.entries(form).forEach(([k, v]) => {
-    if (Array.isArray(v)) v.forEach((f) => fd.append(k, f));
-    else if (v) fd.append(k, v);
-  });
-
-  try {
-    await apiInfo.post("/warranty/", fd);
-
-    Swal.fire({
-      icon: "success",
-      title: "Success 🎉",
-      text: "Warranty Added Successfully",
+    const fd = new FormData();
+    Object.entries(form).forEach(([k, v]) => {
+      if (Array.isArray(v)) v.forEach((f) => fd.append(k, f));
+      else if (v) fd.append(k, v);
     });
 
-    onClose(); // auto reset trigger
-  } catch (e) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Failed to save warranty",
-    });
-  } finally {
-    setLoading(false);
-  }
-};
+    try {
+      await apiInfo.post("/warranty/", fd);
+
+      Swal.fire({
+        icon: "success",
+        title: "Success 🎉",
+        text: "Warranty Added Successfully",
+      });
+
+      onClose(); // auto reset trigger
+    } catch (e) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to save warranty",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const err = (f) => (submitted && isEmpty(form[f]) ? "border-red-500" : "");
 
@@ -168,18 +182,12 @@ const handleSave = async () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* SERIAL */}
-          <select
+          <input
             className={`p-3 rounded border ${err("serial_id")}`}
-            value={form.serial_id}
+            value={serialInput}
             onChange={(e) => handleSerial(e.target.value)}
-          >
-            <option value="">Serial</option>
-            {serials.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.serial_number}
-              </option>
-            ))}
-          </select>
+            placeholder="Serial Number"
+          />
 
           {/* PRODUCT NAME */}
           <input
@@ -239,46 +247,46 @@ const handleSave = async () => {
           />
 
           <input
-  className="p-3 rounded border"
-  placeholder="Car Color"
-  onChange={(e) => onChange("color", e.target.value)}
-/>
+            className="p-3 rounded border"
+            placeholder="Car Color"
+            onChange={(e) => onChange("color", e.target.value)}
+          />
 
-<input
-  className="p-3 rounded border"
-  placeholder="License Plate No"
-  onChange={(e) => onChange("license_plate_no", e.target.value)}
-/>
+          <input
+            className="p-3 rounded border"
+            placeholder="License Plate No"
+            onChange={(e) => onChange("license_plate_no", e.target.value)}
+          />
 
-<input
-  className="p-3 rounded border"
-  placeholder="Owner Name"
-  onChange={(e) => onChange("owner_name", e.target.value)}
-/>
+          <input
+            className="p-3 rounded border"
+            placeholder="Owner Name"
+            onChange={(e) => onChange("owner_name", e.target.value)}
+          />
 
-<input
-  className="p-3 rounded border"
-  placeholder="Owner Mobile"
-  onChange={(e) => onChange("owner_mobile", e.target.value)}
-/>
+          <input
+            className="p-3 rounded border"
+            placeholder="Owner Mobile"
+            onChange={(e) => onChange("owner_mobile", e.target.value)}
+          />
 
-<input
-  className="p-3 rounded border"
-  placeholder="Owner Email"
-  onChange={(e) => onChange("owner_email", e.target.value)}
-/>
+          <input
+            className="p-3 rounded border"
+            placeholder="Owner Email"
+            onChange={(e) => onChange("owner_email", e.target.value)}
+          />
 
-<input
-  className="p-3 rounded border"
-  placeholder="Email"
-  onChange={(e) => onChange("email", e.target.value)}
-/>
+          <input
+            className="p-3 rounded border"
+            placeholder="Email"
+            onChange={(e) => onChange("email", e.target.value)}
+          />
 
-<textarea
-  className="p-3 rounded border sm:col-span-2"
-  placeholder="Address"
-  onChange={(e) => onChange("address", e.target.value)}
-/>
+          <textarea
+            className="p-3 rounded border sm:col-span-2"
+            placeholder="Address"
+            onChange={(e) => onChange("address", e.target.value)}
+          />
 
           {/* FILES */}
 
