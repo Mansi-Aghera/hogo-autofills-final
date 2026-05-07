@@ -22,7 +22,7 @@ export default function Gallery() {
   const [galleryImages, setGalleryImages] = useState({ all: [] });
 
   useEffect(() => {
-    fetch("https://hogofilm.pythonanywhere.com/gallery/")
+    fetch("https://apidata.hogoautofilms.co.in/gallery/")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.data) {
