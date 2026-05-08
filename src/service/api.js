@@ -15,3 +15,23 @@ const attachToken = (config) => {
 };
 
 apiInfo.interceptors.request.use(attachToken);
+
+export const fetchAll = async (url) => {
+  let all = [];
+  let nextUrl = url;
+  
+  while (nextUrl) {
+    const res = await apiInfo.get(nextUrl);
+    // Handle both { data: [...] } and { data: { data: [...] } } shapes
+    const batch = res.data?.data || [];
+    const list = Array.isArray(batch) ? batch : batch.data || [];
+    
+    all = [...all, ...list];
+    nextUrl = res.data?.next || null;
+    
+    // Safety break to prevent infinite loops (max 100 pages)
+    if (all.length > 5000) break; 
+  }
+  
+  return all;
+};

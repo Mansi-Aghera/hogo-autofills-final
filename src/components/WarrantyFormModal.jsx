@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { themes } from "../config/themeConfig";
 import RollingButton from "./RollingButton";
-import { apiInfo } from "../service/api";
+import { apiInfo, fetchAll } from "../service/api";
 import Swal from "sweetalert2";
 const isEmpty = (v) => !v || v === "";
 
@@ -38,19 +38,34 @@ export default function WarrantyFormModal({ open, onClose }) {
   useEffect(() => {
     if (!open) return;
 
-    apiInfo.get("/inventory_serials/").then((r) => {
-      setSerials(r.data?.data || []);
+    // Use fetchAll to get all serials across all pages
+    fetchAll("/inventory_serials/").then((data) => {
+      setSerials(data);
     });
 
-    apiInfo.get("/products/").then((r) => {
+    apiInfo.get("/products/sequence/?status=true/").then((r) => {
       setProducts(r.data?.data || []);
     });
   }, [open]);
 
   /* ================= SERIAL → PRODUCT ================= */
-  const handleSerial = (val) => {
+  const handleSerial = async (val) => {
     setSerialInput(val);
-    const s = serials.find((x) => String(x.serial_number).trim() === String(val).trim());
+    
+    // First try local find
+    let s = serials.find((x) => String(x.serial_number).trim() === String(val).trim());
+    
+    // If not found and value has reasonable length, try API lookup (dynamic)
+    if (!s && val.length > 5) {
+      try {
+        const res = await apiInfo.get(`/inventory_serials/?serial_number=${encodeURIComponent(val)}`);
+        const found = (res.data?.data || []).find(x => String(x.serial_number).trim() === String(val).trim());
+        if (found) s = found;
+      } catch (e) {
+        console.error("Error fetching serial dynamically:", e);
+      }
+    }
+
     if (s) {
       setForm((p) => ({
         ...p,

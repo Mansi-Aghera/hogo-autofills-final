@@ -26,6 +26,7 @@ export default function CheckWarrantyModal({ open, onClose }) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
+
   useEffect(() => {
     if (!open) {
       setSerial("");
@@ -34,7 +35,6 @@ export default function CheckWarrantyModal({ open, onClose }) {
     }
   }, [open]);
 
-  // ✅ MOVE THIS DOWN
   if (!open) return null;
 
   const handleCheck = async () => {
@@ -49,14 +49,14 @@ export default function CheckWarrantyModal({ open, onClose }) {
     }
 
     setLoading(true);
+    setData(null);
 
     try {
-      const invRes = await apiInfo.get("/inventory_serials/");
+      // ✅ Fetch serials (supports partial match)
+      const invRes = await apiInfo.get(`/inventory_serials/?serial_number=${encodeURIComponent(serial)}`);
       const invList = invRes.data?.data || [];
 
-      const serialObj = invList.find((s) => s.serial_number === serial);
-
-      if (!serialObj) {
+      if (invList.length === 0) {
         Swal.fire({
           icon: "error",
           title: "Invalid Serial ❌",
@@ -67,15 +67,27 @@ export default function CheckWarrantyModal({ open, onClose }) {
         return;
       }
 
-      const warRes = await apiInfo.get("/warranty/");
+      // Try to find the BEST match among the results
+      // 1. Exact match first
+      let targetSerial = invList.find(s => s.serial_number === serial);
+      
+      // 2. If no exact match, use the first one from the list
+      if (!targetSerial) targetSerial = invList[0];
+
+      // Now fetch warranty for this serial
+      const warRes = await apiInfo.get(`/warranty/?serial_number=${encodeURIComponent(targetSerial.serial_number)}`);
       const warList = warRes.data?.data || [];
 
-      const warranty = warList.find((w) => w.serial_number === serial);
+      // Look for warranty matching this serial or ID
+      const warranty = warList.find((w) => 
+        w.serial_number === targetSerial.serial_number || w.serial_id === targetSerial.id
+      );
 
       if (!warranty) {
         Swal.fire({
           icon: "error",
           title: "Warranty Not Found",
+          text: `No warranty registered for serial ${targetSerial.serial_number}`,
           confirmButtonColor: "#d4af37",
         });
         setLoading(false);
@@ -84,7 +96,13 @@ export default function CheckWarrantyModal({ open, onClose }) {
 
       setData(warranty);
     } catch (e) {
-      alert("Error checking warranty");
+      console.error("Warranty check error:", e);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to check warranty information",
+        confirmButtonColor: "#d4af37",
+      });
     } finally {
       setLoading(false);
     }
