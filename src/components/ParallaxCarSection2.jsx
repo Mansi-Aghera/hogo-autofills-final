@@ -25,8 +25,6 @@
 //         {/* TEXT */}
 //         <div className="space-y-5 text-[13px] md:text-[15px] leading-relaxed text-gray-200">
 
-          
-
 //           <p>
 //             This commitment to excellence has earned approvals from major OEMs
 //             such as Maruti Suzuki, Hyundai Motor India, Mahindra & Mahindra, and
@@ -89,8 +87,6 @@
 //   );
 // }
 
-
-
 import { themes } from "../config/themeConfig";
 import bgCar from "../assets/images/background-car.webp";
 import DecoratedTitle from "./DecoratedTitle";
@@ -126,24 +122,32 @@ export default function ParallaxCarSection() {
 
       {/* CONTENT GRID */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        
         {/* LEFT SIDE: HEADING */}
         <div className="text-left w-full">
           {/* <div className="mb-6">
             <DecoratedTitle text="ABOUT" color={themes.textWhite} />
           </div> */}
-          
-          <h2 className="text-[32px] sm:text-[40px] md:text-[50px] font-semibold leading-tight tracking-wide text-white">
+
+          {/* <h2 className="text-[32px] sm:text-[40px] md:text-[50px] font-semibold leading-tight tracking-wide text-white">
             HOGO AUTOFILMS
             <br />
-            <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light opacity-75 tracking-widest mt-2 block">
+            <span className="text-[20px] sm:text-[24px] md:text-[28px] font-bold  opacity-75 tracking-widest mt-2 block">
               WAY FORWARD
             </span>
-          </h2>
+          </h2> */}
+          <div className="flex flex-col items-end">
+  <h2 className="text-[32px] sm:text-[40px] md:text-[50px] font-semibold leading-tight tracking-wide text-white">
+    HOGO AUTOFILMS
+  </h2>
+
+  <h3 className="text-[26px] sm:text-[34px] md:text-[42px] font-semibold opacity-75 tracking-widest text-white mt-2" style={{color: themes.primary}}>
+    WAY FORWARD
+  </h3>
+</div>
 
           {/* <div className="mt-15 flex items-center gap-4"> */}
-            {/* <div className="w-12 h-[2px]" style={{ backgroundColor: themes.primary }}></div> */}
-            {/* <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium tracking-widest text-white/90 uppercase">
+          {/* <div className="w-12 h-[2px]" style={{ backgroundColor: themes.primary }}></div> */}
+          {/* <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium tracking-widest text-white/90 uppercase">
               Where Quality Meets <br className="hidden sm:block xl:hidden" />
               <span style={{ color: themes.primary }}>Automotive Innovation</span>
             </p>
@@ -154,9 +158,10 @@ export default function ParallaxCarSection() {
         <div className="bg-[#0a0a0a]/80 backdrop-blur-md p-8 sm:p-10 shadow-2xl border border-white/5 rounded-xl">
           <div className="space-y-6 text-[14px] sm:text-[15px] leading-[1.9] text-white/80">
             <p>
-              Recognizing the rapid growth of the car detailing industry, the group
-              strategically diversified into the premium automotive care segment
-              with the launch of advanced solutions under the brand HOGONN.
+              Recognizing the rapid growth of the car detailing industry, the
+              group strategically diversified into the premium automotive care
+              segment with the launch of advanced solutions under the brand
+              HOGONN.
             </p>
 
             <p>
@@ -165,8 +170,8 @@ export default function ParallaxCarSection() {
             </p>
 
             <p>
-              Our products are developed using advanced technologies, premium raw
-              materials, and rigorous quality control processes.
+              Our products are developed using advanced technologies, premium
+              raw materials, and rigorous quality control processes.
             </p>
 
             <p>
@@ -177,7 +182,6 @@ export default function ParallaxCarSection() {
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );
