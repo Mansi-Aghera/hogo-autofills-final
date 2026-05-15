@@ -129,25 +129,25 @@ export default function ParallaxCarSection() {
         
         {/* LEFT SIDE: HEADING */}
         <div className="text-left w-full">
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <DecoratedTitle text="ABOUT" color={themes.textWhite} />
-          </div>
+          </div> */}
           
           <h2 className="text-[32px] sm:text-[40px] md:text-[50px] font-semibold leading-tight tracking-wide text-white">
             HOGO AUTOFILMS
             <br />
             <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light opacity-75 tracking-widest mt-2 block">
-              India Pvt. Ltd.
+              WAY FORWARD
             </span>
           </h2>
 
-          <div className="mt-15 flex items-center gap-4">
+          {/* <div className="mt-15 flex items-center gap-4"> */}
             {/* <div className="w-12 h-[2px]" style={{ backgroundColor: themes.primary }}></div> */}
-            <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium tracking-widest text-white/90 uppercase">
+            {/* <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium tracking-widest text-white/90 uppercase">
               Where Quality Meets <br className="hidden sm:block xl:hidden" />
               <span style={{ color: themes.primary }}>Automotive Innovation</span>
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* RIGHT SIDE: DESCRIPTION IN A BOX */}

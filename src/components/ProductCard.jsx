@@ -46,12 +46,13 @@ export default function ProductCard({ product }) {
 
         {/* Content - reduced padding */}
         <div
-          className="p-2 sm:p-3 md:p-4 text-center flex-1 flex flex-col justify-center"
+          className="p-4 sm:p-5 md:p-6 text-center flex-1 flex flex-col justify-center"
           style={{ background: themes.backgroundBlack }}
         >
-          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white leading-snug line-clamp-2">
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white leading-tight mb-2">
             {product.product_name}
           </h3>
+        
         </div>
       </div>
     </Link>
