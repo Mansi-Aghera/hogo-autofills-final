@@ -14,6 +14,7 @@ import TermsPage from "../pages/TermsPage";
 import PrivacyPage from "../pages/PrivacyPage";
 import ShopView from "../pages/ShopView";
 import ProductDetails from "../pages/ProductDetails";
+import Distributors from "../pages/Distributors";
  
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "product", element: <ShopView /> },
       { path: "product/:id", element: <ProductDetails /> },
+      { path: "distributors", element: <Distributors /> },
 
 
 

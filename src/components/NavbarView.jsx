@@ -129,6 +129,7 @@ flex items-center justify-between"
               { label: "Media", path: "#" },
 
               { label: "Our Team", path: "#" },
+              { label: "Distributor", path: "/distributors" },
               { label: "Contact us", path: "/contact" },
 
             ].map((item) => (
@@ -210,6 +211,7 @@ flex items-center justify-between"
 
           { label: "Media", path: "#" },
           { label: "Our Team", path: "#" },
+          { label: "Distributor", path: "/distributors" },
           { label: "Contact us", path: "/contact" },
 
 
