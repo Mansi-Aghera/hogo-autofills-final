@@ -329,7 +329,7 @@ flex items-center justify-between"
               
               onClick={() =>
                 window.open(
-                  "https://hogo-autofills-distributor-profile.vercel.app/",
+                  "https://distributor.hogoautofilms.co.in/",
                   "_blank",
                 )
               }
